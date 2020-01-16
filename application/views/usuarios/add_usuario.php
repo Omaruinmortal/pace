@@ -24,7 +24,7 @@
                         <h4 class="mt-0 header-title">Registro de usuarios al sistema</h4>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form action="<?php echo base_url() ?>index.php/usuarios/guarda_usuario" method="post" id="form_usuario">
+                                <form id="form_usuario" action= "<?php echo base_url() ?>index.php/usuarios/guarda_usuario" method="post">
                                 
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre <font color="red">*</font></label>
@@ -94,7 +94,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <button type="submit" name="submit" id="submit" class="btn btn-gradient-primary waves-effect waves-light">Guardar</button>
+                                        <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Guardar</button>
                                     </div>
                                 </form>
                                 <h2><?php if(isset($mensaje)) echo $mensaje; ?></h2>

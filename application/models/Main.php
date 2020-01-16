@@ -27,8 +27,8 @@ class Main extends CI_Model {
         return $query->result();
     }
 
-    function guardar_usuario($data){
-        $this->db->insert('tbl_usuarios',$data);
+    function guardar_usuario($sql){
+        $this->db->query($sql);
     }
 
     function trae_usuario_existente($where){
