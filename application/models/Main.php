@@ -28,7 +28,8 @@ class Main extends CI_Model {
     }
 
     function guardar_usuario($sql){
-        $this->db->query($sql);
+        $query = $this->db->query($sql);
+        return $query;
     }
 
     function trae_usuario_existente($where){
