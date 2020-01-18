@@ -21,11 +21,13 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Registro de usuarios al sistema</h4>
+                        <center>
+                            <h4 class="mt-0 header-title">Registro de usuarios al sistema</h4>
+                        </center>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="form_usuario" action= "<?php echo base_url() ?>index.php/usuarios/guarda_usuario" method="post">
-                                
+                                <form id="form_usuario" method="post">
+
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre <font color="red">*</font></label>
                                         <div class="col-sm-8">
@@ -37,14 +39,14 @@
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Primer Apellido <font color="red">*</font></label>
                                         <div class="col-sm-8">
                                             <input class="form-control" type="text" id="primerApellido" name="primerApellido" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                            <small id="alert-primerApellido"  class="form-text"></small>
+                                            <small id="alert-primerApellido" class="form-text"></small>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Segundo Apellido </label>
                                         <div class="col-sm-8">
                                             <input class="form-control" type="text" id="segundoApellido" name="segundoApellido" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                            <small id="alert-segundoApellido"  class="form-text"></small>
+                                            <small id="alert-segundoApellido" class="form-text"></small>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -86,18 +88,19 @@
                                         <label class="col-sm-4 col-form-label text-right">Tipo Usuario</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="id_tipousuarios" name="id_tipousuarios">
-                                                <option value="0">-- Seleccione una opción --</option>
+                                                <option value="none" selected="selected">-- Seleccione una opción --</option>
                                                 <?php foreach ($tipo_Usuarios as $key => $tipoUsuario) { ?>
                                                     <option value="<?php echo $tipoUsuario->id_tipoUsuario; ?>"><?php echo $tipoUsuario->tipo_usuario; ?></option>
                                                 <?php } ?>
                                             </select>
+                                            <small id="alert-tipousuarios" class="form-text"></small>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Guardar</button>
                                     </div>
                                 </form>
-                                <h2><?php if(isset($mensaje)) echo $mensaje; ?></h2>
+                                <h2><?php if (isset($mensaje)) echo $mensaje; ?></h2>
                             </div>
                         </div>
                     </div>
