@@ -17,7 +17,8 @@
     <link href="<?php echo base_url(); ?>assets/plugins/fullcalendar/packages/bootstrap/main.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/plugins/fullcalendar/packages/timegrid/main.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/plugins/fullcalendar/packages/list/main.css" rel="stylesheet" />
-
+    <link href="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url(); ?>assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
     <link href="<?php echo base_url(); ?>assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
