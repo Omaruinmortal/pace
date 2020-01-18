@@ -127,7 +127,7 @@
 <script src="<?php echo base_url(); ?>assets/js/metisMenu.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/waves.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery.slimscroll.min.js"></script>
-
+<script src="<?php echo base_url(); ?>assets/js/sweetalert2.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/apexcharts/apexcharts.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
@@ -139,10 +139,12 @@
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
     valida_formulario_add_usuario();
-    $("#li_usuarios").addClass("mm-active");
-    $("#ul_agregar_usuarios").addClass("mm-show");
-    $("#li_agrega_usuarios").addClass("active");
-    $("#a_agregar_usuarios").addClass("active");
+    $(document).ready(function() {
+        $("#li_usuarios").addClass("mm-active");
+        $("#ul_agregar_usuarios").addClass("mm-show");
+        $("#li_agrega_usuarios").addClass("active");
+        $("#a_agregar_usuarios").addClass("active");
+    });
 </script>
 </body>
 

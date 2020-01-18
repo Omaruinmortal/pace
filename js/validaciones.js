@@ -10,7 +10,13 @@ function valida_formulario_add_usuario() {
             data: $("#form_usuario").serialize(),
             dataType: 'json',
             success: function (response, textStatus, jqXHR) {
-                if (response.error) {                    
+                if (response.error) {        
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Debe de llenar los campos faltantes',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     if (response.nombre_error != '') {
                         $('#alert-nombre').html(response.nombre_error);
                         document.getElementById("alert-nombre").style.color = '#ff5733';
@@ -61,7 +67,12 @@ function valida_formulario_add_usuario() {
                     }
                 }
                 if (response.success) {
-                    alert('Se guardo con exíto')
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'El usuario se guardo correctamente.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     $('#alert-nombre').html('');
                     $('#alert-primerApellido').html('');
                     $('#alert-correo').html('');
