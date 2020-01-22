@@ -31,7 +31,6 @@ class Usuarios extends CI_Controller
 
     public function guarda_usuario()
     {
-
         if ($this->input->is_ajax_request()) {
             $nombre = $this->input->post("nombre");
             $primerApellido = $this->input->post("primerApellido");
@@ -84,6 +83,11 @@ class Usuarios extends CI_Controller
 
             echo json_encode($array);
         }
+    }
+
+    public function trae_usuarios()
+    {
+        
     }
 
     public function valida_usuario_existente()

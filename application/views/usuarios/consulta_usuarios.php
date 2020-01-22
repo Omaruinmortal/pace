@@ -20,29 +20,29 @@
             <!--INICIO DE CONTENIDO-->
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="mt-0 header-title">Tabla de usuarios registrados</h4>
-                    </p>
-                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <table id="datatable" class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid" aria-describedby="datatable_info">
-                                    <thead>
-                                        <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 149px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nombre</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 225px;" aria-label="Position: activate to sort column ascending">Correo</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 107px;" aria-label="Office: activate to sort column ascending">Usuario</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 47px;" aria-label="Age: activate to sort column ascending">Tipo Usuario</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 99px;" aria-label="Start date: activate to sort column ascending"></th>
-                                        </tr>
-                                    </thead>
-                                </table>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Tabla de usuarios registrados</h4>
+                        </p>
+                        <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="datatable_usuarios" class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid" aria-describedby="datatable_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 149px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nombre</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 225px;" aria-label="Position: activate to sort column ascending">Correo</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 107px;" aria-label="Office: activate to sort column ascending">Usuario</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 47px;" aria-label="Age: activate to sort column ascending">Tipo Usuario</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 99px;" aria-label="Start date: activate to sort column ascending"></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
             <!--FIN DE CONTENIDO-->
         </div>
@@ -80,13 +80,17 @@
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
     $(document).ready(function() {
-        $('#datatable').dataTable({
-        "scrollX": true,
-        "pagingType": "numbers",
-        "processing": true,
-        "serverSide": true,
-        "ajax": "trae_pacientes.php"
-      });
+        $('#datatable_usuarios').dataTable({
+            "pageLength": 10,
+            "serverSide": true,
+            "order": [
+                [0, "asc"]
+            ],
+            "ajax": {
+                url: base_url + '/usuarios/guarda_usuario',
+                type: 'POST'
+            },
+        }); // fin de datatable
         $("#li_usuarios").addClass("mm-active");
         $("#ul_agregar_usuarios").addClass("mm-show");
         $("#li_consulta_usuarios").addClass("active");
