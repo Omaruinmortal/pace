@@ -34,7 +34,7 @@
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 225px;" aria-label="Position: activate to sort column ascending">Correo</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 107px;" aria-label="Office: activate to sort column ascending">Usuario</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 47px;" aria-label="Age: activate to sort column ascending">Tipo Usuario</th>
-                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 99px;" aria-label="Start date: activate to sort column ascending"></th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
                                             </tr>
                                         </thead>
                                     </table>
@@ -81,15 +81,40 @@
 <script>
     $(document).ready(function() {
         $('#datatable_usuarios').dataTable({
-            "pageLength": 10,
-            "serverSide": true,
-            "order": [
-                [0, "asc"]
-            ],
             "ajax": {
-                url: base_url + '/usuarios/guarda_usuario',
+                url: base_url + '/usuarios/trae_usuarios',
                 type: 'POST'
             },
+            "order": [[0, "asc" ]],
+            "pageLength" : 10,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "No hay ningun dato disponible",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            }
         }); // fin de datatable
         $("#li_usuarios").addClass("mm-active");
         $("#ul_agregar_usuarios").addClass("mm-show");

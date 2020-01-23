@@ -87,7 +87,22 @@ class Usuarios extends CI_Controller
 
     public function trae_usuarios()
     {
-        
+        $where = "";
+        $datos = $this->main->trae_usuarios($where);
+        foreach ($datos as $row) {
+            $data[] = array(
+                $row->nombre.' '.$row->primerApellido.' '.$row->segundoApellido,
+                $row->correo,
+                $row->usuario,
+                $row->id_tipoUsuario,
+                '<button type="button" title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button><button type="button" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
+                //'<a href="'.base_url().'event-edit/'.$row->id_usuario.'" class="btn btn-sm btn-success">Editar</a><a href="'.base_url().'event-edit/'.$row->id_usuario.'" class="btn btn-sm btn-success">Editar</a>'
+            );
+        }
+        $result = array(
+            "data" => $data
+        );
+        echo json_encode($result);
     }
 
     public function valida_usuario_existente()

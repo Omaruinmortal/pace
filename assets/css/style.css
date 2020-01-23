@@ -8782,7 +8782,7 @@ hr.thick {
 }
 
 .account-body .auth-page {
-  max-width: 350px;
+  max-width: 460px;
   position: relative;
   margin: 0 auto;
 }
@@ -8837,7 +8837,7 @@ hr.thick {
 }
 
 .account-body.accountbg {
-  background-color: #f4f1de;
+  background-image: url("../images/fondo-login/fondo-login-01.jpg");
   background-size: cover;
   background-position: center center;
   width: 100%;

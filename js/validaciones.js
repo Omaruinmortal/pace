@@ -213,4 +213,6 @@ function valida_formulario_add_usuario() {
         document.getElementById("alert-tipousuarios").innerHTML = '';
     }
 
+    
+
 }
