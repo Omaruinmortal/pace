@@ -63,6 +63,7 @@
                                 </div>
                                 <!--end form-group-->
                             </form>
+                            <center> <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=dx8iH6ZDzYgozvDJeQOgAriPzVWbY2t6II8I15TTa1sLaJ01Iw6phUJTSwHd"></script></span></center>
                             <?php if (isset($error)) {
                                 echo $error;
                             }; ?>
