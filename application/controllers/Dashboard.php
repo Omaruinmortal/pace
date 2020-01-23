@@ -59,7 +59,7 @@ class Dashboard extends CI_Controller {
 					break;
 			}			
 			$data['tipo_Usuarios']=$this->main->trae_tipoUsuarios($where);
-			$data['scripts'] = array('validaciones');
+			$data['scripts'] = array('script_usuarios');
 			$data['layout'] = 'plantilla/lytDefault';
 			$data['contentView'] = 'usuarios/add_usuario';
 			$this->_renderView($data);		
@@ -74,7 +74,7 @@ class Dashboard extends CI_Controller {
 		if($this->admin->logged_id())
 		{
 			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
-			$data['scripts'] = array();
+			$data['scripts'] = array('script_usuarios');
 			$data['layout'] = 'plantilla/lytDefault';
 			$data['contentView'] = 'usuarios/consulta_usuarios';
 			$this->_renderView($data);		

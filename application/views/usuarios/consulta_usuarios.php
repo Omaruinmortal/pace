@@ -73,54 +73,12 @@
 <script src="<?php echo base_url(); ?>assets/pages/jquery.crm_dashboard.init.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/pages/jquery.datatable.init.js"></script>
-
 
 <!-- App js -->
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#datatable_usuarios').dataTable({
-            "ajax": {
-                url: base_url + '/usuarios/trae_usuarios',
-                type: 'POST'
-            },
-            "order": [[0, "asc" ]],
-            "pageLength" : 10,
-            "language": {
-                "sProcessing": "Procesando...",
-                "sLengthMenu": "Mostrar _MENU_ registros",
-                "sZeroRecords": "No se encontraron resultados",
-                "sEmptyTable": "No hay ningun dato disponible",
-                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix": "",
-                "sSearch": "Buscar:",
-                "sUrl": "",
-                "sInfoThousands": ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast": "Último",
-                    "sNext": "Siguiente",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                },
-                "buttons": {
-                    "copy": "Copiar",
-                    "colvis": "Visibilidad"
-                }
-            }
-        }); // fin de datatable
-        $("#li_usuarios").addClass("mm-active");
-        $("#ul_agregar_usuarios").addClass("mm-show");
-        $("#li_consulta_usuarios").addClass("active");
-        $("#a_consulta_usuarios").addClass("active");
-    });
+    pace.usuarios.init_consulta_usuarios();
+    pace.usuarios.elimina_usuario();
 </script>
 </body>
 

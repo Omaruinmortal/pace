@@ -28,6 +28,7 @@
                     <div class="card-body">
                         <div class="px-3">
                             <div class="auth-logo-box">
+                                
                                 <a href="http://www.pacemd.org/" target="_blank" class="logo logo-admin"><img src="<?php echo base_url(); ?>assets/images/logo.png" height="60" alt="logo" class="auth-logo"></a>
                             </div>
                             <!--end auth-logo-box-->

@@ -138,7 +138,7 @@
 <!-- App js -->
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
-    valida_formulario_add_usuario();
+    pace.usuarios.valida_formulario_add_usuario();
     $(document).ready(function() {
         $("#li_usuarios").addClass("mm-active");
         $("#ul_agregar_usuarios").addClass("mm-show");

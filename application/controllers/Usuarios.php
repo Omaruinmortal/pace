@@ -86,17 +86,18 @@ class Usuarios extends CI_Controller
     }
 
     public function trae_usuarios()
-    {
+    {        
         $where = "";
         $datos = $this->main->trae_usuarios($where);
-        foreach ($datos as $row) {
+        foreach ($datos as $row) {            
+            $where_tipo_usuario = 'id_tipoUsuario = '.$row->id_tipoUsuario; 
+            $tipo_usuario = $this->main->trae_tipoUsuarios($where_tipo_usuario);
             $data[] = array(
                 $row->nombre.' '.$row->primerApellido.' '.$row->segundoApellido,
                 $row->correo,
                 $row->usuario,
-                $row->id_tipoUsuario,
-                '<button type="button" title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button><button type="button" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
-                //'<a href="'.base_url().'event-edit/'.$row->id_usuario.'" class="btn btn-sm btn-success">Editar</a><a href="'.base_url().'event-edit/'.$row->id_usuario.'" class="btn btn-sm btn-success">Editar</a>'
+                $tipo_usuario[0]->tipo_usuario,
+                '<button type="button" onclick="elimina_usuario()" title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button><button type="button" id="btn_eliminar_usuario" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
             );
         }
         $result = array(

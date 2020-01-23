@@ -16,9 +16,9 @@ class Main extends CI_Model {
     }
 
     function trae_tipoUsuarios($where){
-        $this->db->select('*');
+        $this->db->select('id_tipoUsuario,tipo_usuario');
         $this->db->from('tbl_tipousuarios');
-        $this->db->where('visible = 1 ');
+        $this->db->where('visible = 1');
         $this->db->order_by('id_tipoUsuario');
         if ($where != NULL) {
             $this->db->where($where, NULL, FALSE);
