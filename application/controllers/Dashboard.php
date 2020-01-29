@@ -33,7 +33,7 @@ class Dashboard extends CI_Controller {
 		if($this->admin->logged_id())
 		{
 			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
-			$data['scripts'] = array('validaciones');
+			$data['scripts'] = array('script_usuarios');
 			$data['layout'] = 'plantilla/lytDefault';
 			$data['contentView'] = 'dashboard';
 			$this->_renderView($data);		

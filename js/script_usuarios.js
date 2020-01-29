@@ -18,7 +18,7 @@ pace.usuarios = (function () {
                                 icon: 'error',
                                 title: 'Debe de llenar los campos faltantes',
                                 showConfirmButton: false,
-                                timer: 1500
+                                timer: 1100
                             })
                             if (response.nombre_error != '') {
                                 $('#alert-nombre').html(response.nombre_error);
@@ -101,7 +101,6 @@ pace.usuarios = (function () {
             document.getElementById("nombre").onblur = function () {
                 var nombre = document.getElementById("nombre").value;
                 var patron = /[^\sA-Z]/
-                console.log(nombre.match(patron))
                 if (nombre.match(patron) != null || nombre.length == 0) {
                     document.getElementById("alert-nombre").innerHTML = 'El nombre debe de ser alfanumérico y no debe de contener números.';
                     document.getElementById("alert-nombre").style.color = '#ff5733';
@@ -213,57 +212,101 @@ pace.usuarios = (function () {
 
         },//cierra valida_formulario_add_usuario
 
-        llena_tabla_usuarios: function () {
-            $('#datatable_usuarios').dataTable({
-                "ajax": {
-                    url: base_url + '/usuarios/trae_usuarios',
-                    type: 'POST'
-                },
-                "order": [[0, "asc"]],
-                "pageLength": 10,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "No hay ningun dato disponible",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            }); // fin de datatable
-        },
+
 
         init_consulta_usuarios: function () {
             $(document).ready(function () {
-                pace.usuarios.llena_tabla_usuarios();
+
                 $("#li_usuarios").addClass("mm-active");
                 $("#ul_agregar_usuarios").addClass("mm-show");
                 $("#li_consulta_usuarios").addClass("active");
                 $("#a_consulta_usuarios").addClass("active");
-            });            
+
+                var tabla_usuarios = $('#datatable_usuarios').dataTable({
+                    "ajax": {
+                        url: base_url + '/usuarios/trae_usuarios',
+                        type: 'POST'
+                    },
+                    "order": [[0, "asc"]],
+                    "pageLength": 10,
+                    "language": {
+                        "sProcessing": "Procesando...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "No hay ningun dato disponible",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Buscar:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        },
+                        "buttons": {
+                            "copy": "Copiar",
+                            "colvis": "Visibilidad"
+                        }
+                    }
+                }); // fin de datatable
+
+                $(document).on("click","#btn_eliminar_usuario", function (){
+               
+                    var data = $(this).data("id")
+     
+                    Swal.fire({
+                     title: 'Esta seguro de Eliminar este usuario?',
+                     text: "Usted no será capaz de revertir esto!",
+                     icon: 'warning',
+                     showCancelButton: true,
+                     confirmButtonColor: '#3085d6',
+                     cancelButtonColor: '#d33',
+                     confirmButtonText: 'Si, Eliminar!'
+                   }).then((result) => {
+                     if (result.value) {
+                         $.ajax({
+                             url: base_url + '/usuarios/elimina_usuario',
+                             type: 'POST',
+                             dataType: 'html', //expect return data as html from server
+                             data: {id:data},
+                             dataType: 'json',
+                             success: function (response, textStatus, jqXHR) {
+                              if(response == true){
+                                 Swal.fire(
+                                     'Se elimino!',
+                                     'El usuario a sido borrado satisfactoriamente.',
+                                     'success'
+                                 )
+                                 
+                                 tabla_usuarios.api().ajax.reload();
+                              }  
+                             },
+                             error: function (jqXHR, textStatus, errorThrown) {
+                                 console.log('error');
+                                 console.log('error(s):' + textStatus, errorThrown);
+                             }
+                         });
+                        
+                     }
+                   })
+                })
+
+                
+            });
+
+           
         },
 
-        elimina_usuario: function() {
-            console.log('entro')
-        }
+        
+        
     }//llave cierra return   
 })();

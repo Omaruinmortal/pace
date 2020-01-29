@@ -84,6 +84,13 @@ class Usuarios extends CI_Controller
             echo json_encode($array);
         }
     }
+    
+    public function elimina_usuario()
+    {
+        $id_usuario = $this->input->post('id', TRUE);
+        $this->main->elimina_usuario($id_usuario);
+        echo 'true';
+    }
 
     public function trae_usuarios()
     {        
@@ -97,7 +104,8 @@ class Usuarios extends CI_Controller
                 $row->correo,
                 $row->usuario,
                 $tipo_usuario[0]->tipo_usuario,
-                '<button type="button" onclick="elimina_usuario()" title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button><button type="button" id="btn_eliminar_usuario" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
+                '<button type="button" id="btn_modifica_usuario" data-id="'.$row->id_usuario.'"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>
+                <button type="button" id="btn_eliminar_usuario" data-id="'.$row->id_usuario.'" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
             );
         }
         $result = array(

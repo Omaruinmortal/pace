@@ -65,7 +65,7 @@
 <script src="<?php echo base_url(); ?>assets/js/jquery.slimscroll.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
-
+<script src="<?php echo base_url(); ?>assets/js/sweetalert2.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/apexcharts/apexcharts.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
@@ -78,7 +78,6 @@
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
     pace.usuarios.init_consulta_usuarios();
-    pace.usuarios.elimina_usuario();
 </script>
 </body>
 
