@@ -56,15 +56,6 @@
         <!-- Navbar -->
         <nav class="navbar-custom">
             <ul class="list-unstyled topbar-nav float-right mb-0">
-                <li class="hidden-sm">
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="javascript: void(0);"><span> German </span><img src="<?php echo base_url(); ?>assets/images/flags/germany_flag.jpg" alt="" class="ml-2 float-right" height="14" /></a>
-                        <a class="dropdown-item" href="javascript: void(0);"><span> Italian </span><img src="<?php echo base_url(); ?>assets/images/flags/italy_flag.jpg" alt="" class="ml-2 float-right" height="14" /></a>
-                        <a class="dropdown-item" href="javascript: void(0);"><span> French </span><img src="<?php echo base_url(); ?>assets/images/flags/french_flag.jpg" alt="" class="ml-2 float-right" height="14" /></a>
-                        <a class="dropdown-item" href="javascript: void(0);"><span> Spanish </span><img src="<?php echo base_url(); ?>assets/images/flags/spain_flag.jpg" alt="" class="ml-2 float-right" height="14" /></a>
-                        <a class="dropdown-item" href="javascript: void(0);"><span> Russian </span><img src="<?php echo base_url(); ?>assets/images/flags/russia_flag.jpg" alt="" class="ml-2 float-right" height="14" /></a>
-                    </div>
-                </li>
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <img src="<?php echo base_url(); ?>assets/images/users/user-4.jpg" alt="profile-user" class="rounded-circle" />

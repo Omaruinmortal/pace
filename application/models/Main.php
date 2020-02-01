@@ -31,8 +31,21 @@ class Main extends CI_Model {
         $query = $this->db->query($sql);
         return $query;
     }
+
     function trae_usuarios($where){
         $this->db->select('id_usuario, nombre, primerApellido, segundoApellido, correo, telefono, usuario, id_tipoUsuario');
+        $this->db->from('tbl_usuarios');
+        $this->db->where('visible = 1');
+        $this->db->order_by('nombre','asc');
+        if($where != NULL) {
+            $this->db->where($where,NULL,FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function trae_usuario($where){
+        $this->db->select('id_usuario, nombre, primerApellido, segundoApellido, correo, telefono, usuario, contrasenia, id_tipoUsuario');
         $this->db->from('tbl_usuarios');
         $this->db->where('visible = 1');
         $this->db->order_by('nombre','asc');
@@ -46,6 +59,12 @@ class Main extends CI_Model {
     function elimina_usuario($id_usuario) {
         $this->db->where('id_usuario',$id_usuario);
         $this->db->delete('tbl_usuarios');
+    }
+
+    function modifica_usuario($id_usuario,$data)
+    {
+        $this->db->where('id_usuario',$id_usuario);
+        $this->db->update('tbl_usuarios',$data);
     }
 
     function trae_usuario_existente($where){

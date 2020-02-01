@@ -43,7 +43,7 @@ class Dashboard extends CI_Controller {
 
 		}
 	}
-
+	
 	public function agrega_usuario()	{
 		if($this->admin->logged_id())
 		{
@@ -83,7 +83,39 @@ class Dashboard extends CI_Controller {
 			redirect("login");
 
 		}
+	}
+
+	public function modifica_usuario($id)	{
+        if($this->admin->logged_id())
+		{
+            
+            $where_id_usuario = 'id_usuario = '.$id;
+            $usuario = $this->main->trae_usuario($where_id_usuario);
+
+            $data['nombre'] = $usuario[0]->nombre;
+            $data['primerApellido'] = $usuario[0]->primerApellido;
+            $data['segundoApellido'] = $usuario[0]->segundoApellido;
+            $data['correo'] = $usuario[0]->correo;
+            $data['telefono'] = $usuario[0]->telefono;
+            $data['usuario'] = $usuario[0]->usuario;
+            $data['tipoU'] = $usuario[0]->id_tipoUsuario;
+            $data['contrasenia'] = $usuario[0]->contrasenia;            
+            $data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+            $where = '1=1';
+            $data['tipo_Usuarios']=$this->main->trae_tipoUsuarios($where);
+            $data['scripts'] = array('script_usuarios');
+            $data['layout'] = 'plantilla/lytDefault';
+            $data['contentView'] = 'usuarios/modifica_usuario';
+            $this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+		
     }
+	
+	
 
 
 	public function logout()

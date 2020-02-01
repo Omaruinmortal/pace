@@ -84,7 +84,7 @@ class Usuarios extends CI_Controller
             echo json_encode($array);
         }
     }
-    
+
     public function elimina_usuario()
     {
         $id_usuario = $this->input->post('id', TRUE);
@@ -92,20 +92,86 @@ class Usuarios extends CI_Controller
         echo 'true';
     }
 
+    public function modifica_usuario()
+    {
+        if ($this->input->is_ajax_request()) {
+            $nombre = $this->input->post("nombre");
+            $primerApellido = $this->input->post("primerApellido");
+            $segundoApellido = $this->input->post("segundoApellido");
+            $correo = $this->input->post("correo");
+            $telefono = $this->input->post("telefono");
+            $usuario = $this->input->post("usuario");
+            $contrasenia = $this->input->post("contrasenia");
+            $recontrasenia = $this->input->post("recontrasenia");
+            $id_tipousuarios = $this->input->post("id_tipousuarios");
+
+            $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+            $this->form_validation->set_rules('primerApellido', 'primerApellido', 'required');
+            $this->form_validation->set_rules('correo', 'Correo', 'required|valid_email');
+            $this->form_validation->set_rules('telefono', 'telefono', 'required');
+            $this->form_validation->set_rules('usuario', 'usuario', 'required');
+            $this->form_validation->set_rules('contrasenia', 'contrasenia', 'required');
+            $this->form_validation->set_rules('recontrasenia', 'recontrasenia', 'required');
+            $this->form_validation->set_rules('id_tipousuarios', 'id_tipousuarios', 'required|callback_select_validate');
+
+            $this->form_validation->set_message("nombre", "El campo nombre es requerido");
+            $this->form_validation->set_message("primerApellido", "El campo Primer Apellido es requerido");
+            $this->form_validation->set_message("correo", "El campo Correo es requerido");
+            $this->form_validation->set_message("telefono", "El campo Telefono es requerido");
+            $this->form_validation->set_message("usuario", "El campo Usuario es requerido");
+            $this->form_validation->set_message("contrasenia", "El campo Contraseña es requerido");
+            $this->form_validation->set_message("recontrasenia", "El campo Re-contraseña es requerido");
+            $this->form_validation->set_message("id_tipousuarios", "El campo Tipo de Usuario es requerido");
+
+            if ($this->form_validation->run() == TRUE) {
+                //aqui pendiente agregar variables a array DATA de modelo
+
+                /*
+                $data = array(
+                'Student_Name' => $this->input->post('dname'),
+                'Student_Email' => $this->input->post('demail'),
+                'Student_Mobile' => $this->input->post('dmobile'),
+                'Student_Address' => $this->input->post('daddress')
+                );
+                $this->update_model->update_student_id1($id,$data);*/
+                $sql = "INSERT INTO tbl_usuarios (nombre, primerApellido, segundoApellido, correo, telefono, usuario, contrasenia, id_tipoUsuario, id_usuario_creo)
+                values ('" . $nombre . "','" . $primerApellido . "','" . $segundoApellido . "','" . $correo . "'," . $telefono . ",'" . $usuario . "','" . md5($contrasenia) . "','" . $id_tipousuarios . "','" . $this->session->userdata('user_id_tipoUsuario') . "')";
+                $this->main->guardar_usuario($sql);
+                $array = array(
+                    'success' => '<div class="alert alert-success">Se guardo con exíto</div>'
+                );
+            } else {
+                $array = array(
+                    'error' => true,
+                    'nombre_error' => form_error('nombre', null, null),
+                    'primerApellido_error' => form_error('primerApellido', null, null),
+                    'correo_error' => form_error('correo', null, null),
+                    'telefono_error' => form_error('telefono', null, null),
+                    'usuario_error' => form_error('usuario', null, null),
+                    'contrasenia_error' => form_error('contrasenia', null, null),
+                    'recontrasenia_error' => form_error('recontrasenia', null, null),
+                    'id_tipousuarios_error' => form_error('id_tipousuarios', null, null),
+                );
+            }
+
+            echo json_encode($array);
+        }
+    }
+
     public function trae_usuarios()
-    {        
+    {
         $where = "";
         $datos = $this->main->trae_usuarios($where);
-        foreach ($datos as $row) {            
-            $where_tipo_usuario = 'id_tipoUsuario = '.$row->id_tipoUsuario; 
+        foreach ($datos as $row) {
+            $where_tipo_usuario = 'id_tipoUsuario = ' . $row->id_tipoUsuario;
             $tipo_usuario = $this->main->trae_tipoUsuarios($where_tipo_usuario);
             $data[] = array(
-                $row->nombre.' '.$row->primerApellido.' '.$row->segundoApellido,
+                $row->nombre . ' ' . $row->primerApellido . ' ' . $row->segundoApellido,
                 $row->correo,
                 $row->usuario,
                 $tipo_usuario[0]->tipo_usuario,
-                '<button type="button" id="btn_modifica_usuario" data-id="'.$row->id_usuario.'"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>
-                <button type="button" id="btn_eliminar_usuario" data-id="'.$row->id_usuario.'" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
+                '<button type="button" id="btn_modifica_usuario" data-id="' . $row->id_usuario . '"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>
+                <button type="button" id="btn_eliminar_usuario" data-id="' . $row->id_usuario . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
             );
         }
         $result = array(

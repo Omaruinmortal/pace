@@ -98,6 +98,99 @@ pace.usuarios = (function () {
                 event.stopImmediatePropagation();
             });
 
+            $("#form_usuario_modif").submit(function (event) {
+                $.ajax({
+                    url: base_url + '/usuarios/modifica_usuario',
+                    type: 'POST',
+                    dataType: 'html', //expect return data as html from server
+                    data: $("#form_usuario_modif").serialize(),
+                    dataType: 'json',
+                    success: function (response, textStatus, jqXHR) {
+                        if (response.error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Debe de llenar los campos faltantes',
+                                showConfirmButton: false,
+                                timer: 1100
+                            })
+                            if (response.nombre_error != '') {
+                                $('#alert-nombre').html(response.nombre_error);
+                                document.getElementById("alert-nombre").style.color = '#ff5733';
+                            } else {
+                                $('#alert-nombre').html('');
+                            }
+                            if (response.primerApellido_error != '') {
+                                $('#alert-primerApellido').html(response.primerApellido_error);
+                                document.getElementById("alert-primerApellido").style.color = '#ff5733';
+                            } else {
+                                $('#alert-primerApellido').html('');
+                            }
+                            if (response.correo_error != '') {
+                                $('#alert-correo').html(response.correo_error);
+                                document.getElementById("alert-correo").style.color = '#ff5733';
+                            } else {
+                                $('#alert-correo').html('');
+                            }
+                            if (response.telefono_error != '') {
+                                $('#alert-telefono').html(response.telefono_error);
+                                document.getElementById("alert-telefono").style.color = '#ff5733';
+                            } else {
+                                $('#alert-telefono').html('');
+                            }
+                            if (response.usuario_error != '') {
+                                $('#alert-usuario').html(response.usuario_error);
+                                document.getElementById("alert-usuario").style.color = '#ff5733';
+                            } else {
+                                $('#alert-usuario').html('');
+                            }
+                            if (response.contrasenia_error != '') {
+                                $('#alert-contrasenia').html(response.contrasenia_error);
+                                document.getElementById("alert-contrasenia").style.color = '#ff5733';
+                            } else {
+                                $('#alert-contrasenia').html('');
+                            }
+                            if (response.recontrasenia_error != '') {
+                                $('#alert-recontrasenia').html(response.recontrasenia_error);
+                                document.getElementById("alert-recontrasenia").style.color = '#ff5733';
+                            } else {
+                                $('#alert-recontrasenia').html('');
+                            }
+                            if (response.id_tipousuarios_error != '') {
+                                $('#alert-tipousuarios').html(response.id_tipousuarios_error);
+                                document.getElementById("alert-tipousuarios").style.color = '#ff5733';
+                            } else {
+                                $('#alert-tipousuarios').html('');
+                            }
+                        }
+                        if (response.success) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'El usuario se actualizó correctamente.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            $('#alert-nombre').html('');
+                            $('#alert-primerApellido').html('');
+                            $('#alert-correo').html('');
+                            $('#alert-telefono').html('');
+                            $('#alert-usuario').html('');
+                            $('#alert-contrasenia').html('');
+                            $('#alert-recontrasenia').html('');
+                            $('#alert-tipousuarios').html('');
+                            $('#form_usuario')[0].reset();
+                        }
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log('error');
+                        console.log('error(s):' + textStatus, errorThrown);
+                    }
+                });
+
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            });
+
             document.getElementById("nombre").onblur = function () {
                 var nombre = document.getElementById("nombre").value;
                 var patron = /[^\sA-Z]/
@@ -300,6 +393,10 @@ pace.usuarios = (function () {
                    })
                 })
 
+                $(document).on("click","#btn_modifica_usuario", function (){
+                    var data = $(this).data("id")
+                    window.location.href = base_url + '/dashboard/modifica_usuario/'+data;
+                })
                 
             });
 
