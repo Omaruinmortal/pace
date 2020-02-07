@@ -91,7 +91,7 @@ class Dashboard extends CI_Controller {
             
             $where_id_usuario = 'id_usuario = '.$id;
             $usuario = $this->main->trae_usuario($where_id_usuario);
-
+			$data['id_usuario'] = $usuario[0]->id_usuario;
             $data['nombre'] = $usuario[0]->nombre;
             $data['primerApellido'] = $usuario[0]->primerApellido;
             $data['segundoApellido'] = $usuario[0]->segundoApellido;
@@ -115,7 +115,20 @@ class Dashboard extends CI_Controller {
 		
     }
 	
-	
+	public function agrega_avaladores()	{
+		if($this->admin->logged_id())
+		{
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['scripts'] = array('script_avaladores');
+			$data['layout'] = 'plantilla/lytDefault';
+			$data['contentView'] = 'avaladores/add_avaladores';
+			$this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+	}
 
 
 	public function logout()

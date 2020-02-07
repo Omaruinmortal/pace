@@ -20,18 +20,18 @@
     <link href="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
-    
+
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/css/icons.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/css/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-    <?php if (isset($scripts)): foreach ($scripts as $js): ?>
-                <script src="<?php echo base_url() . "js/{$js}.js" ?>?filever=<?php echo time() ?>" type="text/javascript"></script>
+    <?php if (isset($scripts)) : foreach ($scripts as $js) : ?>
+    <script src="<?php echo base_url() . "js/{$js}.js" ?>?filever=<?php echo time() ?>" type="text/javascript"></script>
     <?php endforeach;
-    endif;?>
+    endif; ?>
     <script>
-    var base_url = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/pace/index.php";
+        var base_url = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/pace/index.php";
     </script>
 </head>
 
@@ -59,7 +59,7 @@
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <img src="<?php echo base_url(); ?>assets/images/users/user-4.jpg" alt="profile-user" class="rounded-circle" />
-                        <span class="ml-1 nav-user-name hidden-sm"><?=$this->session->userdata('user_name');?> <i class="mdi mdi-chevron-down"></i> </span>
+                        <span class="ml-1 nav-user-name hidden-sm"><?= $this->session->userdata('user_name'); ?> <i class="mdi mdi-chevron-down"></i> </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i> Herramientas</a>
@@ -88,23 +88,36 @@
                 <li id="li_principal">
                     <a href="javascript: void(0);"><i class="mdi mdi-pandora"></i><span>Principal</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul id="ul_dashboard" class="nav-second-level" aria-expanded="false">
-                        <li id="li_dashboard" class="nav-item"><a id="a_dashboard" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/"><i class="ti-control-record"></i>Dashboard</a></li>
+                        <li id="li_dashboard" class="nav-item"><a id="a_dashboard" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/"><i class="mdi mdi-view-dashboard"></i>Dashboard</a></li>
                     </ul>
                 </li>
-                <?php 
-                if($id_tipousuario < 3){
-                    ?>
-                    <li id="li_usuarios">
-                    <a href="javascript: void(0);"><i class="dripicons-user-group "></i><span>Usuarios</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                    <ul id="ul_agregar_usuarios" class="nav-second-level" aria-expanded="false">
-                        <li id="li_agrega_usuarios" class="nav-item"><a id="a_agrega_usuarios" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/agrega_usuario"><i class="dripicons-plus"></i>Agrega</a></li>
-                        <li id="li_consulta_usuarios" class="nav-item"><a id="a_consulta_usuarios" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_usuarios"><i class="dripicons-search "></i>Consultar</a></li>
-                    </ul>
-                 </li>
-                    <?php
+                <?php
+                if ($id_tipousuario < 3) {
+                ?>
+
+                    <li class="">
+                        <a href="javascript: void(0);"><i class="mdi mdi-view-column"></i><span>Catalogos</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>                                
+                                <a href="javascript: void(0);"><i class="dripicons-user-group "></i><span>Usuarios</span><span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul id="ul_agregar_usuarios" class="nav-second-level" aria-expanded="false">
+                                    <li id="li_agrega_usuarios" class="nav-item"><a id="a_agrega_usuarios" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/agrega_usuario"><i class="dripicons-plus"></i>Agrega</a></li>
+                                    <li id="li_consulta_usuarios" class="nav-item"><a id="a_consulta_usuarios" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_usuarios"><i class="dripicons-search "></i>Consultar</a></li>
+                                </ul>
+                            </li>
+                            <li>                                
+                                <a href="javascript: void(0);"><i class="mdi mdi-alpha-a-circle"></i><span>Avaladores</span><span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul id="ul_agregar_avaluadores" class="nav-second-level" aria-expanded="false">
+                                    <li id="li_agrega_avaluadores" class="nav-item"><a id="a_agrega_avaluadores" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/agrega_avaladores"><i class="dripicons-plus"></i>Agrega</a></li>
+                                    <li id="li_consulta_avaluadores" class="nav-item"><a id="a_consulta_avaluadores" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_avaladores"><i class="dripicons-search "></i>Consultar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>                  
+                <?php
                 }
                 ?>
-                
+
                 <li>
                     <a href="<?php echo base_url() ?>index.php/dashboard/logout"><i class="dripicons-exit text-muted mr-2"></i> Cerrar Sesión</a>
                 </li>

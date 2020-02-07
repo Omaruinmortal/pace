@@ -7,6 +7,7 @@
                     <div class="float-right">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item "><a href="<?php echo base_url() ?>index.php/dashboard/">Dashboard</a></li>
+                            <li class="breadcrumb-item ">Catalogos</li> 
                             <li class="breadcrumb-item ">Usuarios</li>
                             <li class="breadcrumb-item active">Modifica Usuario</li>
                         </ol>
@@ -31,6 +32,7 @@
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre <font color="red">*</font></label>
                                         <div class="col-sm-8">
+                                            <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $id_usuario?>">
                                             <input class="form-control" type="text" id="nombre" value="<?php echo $nombre?>" name="nombre" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
                                             <small id="alert-nombre" class="form-text"></small>
                                         </div>

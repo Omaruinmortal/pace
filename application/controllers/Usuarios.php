@@ -65,7 +65,7 @@ class Usuarios extends CI_Controller
                 values ('" . $nombre . "','" . $primerApellido . "','" . $segundoApellido . "','" . $correo . "'," . $telefono . ",'" . $usuario . "','" . md5($contrasenia) . "','" . $id_tipousuarios . "','" . $this->session->userdata('user_id_tipoUsuario') . "')";
                 $this->main->guardar_usuario($sql);
                 $array = array(
-                    'success' => '<div class="alert alert-success">Se guardo con exíto</div>'
+                    'success' => 'OK'
                 );
             } else {
                 $array = array(
@@ -95,6 +95,7 @@ class Usuarios extends CI_Controller
     public function modifica_usuario()
     {
         if ($this->input->is_ajax_request()) {
+            $id_usuario = $this->input->post("id_usuario");
             $nombre = $this->input->post("nombre");
             $primerApellido = $this->input->post("primerApellido");
             $segundoApellido = $this->input->post("segundoApellido");
@@ -104,6 +105,16 @@ class Usuarios extends CI_Controller
             $contrasenia = $this->input->post("contrasenia");
             $recontrasenia = $this->input->post("recontrasenia");
             $id_tipousuarios = $this->input->post("id_tipousuarios");
+
+            $where_trae_usuario = 'id_usuario='.$id_usuario;
+            $usuario = $this->main->trae_usuario($where_trae_usuario);
+            foreach ($usuario as $key) {
+                $old_contrasenia = $key->contrasenia;
+            }
+            
+            if ($contrasenia != $old_contrasenia){
+                $contrasenia = md5($contrasenia);
+            }
 
             $this->form_validation->set_rules('nombre', 'Nombre', 'required');
             $this->form_validation->set_rules('primerApellido', 'primerApellido', 'required');
@@ -126,19 +137,18 @@ class Usuarios extends CI_Controller
             if ($this->form_validation->run() == TRUE) {
                 //aqui pendiente agregar variables a array DATA de modelo
 
-                /*
-                $data = array(
-                'Student_Name' => $this->input->post('dname'),
-                'Student_Email' => $this->input->post('demail'),
-                'Student_Mobile' => $this->input->post('dmobile'),
-                'Student_Address' => $this->input->post('daddress')
-                );
-                $this->update_model->update_student_id1($id,$data);*/
-                $sql = "INSERT INTO tbl_usuarios (nombre, primerApellido, segundoApellido, correo, telefono, usuario, contrasenia, id_tipoUsuario, id_usuario_creo)
-                values ('" . $nombre . "','" . $primerApellido . "','" . $segundoApellido . "','" . $correo . "'," . $telefono . ",'" . $usuario . "','" . md5($contrasenia) . "','" . $id_tipousuarios . "','" . $this->session->userdata('user_id_tipoUsuario') . "')";
-                $this->main->guardar_usuario($sql);
+                $sql = "UPDATE tbl_usuarios SET 
+                        nombre='".$nombre."',
+                        primerApellido='".$primerApellido."',
+                        segundoApellido='".$segundoApellido."',
+                        correo='".$correo."',
+                        telefono='".$telefono."',
+                        contrasenia='".$contrasenia."',
+                        id_tipoUsuario='".$id_tipousuarios."'
+                        WHERE id_usuario='".$id_usuario."'";
+                $this->main->modifica_usuario($sql);
                 $array = array(
-                    'success' => '<div class="alert alert-success">Se guardo con exíto</div>'
+                    'success' => 'OK'
                 );
             } else {
                 $array = array(

@@ -61,10 +61,10 @@ class Main extends CI_Model {
         $this->db->delete('tbl_usuarios');
     }
 
-    function modifica_usuario($id_usuario,$data)
+    function modifica_usuario($sql)
     {
-        $this->db->where('id_usuario',$id_usuario);
-        $this->db->update('tbl_usuarios',$data);
+        $query = $this->db->query($sql);
+        return $query;
     }
 
     function trae_usuario_existente($where){

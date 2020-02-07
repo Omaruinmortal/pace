@@ -69,7 +69,7 @@ pace.usuarios = (function () {
                                 $('#alert-tipousuarios').html('');
                             }
                         }
-                        if (response.success) {
+                        if (response.success == 'OK') {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'El usuario se guardo correctamente.',
@@ -162,22 +162,14 @@ pace.usuarios = (function () {
                                 $('#alert-tipousuarios').html('');
                             }
                         }
-                        if (response.success) {
+                        
+                        if (response.success == 'OK') {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'El usuario se actualizó correctamente.',
                                 showConfirmButton: false,
                                 timer: 1500
-                            })
-                            $('#alert-nombre').html('');
-                            $('#alert-primerApellido').html('');
-                            $('#alert-correo').html('');
-                            $('#alert-telefono').html('');
-                            $('#alert-usuario').html('');
-                            $('#alert-contrasenia').html('');
-                            $('#alert-recontrasenia').html('');
-                            $('#alert-tipousuarios').html('');
-                            $('#form_usuario')[0].reset();
+                            })                            
                         }
 
                     },
@@ -242,28 +234,6 @@ pace.usuarios = (function () {
                 } else {
                     document.getElementById("alert-telefono").innerHTML = '';
                 }
-            }
-
-            document.getElementById("usuario").onblur = function () {
-                var usuario = document.getElementById("usuario").value;
-                $.ajax({
-                    // cargamos url a nuestro contralador y m�todo indicado
-                    url: base_url + "/usuarios/valida_usuario_existente",
-                    type: "post",
-                    data: { usuario: usuario },
-                    success: function (data) {
-                        if (data == 1) {
-
-                            document.getElementById("alert-usuario").innerHTML = 'El usuario ya existe.';
-                            document.getElementById("alert-usuario").style.color = '#ff5733';
-                        } else {
-                            document.getElementById("alert-usuario").innerHTML = '';
-                        }
-                    },
-                    error: function () {
-                        alert('Something is wrong');
-                    },
-                })
             }
 
             document.getElementById("contrasenia").onblur = function () {

@@ -7,6 +7,7 @@
                     <div class="float-right">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item "><a href="<?php echo base_url() ?>index.php/dashboard/">Dashboard</a></li>
+                            <li class="breadcrumb-item ">Catalogos</li>
                             <li class="breadcrumb-item ">Usuarios</li>
                             <li class="breadcrumb-item active">Agregar Usuario</li>
                         </ol>
