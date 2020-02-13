@@ -24,6 +24,7 @@ class Dashboard extends CI_Controller {
 		$this->load->library('form_validation');
         $this->load->model('main');
 		$this->load->model('admin');
+		$this->load->model('avalador');
 		
         date_default_timezone_set('America/Mexico_City');
     }
@@ -129,6 +130,42 @@ class Dashboard extends CI_Controller {
 
 		}
 	}
+
+	public function consulta_avaladores()	{
+		if($this->admin->logged_id())
+		{
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['scripts'] = array('script_avaladores');
+			$data['layout'] = 'plantilla/lytDefault';
+			$data['contentView'] = 'avaladores/consulta_avaladores';
+			$this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+	}
+
+	public function modifica_avalador($id)	{
+        if($this->admin->logged_id())
+		{
+            
+            $where_id_avalador = 'id_inst_avaladores = '.$id;
+			$usuario = $this->avalador->trae_avalador($where_id_avalador);
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['id_inst_avaladores'] = $usuario[0]->id_inst_avaladores;
+            $data['nombre_inst_avaladores'] = $usuario[0]->nombre_inst_avaladores;
+            $data['scripts'] = array('script_avaladores');
+            $data['layout'] = 'plantilla/lytDefault';
+            $data['contentView'] = 'avaladores/modifica_avalador';
+            $this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+		
+    }
 
 
 	public function logout()

@@ -9,7 +9,7 @@
                             <li class="breadcrumb-item "><a href="<?php echo base_url() ?>index.php/dashboard/">Dashboard</a></li>
                             <li class="breadcrumb-item ">Catalogos</li>
                             <li class="breadcrumb-item ">Avaladores</li>
-                            <li class="breadcrumb-item active">Agregar Avalador</li>
+                            <li class="breadcrumb-item active">Modifica Avalador</li>
                         </ol>
                     </div>
                     <h4 class="page-title">Instituciones Avaladoras</h4>
@@ -27,23 +27,18 @@
                         </center>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="form_avalador" method="post">
-                                <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre completo de Institución <font color="red">*</font></label>
-                                        <div class="col-sm-8">
-                                            <input class="form-control" type="text" id="nombre_completo" name="nombre_completo" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                            <small id="alert-nombre_completo" class="form-text"></small>
-                                        </div>
-                                    </div> 
+                                <form id="form_avalador_modif" method="post">
+
                                     <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Acronimo <font color="red">*</font></label>
+                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre de Avalador <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="text" id="nombre_avalador" name="nombre_avalador" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <input type="hidden" name="id_inst_avaladores" id="id_inst_avaladores" value="<?php echo $id_inst_avaladores?>">
+                                            <input class="form-control" type="text" value="<?php echo $nombre_inst_avaladores; ?>" id="nombre_avalador" name="nombre_avalador" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
                                             <small id="alert-nombre_avalador" class="form-text"></small>
                                         </div>
                                     </div>                                    
                                     <div class="form-group row">
-                                        <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Guardar</button>
+                                        <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Actualizar</button>
                                     </div>
                                 </form>
                                 <h2><?php if (isset($mensaje)) echo $mensaje; ?></h2>
