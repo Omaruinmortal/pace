@@ -17,11 +17,23 @@ class Avalador extends CI_Model {
 
     function trae_avalador($where){
         $this->db->select('*');
-        $this->db->from('id_institucion');
+        $this->db->from('tbl_instituciones');
         $this->db->where('visible = 1');
         $this->db->order_by('nombre_completo','asc');
         if($where != NULL) {
             $this->db->where($where,NULL,FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function trae_avaladores($where){
+        $this->db->select('id_institucion,acronimo');
+        $this->db->from('tbl_instituciones');
+        $this->db->where('visible = 1');
+        $this->db->order_by('acronimo','asc');
+        if ($where != NULL) {
+            $this->db->where($where, NULL, FALSE);
         }
         $query = $this->db->get();
         return $query->result();

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Avaladores extends CI_Controller
+class Cursos extends CI_Controller
 {
 
     private $defaultData = array(
@@ -24,7 +24,7 @@ class Avaladores extends CI_Controller
         parent::__construct();
         //load model admin
         $this->load->library('form_validation');
-        $this->load->model('avalador');
+        $this->load->model('curso');
         $this->load->model('admin');
         date_default_timezone_set('America/Mexico_City');
     }
@@ -67,13 +67,14 @@ class Avaladores extends CI_Controller
     public function trae_avalador()
     {
         $where = "";
-        $datos = $this->avalador->trae_avalador($where);
+        $datos = $this->curso->trae_curso($where);
         foreach ($datos as $row) {
             $data[] = array(
-                $row->nombre_completo,
-                $row->acronimo,  
-                '<button type="button" id="btn_modifica_avalador" data-id="' . $row->id_institucion . '"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>
-                <button type="button" id="btn_eliminar_avalador" data-id="' . $row->id_institucion   . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
+                $row->nombre_curso_disciplina,
+                $row->id_instituciones,  
+                $row->precio_iva,  
+                '<button type="button" id="btn_modifica_avalador" data-id="' . $row->id_curso . '"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>
+                <button type="button" id="btn_eliminar_avalador" data-id="' . $row->id_curso   . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
             );
         }
         $result = array(

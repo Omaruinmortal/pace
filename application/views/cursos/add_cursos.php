@@ -8,11 +8,11 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item "><a href="<?php echo base_url() ?>index.php/dashboard/">Dashboard</a></li>
                             <li class="breadcrumb-item ">Catalogos</li>
-                            <li class="breadcrumb-item ">Avaladores</li>
-                            <li class="breadcrumb-item active">Modifica Avalador</li>
+                            <li class="breadcrumb-item ">Cursos</li>
+                            <li class="breadcrumb-item active">Agregar Curso</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Instituciones Avaladoras</h4>
+                    <h4 class="page-title">Cursos</h4>
                 </div>
             </div>
         </div>
@@ -23,29 +23,39 @@
                 <div class="card">
                     <div class="card-body">
                         <center>
-                            <h4 class="mt-0 header-title">Registro de Instituciones Avaladoras</h4>
+                            <h4 class="mt-0 header-title">Registro de Cursos</h4>
                         </center>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="form_avalador_modif" method="post">
-
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre completo de Institución <font color="red">*</font></label>
+                                <form id="form_avalador" method="post">
+                                <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre del curos y/o disciplina <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <input type="hidden" name="id_institucion" id="id_institucion" value="<?php echo $id_institucion?>">
-                                            <input class="form-control" type="text" value="<?php echo $nombre_completo; ?>" id="nombre_completo" name="nombre_completo" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                            <small id="alert-nombre_completo" class="form-text"></small>
+                                            <input class="form-control" type="text" id="nombre_curso" name="nombre_curso" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <small id="alert-nombre_curso" class="form-text"></small>
                                         </div>
-                                    </div>      
+                                    </div> 
                                     <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Acronimo <font color="red">*</font></label>
+                                        <label class="col-sm-4 col-form-label text-right">Institución</label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="text" value="<?php echo $acronimo; ?>" id="acronimo" name="acronimo" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                            <small id="alert-acronimo" class="form-text"></small>
+                                            <select class="form-control" id="id_institucion" name="id_institucion">
+                                                <option value="none" selected="selected">-- Seleccione una opción --</option>
+                                                <?php foreach ($instituciones as $key => $var) { ?>
+                                                    <option value="<?php echo $var->id_institucion; ?>"><?php echo $var->acronimo; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                            <small id="alert-institucion" class="form-text"></small>
                                         </div>
-                                    </div>                                 
+                                    </div>
                                     <div class="form-group row">
-                                        <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Actualizar</button>
+                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Precio c/Iva <font color="red">*</font></label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" type="number" step="any" id="precio" name="precio" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <small id="alert-precio" class="form-text"></small>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group row">
+                                        <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Guardar</button>
                                     </div>
                                 </form>
                                 <h2><?php if (isset($mensaje)) echo $mensaje; ?></h2>
@@ -86,8 +96,8 @@
 <!-- App js -->
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
-    pace.avaladores.init_consulta_avaladores();
-    pace.avaladores.valida_formulario_add_avaladores();
+    //pace.avaladores.init_consulta_avaladores();
+    pace.cursos.valida_formulario_add_cursos();
 </script>
 </body>
 

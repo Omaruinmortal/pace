@@ -150,11 +150,12 @@ class Dashboard extends CI_Controller {
         if($this->admin->logged_id())
 		{
             
-            $where_id_avalador = 'id_inst_avaladores = '.$id;
+            $where_id_avalador = 'id_institucion = '.$id;
 			$usuario = $this->avalador->trae_avalador($where_id_avalador);
 			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
-			$data['id_inst_avaladores'] = $usuario[0]->id_inst_avaladores;
-            $data['nombre_inst_avaladores'] = $usuario[0]->nombre_inst_avaladores;
+			$data['id_institucion'] = $usuario[0]->id_institucion;
+			$data['nombre_completo'] = $usuario[0]->nombre_completo;
+			$data['acronimo'] = $usuario[0]->acronimo;
             $data['scripts'] = array('script_avaladores');
             $data['layout'] = 'plantilla/lytDefault';
             $data['contentView'] = 'avaladores/modifica_avalador';
@@ -165,7 +166,39 @@ class Dashboard extends CI_Controller {
 
 		}
 		
-    }
+	}
+	
+	public function agrega_cursos()	{
+		if($this->admin->logged_id())
+		{
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$where = '1=1';
+			$data['instituciones']=$this->avalador->trae_avaladores($where);
+			$data['scripts'] = array('script_cursos');
+			$data['layout'] = 'plantilla/lytDefault';
+			$data['contentView'] = 'cursos/add_cursos';
+			$this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+	}
+
+	public function consulta_cursos()	{
+		if($this->admin->logged_id())
+		{
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['scripts'] = array('script_cursos');
+			$data['layout'] = 'plantilla/lytDefault';
+			$data['contentView'] = 'cursos/consulta_cursos';
+			$this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+	}
 
 
 	public function logout()

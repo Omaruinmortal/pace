@@ -114,15 +114,15 @@ pace.avaladores = (function () {
                             })
                             if (response.nombre_error != '') {
                                 $('#alert-nombre_completo').html(response.nombre_error);
-                                document.getElementById("alert-nombre_avalador").style.color = '#ff5733';
+                                document.getElementById("alert-nombre_completo").style.color = '#ff5733';
                             } else {
-                                $('#alert-nombre_avalador').html('');
+                                $('#alert-nombre_completo').html('');
                             }
                             if (response.nombre_error != '') {
-                                $('#alert-nombre_avalador').html(response.nombre_error);
-                                document.getElementById("alert-nombre_avalador").style.color = '#ff5733';
+                                $('#alert-nombre_completo').html(response.nombre_error);
+                                document.getElementById("alert-nombre_completo").style.color = '#ff5733';
                             } else {
-                                $('#alert-nombre_avalador').html('');
+                                $('#alert-nombre_completo').html('');
                             }
                         }
                         if (response.success == 'OK') {
@@ -133,7 +133,7 @@ pace.avaladores = (function () {
                                 timer: 1500
                             })
                             $('#alert-nombre_completo').html('');
-                            $('#alert-nombre_avalador').html('');}
+                            $('#alert-nombre_completo').html('');
                             $('#form_avalador')[0].reset();
                         }
 
@@ -164,11 +164,19 @@ pace.avaladores = (function () {
                                 timer: 1100
                             })
                             if (response.nombre_error != '') {
-                                $('#alert-nombre_avalador').html(response.nombre_error);
-                                document.getElementById("alert-nombre_avalador").style.color = '#ff5733';
+                                $('#alert-nombre_completo').html(response.nombre_error);
+                                document.getElementById("alert-nombre_completo").style.color = '#ff5733';
                             } else {
-                                $('#alert-nombre_avalador').html('');
+                                $('#alert-nombre_completo').html('');
                             }
+
+                            if (response.acronimo_error != '') {
+                                $('#alert-acronimo').html(response.acronimo_error);
+                                document.getElementById("alert-acronimo").style.color = '#ff5733';
+                            } else {
+                                $('#alert-acronimo').html('');
+                            }
+                            
                         }
                         if (response.success == 'OK') {
                             Swal.fire({
@@ -177,8 +185,6 @@ pace.avaladores = (function () {
                                 showConfirmButton: false,
                                 timer: 1500
                             })
-                            $('#alert-nombre_avalador').html('');
-                            $('#form_avalador_modif')[0].reset();
                         }
 
                     },
@@ -193,14 +199,14 @@ pace.avaladores = (function () {
             });
             
 
-            document.getElementById("nombre_avalador").onblur = function () {
-                var nombre = document.getElementById("nombre_avalador").value;
+            document.getElementById("nombre_completo").onblur = function () {
+                var nombre = document.getElementById("nombre_completo").value;
                 var patron = /[^\sA-Z0-9]/
                 if (nombre.match(patron) != null || nombre.length == 0) {
-                    document.getElementById("alert-nombre_avalador").innerHTML = 'El nombre debe de ser alfanumérico';
-                    document.getElementById("alert-nombre_avalador").style.color = '#ff5733';
+                    document.getElementById("alert-nombre_completo").innerHTML = 'El nombre debe de ser alfanumérico';
+                    document.getElementById("alert-nombre_completo").style.color = '#ff5733';
                 } else {
-                    document.getElementById("alert-nombre_avalador").innerHTML = '';
+                    document.getElementById("alert-nombre_completo").innerHTML = '';
                 }
             }
         }

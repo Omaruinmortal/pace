@@ -112,6 +112,13 @@
                                     <li id="li_consulta_avaluadores" class="nav-item"><a id="a_consulta_avaluadores" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_avaladores"><i class="dripicons-search "></i>Consultar</a></li>
                                 </ul>
                             </li>
+                            <li>                                
+                                <a href="javascript: void(0);"><i class="mdi mdi-alpha-a-circle"></i><span>Cursos</span><span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul id="ul_agregar_cursos" class="nav-second-level" aria-expanded="false">
+                                    <li id="li_agrega_cursos" class="nav-item"><a id="a_agrega_cursos" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/agrega_cursos"><i class="dripicons-plus"></i>Agrega</a></li>
+                                    <li id="li_consulta_cursos" class="nav-item"><a id="a_consulta_cursos" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_cursos"><i class="dripicons-search "></i>Consultar</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>                  
                 <?php
