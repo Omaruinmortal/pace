@@ -27,7 +27,7 @@
                         </center>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="form_avalador" method="post">
+                                <form id="form_curso" method="post">
                                 <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre del curos y/o disciplina <font color="red">*</font></label>
                                         <div class="col-sm-8">
@@ -44,7 +44,7 @@
                                                     <option value="<?php echo $var->id_institucion; ?>"><?php echo $var->acronimo; ?></option>
                                                 <?php } ?>
                                             </select>
-                                            <small id="alert-institucion" class="form-text"></small>
+                                            <small id="alert-id_institucion" class="form-text"></small>
                                         </div>
                                     </div>
                                     <div class="form-group row">

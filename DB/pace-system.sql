@@ -1,6 +1,6 @@
 /*
-SQLyog Ultimate v13.1.1 (64 bit)
-MySQL - 10.4.10-MariaDB : Database - pace-system
+SQLyog Ultimate v12.5.1 (64 bit)
+MySQL - 10.3.12-MariaDB : Database - pace-system
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 10.4.10-MariaDB : Database - pace-system
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`pace-system` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`pace-system` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
 
 USE `pace-system`;
 
@@ -23,17 +23,17 @@ DROP TABLE IF EXISTS `tbl_cursos`;
 CREATE TABLE `tbl_cursos` (
   `id_curso` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_curso_disciplina` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `id_inst_avaladores` int(11) NOT NULL,
+  `id_institucion` int(11) NOT NULL,
   `precio_iva` decimal(10,2) DEFAULT NULL,
   `visible` tinyint(1) DEFAULT 1,
   PRIMARY KEY (`id_curso`),
-  KEY `id_inst_avaladores` (`id_inst_avaladores`),
-  CONSTRAINT `tbl_cursos_ibfk_1` FOREIGN KEY (`id_inst_avaladores`) REFERENCES `tbl_inst_avaladores` (`id_inst_avaladores`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  KEY `id_inst_avaladores` (`id_institucion`),
+  CONSTRAINT `tbl_cursos_ibfk_1` FOREIGN KEY (`id_institucion`) REFERENCES `tbl_instituciones` (`id_institucion`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `tbl_cursos` */
 
-insert  into `tbl_cursos`(`id_curso`,`nombre_curso_disciplina`,`id_inst_avaladores`,`precio_iva`,`visible`) values 
+insert  into `tbl_cursos`(`id_curso`,`nombre_curso_disciplina`,`id_institucion`,`precio_iva`,`visible`) values 
 (1,'RCP DEA',1,0.00,1),
 (2,'BLS',1,290.00,1),
 (3,'ACLS',1,406.00,1),
@@ -48,27 +48,29 @@ insert  into `tbl_cursos`(`id_curso`,`nombre_curso_disciplina`,`id_inst_avalador
 (12,'ALSO',3,2610.00,1),
 (13,'BLSO',3,1145.00,1),
 (14,'BASICO',4,1100.00,1),
-(15,'TNCC',5,2088.00,1);
+(15,'TNCC',5,2088.00,1),
+(16,'TEST',3,99.99,1);
 
-/*Table structure for table `tbl_inst_avaladores` */
+/*Table structure for table `tbl_instituciones` */
 
-DROP TABLE IF EXISTS `tbl_inst_avaladores`;
+DROP TABLE IF EXISTS `tbl_instituciones`;
 
-CREATE TABLE `tbl_inst_avaladores` (
-  `id_inst_avaladores` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_inst_avaladores` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+CREATE TABLE `tbl_instituciones` (
+  `id_institucion` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_completo` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `acronimo` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `visible` tinyint(1) DEFAULT 1,
-  PRIMARY KEY (`id_inst_avaladores`)
+  PRIMARY KEY (`id_institucion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-/*Data for the table `tbl_inst_avaladores` */
+/*Data for the table `tbl_instituciones` */
 
-insert  into `tbl_inst_avaladores`(`id_inst_avaladores`,`nombre_inst_avaladores`,`visible`) values 
-(1,'AHA',1),
-(2,'NAEMT',1),
-(3,'AAFP',1),
-(4,'PACESONO',1),
-(5,'ENA',1);
+insert  into `tbl_instituciones`(`id_institucion`,`nombre_completo`,`acronimo`,`visible`) values 
+(1,'American Heart Association','AHA',1),
+(2,'National Association of Emergency Medical Technicians','NAEMT',1),
+(3,'American Academy of Family Physicians','AAFP',1),
+(4,'Pacesono','PACESONO',1),
+(5,'Emergency Nurses association','ENA',1);
 
 /*Table structure for table `tbl_instructores` */
 
@@ -85,8 +87,7 @@ CREATE TABLE `tbl_instructores` (
   `id_inst_avaladores` int(11) NOT NULL,
   `visible` tinyint(1) DEFAULT 1,
   PRIMARY KEY (`id_instructores`),
-  KEY `id_inst_avaladores` (`id_inst_avaladores`),
-  CONSTRAINT `tbl_instructores_ibfk_1` FOREIGN KEY (`id_inst_avaladores`) REFERENCES `tbl_inst_avaladores` (`id_inst_avaladores`)
+  KEY `id_inst_avaladores` (`id_inst_avaladores`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `tbl_instructores` */

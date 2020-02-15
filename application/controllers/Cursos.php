@@ -29,24 +29,27 @@ class Cursos extends CI_Controller
         date_default_timezone_set('America/Mexico_City');
     }
 
-    public function guarda_avalador() 
+    public function guarda_curso() 
     {
         if ($this->input->is_ajax_request()) {
-            $nombre_avalador = $this->input->post("nombre_avalador");
-            $nombre_completo = $this->input->post("nombre_completo");
+            $nombre_curso = $this->input->post("nombre_curso");
+            $id_institucion = $this->input->post("id_institucion");
+            $precio = $this->input->post("precio");
             
 
-            $this->form_validation->set_rules('nombre_avalador', 'Acronimo', 'required');  
-            $this->form_validation->set_rules('nombre_completo', 'Nombre Completo', 'required');            
+            $this->form_validation->set_rules('nombre_curso', 'Nombre curso', 'required');  
+            $this->form_validation->set_rules('precio', 'precio', 'required'); 
+            $this->form_validation->set_rules('id_institucion', 'Institucion', 'required|callback_select_validate');            
 
-            $this->form_validation->set_message("nombre_avalador", "El campo acronimo es requerido");
-            $this->form_validation->set_message("nombre_completo", "El campo Nombre comopleto de institución es requerido");
+            $this->form_validation->set_message("nombre_curso", "El campo nombre de curso es requerido");
+            $this->form_validation->set_message("precio", "El campo precio es requerido");
+            $this->form_validation->set_message("id_institucion", "El campo de institucion es requerido");
 
             if ($this->form_validation->run() == TRUE) {
-                $sql = "INSERT INTO tbl_instituciones (nombre_completo,acronimo)
-                values ('".$nombre_completo."','" . $nombre_avalador . "')";
+                $sql = "INSERT INTO tbl_cursos (nombre_curso_disciplina, id_institucion, precio_iva)
+                values ('".$nombre_curso."','" . $id_institucion . "', '".$precio."')";
                 
-                $res = $this->avalador->guardar_avalador($sql);
+                $res = $this->curso->guardar_curso($sql);
                 
                 $array = array(
                     'success' => 'OK'
@@ -54,8 +57,9 @@ class Cursos extends CI_Controller
             } else {
                 $array = array(
                     'error' => true,
-                    'nombre_error' => form_error('nombre_avalador', null, null),
-                    'nombre_completo_error' => form_error('nombre_completo', null, null),
+                    'nombre_curso_error' => form_error('nombre_curso', null, null),
+                    'precio_error' => form_error('precio', null, null),
+                    'id_institucion_error' => form_error('id_institucion', null, null),
                    
                 );
             }
@@ -123,6 +127,18 @@ class Cursos extends CI_Controller
             }
 
             echo json_encode($array);
+        }
+    }
+
+    public function select_validate($abcd)
+    {
+        // 'none' is the first option that is default "-------Choose City-------"
+        if ($abcd == "none") {
+            $this->form_validation->set_message('select_validate', 'Debe seleccionar una institución');
+            return false;
+        } else {
+            // User picked something.
+            return true;
         }
     }
 
