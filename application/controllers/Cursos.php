@@ -26,6 +26,7 @@ class Cursos extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model('curso');
         $this->load->model('admin');
+        $this->load->model('avalador');
         date_default_timezone_set('America/Mexico_City');
     }
 
@@ -68,17 +69,20 @@ class Cursos extends CI_Controller
         }
     }
 
-    public function trae_avalador()
+    public function trae_cursos()
     {
         $where = "";
         $datos = $this->curso->trae_curso($where);
+        
         foreach ($datos as $row) {
+            $where_institucion = 'id_institucion = ' . $row->id_institucion;
+            $inst = $this->avalador->trae_avalador($where_institucion);
             $data[] = array(
                 $row->nombre_curso_disciplina,
-                $row->id_instituciones,  
+                $inst[0]->acronimo,
                 $row->precio_iva,  
-                '<button type="button" id="btn_modifica_avalador" data-id="' . $row->id_curso . '"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>
-                <button type="button" id="btn_eliminar_avalador" data-id="' . $row->id_curso   . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
+                '<button type="button" id="btn_modifica_curso" data-id="' . $row->id_curso . '"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>
+                <button type="button" id="btn_eliminar_curso" data-id="' . $row->id_curso   . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
             );
         }
         $result = array(
@@ -87,14 +91,14 @@ class Cursos extends CI_Controller
         echo json_encode($result);
     }
 
-    public function elimina_avalador()
+    public function elimina_curso()
     {
-        $id_avalador = $this->input->post('id', TRUE);
-        $this->avalador->elimina_avalador($id_avalador);
+        $id_curso = $this->input->post('id', TRUE);
+        $this->curso->elimina_curso($id_curso);
         echo 'true';
     }
 
-    public function modifica_avalador()
+    public function modifica_curso()
     {
         if ($this->input->is_ajax_request()) {
             $id_institucion = $this->input->post("id_institucion");

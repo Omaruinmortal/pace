@@ -200,6 +200,28 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
+	public function modifica_curso($id)	{
+        if($this->admin->logged_id())
+		{
+            
+            $where_id_curso = 'id_curso = '.$id;
+			$usuario = $this->avalador->trae_avalador($where_id_curso);
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['id_institucion'] = $usuario[0]->id_institucion;
+			$data['nombre_completo'] = $usuario[0]->nombre_completo;
+			$data['acronimo'] = $usuario[0]->acronimo;
+            $data['scripts'] = array('script_avaladores');
+            $data['layout'] = 'plantilla/lytDefault';
+            $data['contentView'] = 'avaladores/modifica_avalador';
+            $this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+		
+	}
+
 
 	public function logout()
 	{
