@@ -1281,6 +1281,7 @@ body.left-sidenav-dark .topbar .topbar-left .logo .logo-lg.logo-light {
           box-shadow: 0 6px 20px rgba(36, 37, 38, 0.08);
   border-radius: 3px;
   background-color: #ffffff;
+  opacity: 0.9;
 }
 
 .card-border {
@@ -8837,7 +8838,7 @@ hr.thick {
 }
 
 .account-body.accountbg {
-  background-image: url("../images/fondo-login/fondo-login-01.jpg");
+  background-image: url("../images/fondo-login/fondo.webp");
   background-size: cover;
   background-position: center center;
   width: 100%;
