@@ -8,11 +8,11 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item "><a href="<?php echo base_url() ?>index.php/dashboard/">Dashboard</a></li>
                             <li class="breadcrumb-item ">Catalogos</li>
-                            <li class="breadcrumb-item ">Avaladores</li>
-                            <li class="breadcrumb-item active">Consulta Avaladores</li>
+                            <li class="breadcrumb-item ">Cursos</li>
+                            <li class="breadcrumb-item active">Consulta Cursos</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Instituciones Avaladoras</h4>
+                    <h4 class="page-title">Cursos disponibles</h4>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class="col-lg-10">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Tabla de instituciones avaladoras registradas</h4>
+                        <h4 class="mt-0 header-title">Tabla de cursos disponibles registradas</h4>
                         </p>
                         <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                             <div class="row">
@@ -32,7 +32,8 @@
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 149px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nombre</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 149px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Acronimo</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 149px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Avalador</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 149px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Precio</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
                                             </tr>
                                         </thead>

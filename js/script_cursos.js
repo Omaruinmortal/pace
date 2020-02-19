@@ -48,12 +48,12 @@ pace.cursos = (function () {
                     }
                 }); // fin de datatable
 
-                $(document).on("click", "#btn_eliminar_avalador", function () {
+                $(document).on("click", "#btn_eliminar_curso", function () {
 
                     var data = $(this).data("id")
 
                     Swal.fire({
-                        title: 'Esta seguro de Eliminar este Avalador?',
+                        title: 'Esta seguro de Eliminar este curso?',
                         text: "Usted no será capaz de revertir esto!",
                         icon: 'warning',
                         showCancelButton: true,
@@ -63,7 +63,7 @@ pace.cursos = (function () {
                     }).then((result) => {
                         if (result.value) {
                             $.ajax({
-                                url: base_url + '/avaladores/elimina_avalador',
+                                url: base_url + '/cursos/elimina_curso',
                                 type: 'POST',
                                 dataType: 'html', //expect return data as html from server
                                 data: { id: data },
@@ -72,11 +72,11 @@ pace.cursos = (function () {
                                     if (response == true) {
                                         Swal.fire(
                                             'Se elimino!',
-                                            'El Avalador a sido borrado satisfactoriamente.',
+                                            'El Curso a sido borrado satisfactoriamente.',
                                             'success'
                                         )
 
-                                        tabla_avaladores.api().ajax.reload();
+                                        tabla_cursos.api().ajax.reload();
                                     }
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
