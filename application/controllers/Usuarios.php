@@ -172,6 +172,7 @@ class Usuarios extends CI_Controller
     {
         $where = "";
         $datos = $this->main->trae_usuarios($where);
+        $id_user = $this->session->userdata('user_id_tipoUsuario');
         foreach ($datos as $row) {
             $where_tipo_usuario = 'id_tipoUsuario = ' . $row->id_tipoUsuario;
             $tipo_usuario = $this->main->trae_tipoUsuarios($where_tipo_usuario);
@@ -184,7 +185,16 @@ class Usuarios extends CI_Controller
                     '<button type="button" id="btn_modifica_usuario" data-id="' . $row->id_usuario . '"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>
                     <button type="button" id="btn_eliminar_usuario" data-id="' . $row->id_usuario . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
                 );
-            }else{
+            }elseif($id_user = 1){
+                $data[] = array(
+                    $row->nombre . ' ' . $row->primerApellido . ' ' . $row->segundoApellido,
+                    $row->correo,
+                    $row->usuario,
+                    $tipo_usuario[0]->tipo_usuario,
+                    '<button type="button" id="btn_modifica_usuario" data-id="' . $row->id_usuario . '"  title="Modificar" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button>'
+                );
+            }
+            else{
                 $data[] = array(
                     $row->nombre . ' ' . $row->primerApellido . ' ' . $row->segundoApellido,
                     $row->correo,
