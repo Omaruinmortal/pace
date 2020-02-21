@@ -23,15 +23,16 @@
                 <div class="card">
                     <div class="card-body">
                         <center>
-                            <h4 class="mt-0 header-title">Actualizacion de Cursos</h4>
+                            <h4 class="mt-0 header-title">Actualizacion de Curso</h4>
                         </center>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="form_curso" method="post">
+                                <form id="form_curso_mod" method="post">
                                 <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre del curos y/o disciplina <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="text" id="nombre_curso" name="nombre_curso" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <input type="hidden" name="id_curso" id="id_curso" value="<?php echo $id_curso?>">
+                                            <input class="form-control" type="text" id="nombre_curso" value="<?php echo $nombre_curso_disciplina;?>" name="nombre_curso" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
                                             <small id="alert-nombre_curso" class="form-text"></small>
                                         </div>
                                     </div> 
@@ -39,9 +40,9 @@
                                         <label class="col-sm-4 col-form-label text-right">Institución</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="id_institucion" name="id_institucion">
-                                                <option value="none" selected="selected">-- Seleccione una opción --</option>
-                                                <?php foreach ($instituciones as $key => $var) { ?>
-                                                    <option value="<?php echo $var->id_institucion; ?>"><?php echo $var->acronimo; ?></option>
+                                            <option value="none" selected="selected">-- Seleccione una opción --</option>
+                                                <?php foreach ($avaladores as $key => $alavador) { ?>
+                                                <option <?php if($alavador->id_institucion == $institu){ echo 'selected="selected"'; } ?> value="<?php echo $alavador->id_institucion ?>"><?php echo $alavador->acronimo?> </option>
                                                 <?php } ?>
                                             </select>
                                             <small id="alert-id_institucion" class="form-text"></small>
@@ -50,12 +51,12 @@
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Precio c/Iva <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="number" step="any" id="precio" name="precio" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <input class="form-control" type="number" step="any" id="precio" value="<?php echo $precio_iva;?>" name="precio" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
                                             <small id="alert-precio" class="form-text"></small>
                                         </div>
                                     </div>                                    
                                     <div class="form-group row">
-                                        <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Guardar</button>
+                                        <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Actualizar</button>
                                     </div>
                                 </form>
                                 <h2><?php if (isset($mensaje)) echo $mensaje; ?></h2>

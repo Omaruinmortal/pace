@@ -16,16 +16,118 @@
 
         <div class="row">
             <!--INICIO DE CONTENIDO-->
-            <!--
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div id='calendar'></div>
-                        <div style='clear:both'></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 align-self-center">
+                                        <div class="icon-info">
+                                            <i class="mdi mdi-account-multiple text-purple"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 align-self-center text-right">
+                                        <div class="ml-2">
+                                            <p class="mb-1 text-muted">Usuarios</p>
+                                            <h4 class="mt-0 mb-1"><?php echo $todos_usuarios[0]->total; ?></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
                     </div>
+                    <!--end col-->
+
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 align-self-center">
+                                        <div class="icon-info">
+                                            <i class="mdi mdi-material-ui text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 align-self-center text-right">
+                                        <div class="ml-2">
+                                            <p class="mb-1 text-muted">Instituciones</p>
+                                            <h4 class="mt-0 mb-1 d-inline-block"><?php echo $todos_avaladores[0]->total; ?></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4 col-4 align-self-center">
+                                        <div class="icon-info">
+                                            <i class="mdi mdi-file-multiple text-pink"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 col-8 align-self-center text-right">
+                                        <div class="ml-2">
+                                            <p class="mb-1 text-muted">Cursos</p>
+                                            <h4 class="mt-0 mb-1 "><?php echo $todos_cursos[0]->total; ?></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4 col-4 align-self-center">
+                                        <div class="icon-info">
+                                            <i class="mdi mdi-diamond-stone text-warning"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 col-8 align-self-center text-right">
+                                        <div class="ml-2">
+                                            <p class="mb-1 text-muted">Instructores</p>
+                                            <h4 class="mt-0 mb-1 "><?php echo $todos_intructores[0]->total; ?></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
                 </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="calendar" class="fc fc-ltr fc-unthemed" style="">
+                                    
+                                </div>
+                                <div style="clear:both"></div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+                </div>
+                <!--end row-->
             </div>
-            -->
             <!--FIN DE CONTENIDO-->
         </div>
 

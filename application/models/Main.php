@@ -77,4 +77,14 @@ class Main extends CI_Model {
         return $query;
     }
 
+    function cantidad_todos_usuarios($where){
+        $this->db->select('count(*) as total');
+        $this->db->from('tbl_usuarios');
+        if($where != NULL) {
+            $this->db->where($where,NULL,FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

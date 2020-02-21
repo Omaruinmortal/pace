@@ -101,32 +101,37 @@ class Cursos extends CI_Controller
     public function modifica_curso()
     {
         if ($this->input->is_ajax_request()) {
+            $id_curso = $this->input->post("id_curso");
+            $nombre_curso = $this->input->post("nombre_curso");
             $id_institucion = $this->input->post("id_institucion");
-            $nombre_completo = $this->input->post("nombre_completo");
-            $acronimo = $this->input->post("acronimo");
+            $precio = $this->input->post("precio");
 
-            $this->form_validation->set_rules('nombre_completo', 'Nombre', 'required'); 
-            $this->form_validation->set_rules('acronimo', 'Acronimo', 'required');            
+            $this->form_validation->set_rules('nombre_curso', 'Nombre curso', 'required');  
+            $this->form_validation->set_rules('precio', 'precio', 'required'); 
+            $this->form_validation->set_rules('id_institucion', 'Institucion', 'required|callback_select_validate');            
 
-            $this->form_validation->set_message("nombre_completo", "El campo nombre completo es requerido");
-            $this->form_validation->set_message("acronimo", "El campo acronimo es requerido");
+            $this->form_validation->set_message("nombre_curso", "El campo nombre de curso es requerido");
+            $this->form_validation->set_message("precio", "El campo precio es requerido");
+            $this->form_validation->set_message("id_institucion", "El campo de institucion es requerido");
 
             if ($this->form_validation->run() == TRUE) {
                 //aqui pendiente agregar variables a array DATA de modelo
 
-                $sql = "UPDATE tbl_instituciones SET 
-                        nombre_completo='".$nombre_completo."',
-                        acronimo='".$acronimo."'
-                        WHERE id_institucion='".$id_institucion."'";
-                $this->avalador->moficia_avalador($sql);
+                $sql = "UPDATE tbl_cursos SET 
+                        nombre_curso_disciplina='".$nombre_curso."',
+                        id_institucion='".$id_institucion."',
+                        precio_iva='".$precio."'
+                        WHERE id_curso='".$id_curso."'";
+                $this->curso->modifica_curso($sql);
                 $array = array(
                     'success' => 'OK'
                 );
             } else {
                 $array = array(
                     'error' => true,
-                    'nombre_error' => form_error('nombre_completo', null, null),
-                    'acronimo_error' => form_error('acronimo', null, null),
+                    'nombre_curso_error' => form_error('nombre_curso', null, null),
+                    'precio_error' => form_error('precio', null, null),
+                    'id_institucion_error' => form_error('id_institucion', null, null),
                 );
             }
 

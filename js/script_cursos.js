@@ -89,9 +89,10 @@ pace.cursos = (function () {
                     })
                 })
 
-                $(document).on("click", "#btn_modifica_avalador", function () {
+                $(document).on("click", "#btn_modifica_curso", function () {
                     var data = $(this).data("id")
-                    window.location.href = base_url + '/dashboard/modifica_avalador/' + data;
+                    console.log(data)
+                    window.location.href = base_url + '/dashboard/modifica_curso/' + data;
                 })
             });
         },
@@ -141,6 +142,60 @@ pace.cursos = (function () {
                             $('#alert-nombre_curso').html('');
                             $('#alert-precio').html('');
                             $('#form_curso')[0].reset();
+                        }
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log('error');
+                        console.log('error(s):' + textStatus, errorThrown);
+                    }
+                });
+
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            });
+
+            $("#form_curso_mod").submit(function (event) {
+                $.ajax({
+                    url: base_url + '/cursos/modifica_curso',
+                    type: 'POST',
+                    dataType: 'html', //expect return data as html from server
+                    data: $("#form_curso_mod").serialize(),
+                    dataType: 'json',
+                    success: function (response, textStatus, jqXHR) {
+                        if (response.error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Debe de llenar los campos faltantes',
+                                showConfirmButton: false,
+                                timer: 1100
+                            })
+                            if (response.nombre_curso_error != '') {
+                                $('#alert-nombre_curso').html(response.nombre_curso_error);
+                                document.getElementById("alert-nombre_curso").style.color = '#ff5733';
+                            } else {
+                                $('#alert-nombre_curso').html('');
+                            }
+                            if (response.precio_error != '') {
+                                $('#alert-precio').html(response.precio_error);
+                                document.getElementById("alert-precio").style.color = '#ff5733';
+                            } else {
+                                $('#alert-precio').html('');
+                            }
+                            if (response.id_institucion_error != '') {
+                                $('#alert-id_institucion').html(response.id_institucion_error);
+                                document.getElementById("alert-id_institucion").style.color = '#ff5733';
+                            } else {
+                                $('#alert-id_institucion').html('');
+                            }
+                        }
+                        if (response.success == 'OK') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'El curso se actualizo correctamente.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })                            
                         }
 
                     },

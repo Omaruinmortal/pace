@@ -31,7 +31,7 @@
     <?php endforeach;
     endif; ?>
     <script>
-        var base_url = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/pace/index.php";
+        var base_url = "https://<?php echo $_SERVER['HTTP_HOST'] ?>/pace/index.php";
     </script>
 </head>
 
@@ -117,6 +117,13 @@
                                 <ul id="ul_agregar_cursos" class="nav-second-level" aria-expanded="false">
                                     <li id="li_agrega_cursos" class="nav-item"><a id="a_agrega_cursos" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/agrega_cursos"><i class="dripicons-plus"></i>Agrega</a></li>
                                     <li id="li_consulta_cursos" class="nav-item"><a id="a_consulta_cursos" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_cursos"><i class="dripicons-search "></i>Consultar</a></li>
+                                </ul>
+                            </li>
+                            <li>                                
+                                <a href="javascript: void(0);"><i class="mdi mdi-alpha-i-circle"></i><span>Instructores</span><span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul id="ul_agregar_instructores" class="nav-second-level" aria-expanded="false">
+                                    <li id="li_agrega_instructores" class="nav-item"><a id="a_agrega_instructores" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/agrega_instructores"><i class="dripicons-plus"></i>Agrega</a></li>
+                                    <li id="li_consulta_instructores" class="nav-item"><a id="a_consulta_instructores" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_instructores"><i class="dripicons-search "></i>Consultar</a></li>
                                 </ul>
                             </li>
                         </ul>

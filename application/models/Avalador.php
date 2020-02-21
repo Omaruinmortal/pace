@@ -49,4 +49,14 @@ class Avalador extends CI_Model {
         $query = $this->db->query($sql);
         return $query;
     }
+
+    function cantidad_todos_avaladores($where){
+        $this->db->select('count(*) as total');
+        $this->db->from('tbl_instituciones');
+        if($where != NULL) {
+            $this->db->where($where,NULL,FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

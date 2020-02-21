@@ -86,7 +86,7 @@
 <!-- App js -->
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
-    pace.avaladores.init_consulta_avaladores();
+    //pace.avaladores.init_consulta_avaladores();
     pace.avaladores.valida_formulario_add_avaladores();
 </script>
 </body>

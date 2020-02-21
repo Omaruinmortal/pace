@@ -71,7 +71,7 @@ pace.avaladores = (function () {
                                     if (response == true) {
                                         Swal.fire(
                                             'Se elimino!',
-                                            'El Avalador a sido borrado satisfactoriamente.',
+                                            'El curso a sido borrado satisfactoriamente.',
                                             'success'
                                         )
 
