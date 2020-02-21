@@ -29,7 +29,7 @@
                         <div class="px-3">
                             <div class="auth-logo-box">
                                 
-                                <a href="http://www.pacemd.org/" target="_blank" class="logo logo-admin"><img src="<?php echo base_url(); ?>assets/images/logo.png" height="60" alt="logo" class="auth-logo"></a>
+                                <a href="https://www.pacemd.org/" target="_blank" class="logo logo-admin"><img src="<?php echo base_url(); ?>assets/images/logo.png" height="60" alt="logo" class="auth-logo"></a>
                             </div>
                             <!--end auth-logo-box-->
                             <form class="form-horizontal auth-form my-4" method="POST" action="<?php echo base_url() ?>index.php/login">
