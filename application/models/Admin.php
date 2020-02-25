@@ -26,4 +26,10 @@ class Admin extends CI_Model
         }
     }
 
+    function trae_fecha_actual($sql)
+    {
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
 }
