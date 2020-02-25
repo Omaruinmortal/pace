@@ -31,7 +31,7 @@
     <?php endforeach;
     endif; ?>
     <script>
-        var base_url = "https://<?php echo $_SERVER['HTTP_HOST'] ?>/pace/index.php";
+        var base_url = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/pace/index.php";
     </script>
 </head>
 
