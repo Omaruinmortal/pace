@@ -31,7 +31,7 @@
     <?php endforeach;
     endif; ?>
     <script>
-        var base_url = "https://<?php echo $_SERVER['HTTP_HOST'] ?>/pace/index.php";
+        var base_url = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/pace/index.php";
     </script>
 </head>
 
@@ -89,6 +89,7 @@
                     <a href="javascript: void(0);"><i class="mdi mdi-pandora"></i><span>Principal</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul id="ul_dashboard" class="nav-second-level" aria-expanded="false">
                         <li id="li_dashboard" class="nav-item"><a id="a_dashboard" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/"><i class="mdi mdi-view-dashboard"></i>Dashboard</a></li>
+                        <li id="li_curso" class="nav-item"><a id="a_sol_curso" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/solicitar_curso"><i class="mdi mdi-format-wrap-top-bottom"></i>Solicitar Curso</a></li>
                     </ul>
                 </li>
                 <?php

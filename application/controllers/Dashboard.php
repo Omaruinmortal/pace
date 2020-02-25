@@ -264,6 +264,28 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
+	public function solicitar_curso()
+	{
+		if($this->admin->logged_id())
+		{
+			$where_curso='1=1';
+			$data['cursos'] = $this->curso->trae_curso($where_curso);
+			$where_estado='1=1';
+			$data['estados'] = $this->main->trae_estados($where_estado);
+			$where_ciudad='1=1';
+			$data['ciudades'] = $this->main->trae_ciudad($where_ciudad);
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['scripts'] = array('script_solicitud_curso');
+			$data['layout'] = 'plantilla/lytDefault';
+			$data['contentView'] = 'solicitud_cursos/add_solicitud_curso';
+			$this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+	}
+
 
 	public function logout()
 	{

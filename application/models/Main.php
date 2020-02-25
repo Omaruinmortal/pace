@@ -87,4 +87,28 @@ class Main extends CI_Model {
         return $query->result();
     }
 
+    function trae_estados($where){
+        $this->db->select('*');
+        $this->db->from('tbl_estados');
+        $this->db->where('visible = 1');
+        $this->db->order_by('nombre','asc');
+        if ($where != NULL) {
+            $this->db->where($where, NULL, FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function trae_ciudad($where){
+        $this->db->select('*');
+        $this->db->from('tbl_municipios');
+        $this->db->where('visible = 1');
+        $this->db->order_by('nombre','asc');
+        if ($where != NULL) {
+            $this->db->where($where, NULL, FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }
