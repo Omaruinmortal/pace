@@ -286,6 +286,36 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
+	public function agrega_carteles()	{
+		if($this->admin->logged_id())
+		{
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['scripts'] = array('script_carteles');
+			$data['layout'] = 'plantilla/lytDefault';
+			$data['contentView'] = 'carteles/add_carteles';
+			$this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+	}
+
+	public function consulta_carteles()	{
+		if($this->admin->logged_id())
+		{
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['scripts'] = array('script_carteles');
+			$data['layout'] = 'plantilla/lytDefault';
+			$data['contentView'] = 'carteles/consulta_carteles';
+			$this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+	}
+
 
 	public function logout()
 	{

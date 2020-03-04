@@ -8,8 +8,8 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item "><a href="<?php echo base_url() ?>index.php/dashboard/">Dashboard</a></li>
                             <li class="breadcrumb-item ">Catalogos</li>
-                            <li class="breadcrumb-item ">Solicitud de Curso</li>
-                            <li class="breadcrumb-item active">Solicitar Curso</li>
+                            <li class="breadcrumb-item ">Pre NAC</li>
+                            <li class="breadcrumb-item active">Pre Solicitud NAC</li>
                         </ol>
                     </div>
                     <h4 class="page-title">Solicitud de Cursos</h4>
@@ -18,15 +18,15 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <center>
-                            <h4 class="mt-0 header-title">Formulario de solicitud de cursos</h4>
+                            <h4 class="mt-0 header-title">Pre autorización de cruso (NAC)</h4>
                         </center>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <form id="form_usuario" method="post">
+                        <form id="form_usuario" method="post">
+                        <div class="row">                        
+                            <div class="col-lg-6">                          
                                 <div class="form-group row">
                                         <label class="col-sm-4 col-form-label text-right">Tipo de Curso</label>
                                         <div class="col-sm-8">
@@ -46,9 +46,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Sede <font color="red">*</font></label>
+                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Ubicación del curso <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="text" id="sede" name="sede" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <textarea class="form-control" rows="5" id="sede" name="sede" autocomplete="off"></textarea>
                                             <small id="alert-primerApellido" class="form-text"></small>
                                         </div>
                                     </div>
@@ -79,14 +79,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Numero de Participantes <font color="red">*</font></label>
-                                        <div class="col-sm-5">
+                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Numero de Participantes tentativo <font color="red">*</font></label>
+                                        <div class="col-sm-4">
                                             <input class="form-control" type="number" id="n_participantes" name="n_participantes" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
                                             <small id="alert-n_participantes" class="form-text"></small>
                                         </div>
-                                        <div class="col-sm-3">                                        
-                                        <a name="generar" id="generar" class="btn btn-gradient-secondary waves-effect waves-light">Generar</a>
-                                        </div>
+                                        
                                     </div>
                                     <div class="form-group row" style="display: none;" id="f_factura">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Subir Factura AHA <font color="red">*</font></label>
@@ -94,66 +92,24 @@
                                             <input type="file" class="custom-file-input" id="customFileLang" lang="es">
                                             <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                                         </div>
-                                    </div>                                    
+                                    </div> 
+                                    <div>
+                                    </div>                                   
                                     <div class="form-group row">
                                         <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Guardar</button>
                                     </div>
-                                </form>
-                                <h2><?php if (isset($mensaje)) echo $mensaje; ?></h2>
-                            </div>
-                            
+                                
+                            </div> 
+                            <div class="col-lg-6"></div>                       
                         </div>
+                        </form>
+                        <h2><?php if (isset($mensaje)) echo $mensaje; ?></h2>
                     </div>
                     <!--end card-body-->
                 </div>
                 <!--end card-->
             </div>
-            <div class="col-lg-6" id="div_participantes" style="display: none;">
-                <div class="card">
-                    <div class="card-body">
-                        <center>
-                            <h4 class="mt-0 header-title">Participantes</h4>
-                        </center>
-                        <div class="row">
-                            <div class="col-lg-12">
-                            <form id="form_participante" method="post">
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre <font color="red">*</font></label>
-                                    <div class="col-sm-8">
-                                        <input class="form-control" type="text" id="nombre_participante" name="nombre_participante" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                        <small id="alert-nombre_participante" class="form-text"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-4 col-form-label text-right">Primer Apellido <font color="red">*</font></label>
-                                    <div class="col-sm-8">
-                                        <input class="form-control" type="text" id="primerApellidoParticipante" name="primerApellidoParticipante" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                        <small id="alert-primerApellidoParticipante" class="form-text"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-4 col-form-label text-right">Primer Apellido <font color="red">*</font></label>
-                                    <div class="col-sm-8">
-                                        <input class="form-control" type="text" id="segundoApellidoParticipante" name="segundoApellidoParticipante" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                        <small id="alert-segundoApellidoParticipante" class="form-text"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-4 col-form-label text-right">Correo <font color="red">*</font></label>
-                                    <div class="col-sm-8">
-                                        <input class="form-control" type="text" id="correo_participante" name="correo_participante" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                        <small id="alert-correo_participante" class="form-text"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Agregar</button>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
             <!--end col-->
         </div>

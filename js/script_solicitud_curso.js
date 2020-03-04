@@ -39,9 +39,6 @@ pace.solicitud_curso = (function () {
                 });
             });
             
-            $("#generar").click(function(){
-                document.getElementById("div_participantes").style.display = '';
-            });
         },
 
         valida_formulario_solicitud_curso (){

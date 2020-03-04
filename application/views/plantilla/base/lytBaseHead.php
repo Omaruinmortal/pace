@@ -127,6 +127,13 @@
                                     <li id="li_consulta_instructores" class="nav-item"><a id="a_consulta_instructores" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_instructores"><i class="dripicons-search "></i>Consultar</a></li>
                                 </ul>
                             </li>
+                            <li>                                
+                                <a href="javascript: void(0);"><i class="mdi mdi-alpha-i-circle"></i><span>Carteles</span><span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul id="ul_agregar_carteles" class="nav-second-level" aria-expanded="false">
+                                    <li id="li_agrega_carteles" class="nav-item"><a id="a_agrega_carteles" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/agrega_carteles"><i class="dripicons-plus"></i>Agrega</a></li>
+                                    <li id="li_consulta_carteles" class="nav-item"><a id="a_consulta_carteles" class="nav-link" href="<?php echo base_url() ?>index.php/dashboard/consulta_carteles"><i class="dripicons-search "></i>Consultar</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>                  
                 <?php
