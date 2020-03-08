@@ -1,6 +1,6 @@
 /*
-SQLyog Ultimate v13.1.1 (64 bit)
-MySQL - 10.4.10-MariaDB : Database - pace-system
+SQLyog Ultimate v12.5.1 (64 bit)
+MySQL - 10.3.12-MariaDB : Database - pace-system
 *********************************************************************
 */
 
@@ -26,13 +26,14 @@ CREATE TABLE `tbl_carteles` (
   `archivo_cartel` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
   `visible` int(1) DEFAULT 1,
   PRIMARY KEY (`id_carteles`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `tbl_carteles` */
 
 insert  into `tbl_carteles`(`id_carteles`,`nombre_cartel`,`archivo_cartel`,`visible`) values 
 (2,'AAFP','4b5c6f3e638c59fcce14bafbb38f237e.pdf',1),
-(4,'AHA','bf1c2278f4860c3b6e519c264ac6a472.pdf',1);
+(4,'AHA','bf1c2278f4860c3b6e519c264ac6a472.pdf',1),
+(5,'CARTEL 4','9e8bb630bcb88174224e4aef41d499a9.pdf',1);
 
 /*Table structure for table `tbl_cursos` */
 
@@ -47,7 +48,7 @@ CREATE TABLE `tbl_cursos` (
   PRIMARY KEY (`id_curso`),
   KEY `id_inst_avaladores` (`id_institucion`),
   CONSTRAINT `tbl_cursos_ibfk_1` FOREIGN KEY (`id_institucion`) REFERENCES `tbl_instituciones` (`id_institucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `tbl_cursos` */
 
@@ -66,7 +67,8 @@ insert  into `tbl_cursos`(`id_curso`,`nombre_curso_disciplina`,`id_institucion`,
 (12,'ALSO',3,2610.00,1),
 (13,'BLSO',3,1145.00,1),
 (14,'BASICO',4,1100.00,1),
-(15,'TNCC',5,2088.00,1);
+(15,'TNCC',5,2088.00,1),
+(23,'SOLO CON LAS MANOS',1,0.00,1);
 
 /*Table structure for table `tbl_estados` */
 
@@ -116,6 +118,25 @@ insert  into `tbl_estados`(`id`,`clave`,`nombre`,`abrev`,`visible`) values
 (30,'30','Veracruz de Ignacio de la Llave','Ver.',1),
 (31,'31','Yucatán','Yuc.',1),
 (32,'32','Zacatecas','Zac.',1);
+
+/*Table structure for table `tbl_facturas_cursos` */
+
+DROP TABLE IF EXISTS `tbl_facturas_cursos`;
+
+CREATE TABLE `tbl_facturas_cursos` (
+  `id_factura_cursos` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) DEFAULT NULL,
+  `cantidad_factura` int(3) DEFAULT NULL,
+  `id_curso` int(11) DEFAULT NULL,
+  `factura` varchar(150) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_factura_cursos`),
+  KEY `id_usuario` (`id_usuario`),
+  KEY `id_curso` (`id_curso`),
+  CONSTRAINT `tbl_facturas_cursos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuarios` (`id_usuario`),
+  CONSTRAINT `tbl_facturas_cursos_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `tbl_cursos` (`id_curso`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+/*Data for the table `tbl_facturas_cursos` */
 
 /*Table structure for table `tbl_instituciones` */
 
@@ -1685,6 +1706,29 @@ insert  into `tbl_municipios`(`id`,`estado_id`,`clave`,`nombre`,`visible`) value
 (1358,20,'355','Santa Ana Cuauhtémoc',1),
 (1359,20,'356','Santa Ana del Valle',1);
 
+/*Table structure for table `tbl_pre_cursos` */
+
+DROP TABLE IF EXISTS `tbl_pre_cursos`;
+
+CREATE TABLE `tbl_pre_cursos` (
+  `id_pre_curso` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_curso` int(1) NOT NULL,
+  `nombre_institucion` int(190) DEFAULT NULL,
+  `id_curso` int(11) NOT NULL,
+  `fecha_curso` date NOT NULL,
+  `ubicacion_curso` text COLLATE utf8_spanish_ci NOT NULL,
+  `id_estado` int(11) NOT NULL,
+  `id_municipio` int(11) DEFAULT NULL,
+  `n_participantes_t` int(5) DEFAULT NULL,
+  `id_factura_manuales` int(11) DEFAULT NULL,
+  `cantidad_manuales` int(11) DEFAULT NULL,
+  `precio_tentativo` decimal(10,2) NOT NULL,
+  `id_cartel` int(11) NOT NULL,
+  PRIMARY KEY (`id_pre_curso`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+/*Data for the table `tbl_pre_cursos` */
+
 /*Table structure for table `tbl_sesiones` */
 
 DROP TABLE IF EXISTS `tbl_sesiones`;
@@ -1708,7 +1752,7 @@ CREATE TABLE `tbl_tipousuarios` (
   `tipo_usuario` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
   `visible` tinyint(1) DEFAULT 1,
   PRIMARY KEY (`id_tipoUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `tbl_tipousuarios` */
 
@@ -1718,7 +1762,8 @@ insert  into `tbl_tipousuarios`(`id_tipoUsuario`,`tipo_usuario`,`visible`) value
 (3,'Supervisor',1),
 (4,'Usuario',1),
 (5,'Cliente',1),
-(6,'Invitado',0);
+(6,'Invitado',0),
+(7,'Sede',1);
 
 /*Table structure for table `tbl_usuarios` */
 
