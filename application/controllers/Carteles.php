@@ -94,7 +94,7 @@ class Carteles extends CI_Controller
             $data[] = array(
                 $row->nombre_cartel,
                 '<button type="button" id="btn_ver_cartel" data-id="' . $row->archivo_cartel . '"  title="Ver" data-toggle="modal" data-target=".bd-example-modal-lg" class="tabledit-edit-button btn btn-sm btn-success" style="float: none; margin: 4px;"><span class="fas fa-eye"></span></button>
-                <button type="button" id="btn_eliminar_cartel" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="' . $row->id_carteles   . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
+                 <button type="button" id="btn_eliminar_cartel" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="' . $row->id_carteles   . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
                  
             );
         }

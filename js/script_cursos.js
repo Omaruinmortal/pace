@@ -94,6 +94,8 @@ pace.cursos = (function () {
                     console.log(data)
                     window.location.href = base_url + '/dashboard/modifica_curso/' + data;
                 })
+
+                
             });
         },
         valida_formulario_add_cursos (){

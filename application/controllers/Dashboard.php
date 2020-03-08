@@ -27,6 +27,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('avalador');
 		$this->load->model('curso');
 		$this->load->model('instructor');
+		$this->load->model('cartel');
 		
         date_default_timezone_set('America/Mexico_City');
     }
@@ -274,6 +275,8 @@ class Dashboard extends CI_Controller {
 			$data['estados'] = $this->main->trae_estados($where_estado);
 			$where_ciudad='1=1';
 			$data['ciudades'] = $this->main->trae_ciudad($where_ciudad);
+			$where_cartel='1=1';
+			$data['carteles'] = $this->cartel->trae_cartel($where_cartel);
 			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
 			$data['scripts'] = array('script_solicitud_curso');
 			$data['layout'] = 'plantilla/lytDefault';

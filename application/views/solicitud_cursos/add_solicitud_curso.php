@@ -26,9 +26,27 @@
                         </center>
                         <form id="form_usuario" method="post">
                         <div class="row">                        
-                            <div class="col-lg-6">                          
-                                <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label text-right">Tipo de Curso</label>
+                            <div class="col-lg-6">   
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label text-right">Curso <font color="red">*</font></label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" id="curso" name="curso">
+                                                <option value="none" selected="selected">-- Seleccione una opción --</option>
+                                                <option value="1" >Abierto</option>
+                                                <option value="2" >Cerrado</option>
+                                            </select>
+                                            <small id="alert-tipousuarios" class="form-text"></small>
+                                        </div>
+                                    </div>   
+                                    <div class="form-group row" style="display: none;" id="input_nombre_institucion">
+                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre de la Institución <font color="red">*</font></label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" type="text" id="nombre_institucion" name="nombre_institucion" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <small id="alert-nombre_institucion" class="form-text"></small>
+                                        </div>                                        
+                                    </div>                    
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label text-right">Tipo de Curso <font color="red">*</font></label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="tipo_curso" name="tipo_curso">
                                                 <option value="none" selected="selected">-- Seleccione una opción --</option>
@@ -53,7 +71,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label text-right">Estado</label>
+                                        <label class="col-sm-4 col-form-label text-right">Estado <font color="red">*</font></label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="id_tipousuarios" name="id_tipousuarios">
                                                 <option value="none" selected="selected">-- Seleccione una opción --</option>
@@ -66,7 +84,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label text-right">Ciudad</label>
+                                        <label class="col-sm-4 col-form-label text-right">Ciudad <font color="red">*</font></label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="id_tipousuarios" name="id_tipousuarios">
                                                 <option value="none" selected="selected">-- Seleccione una opción --</option>
@@ -89,18 +107,48 @@
                                     <div class="form-group row" style="display: none;" id="f_factura">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Subir Factura AHA <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                                            <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                            <input type="file" class="custom-file-input" id="archivo_cartel" name="archivo_cartel"  lang="es">
+                                            <label class="custom-file-label" id="nombre_archivo" for="customFileLang">Seleccionar Archivo (2MB)</label>
                                         </div>
                                     </div> 
                                     <div>
-                                    </div>                                   
+                                    </div> 
+                                    <div class="form-group row" style="display: none;" id="n_manu_factura">
+                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Agregar cantidad de manuales según factura. <font color="red">*</font></label>
+                                        <div class="col-sm-4">
+                                            <input class="form-control" type="number" id="cantidad_manuales_fact" name="cantidad_manuales_fact" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <small id="alert-n_participantes" class="form-text"></small>
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-group row" style="display: ;" id="precio_tentativo">
+                                        <label for="example-text-input" class="col-sm-4 col-form-label text-right">Precio tentativo</label>
+                                        <div class="col-sm-4">
+                                            <label for="" id="precio_curso" class="form-text"></label>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group row">
                                         <button type="submit" name="submit" id="submit" value="user_register" class="btn btn-gradient-primary waves-effect waves-light">Guardar</button>
                                     </div>
                                 
                             </div> 
-                            <div class="col-lg-6"></div>                       
+                            <div class="col-lg-6">
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-sm-4 col-form-label text-right">Diseños de Carteles Disponibles<font color="red">*</font></label>
+                                <div class="col-sm-8">
+                                <?php foreach ($carteles as $key => $cartel) { ?>
+                                    <div class="container">
+                                    <div >
+                                    <input type="radio" id="control-div-1" name="controlar-divs">
+                                    <label for="control-div-1" class="col-sm-4"><?php echo $cartel->nombre_cartel; ?></label>
+                                    <button type="button" id="btn_ver_cartel" data-id="<?php echo $cartel->archivo_cartel ?>"  title="Ver" data-toggle="modal" data-target=".bd-example-modal-lg" class="tabledit-edit-button btn btn-sm btn-success" style="float: none; margin: 4px;"><span class="fas fa-eye"></span></button>
+                                    </div>                                  
+                                    </div>
+                                <?php } ?>
+                                </div>
+                                </div>
+                            </div>                       
                         </div>
                         </form>
                         <h2><?php if (isset($mensaje)) echo $mensaje; ?></h2>
@@ -121,6 +169,13 @@
     <!--end footer-->
 </div>
 <!-- end page content -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content" id="modal">
+    
+    </div>
+</div>
+</div>
 </div>
 <!-- end page-wrapper -->
 
@@ -142,6 +197,7 @@
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
     pace.solicitud_curso.init_solicitud_curso();
+    pace.solicitud_curso.valida_formulario_solicitud_curso();
 </script>
 </body>
 

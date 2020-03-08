@@ -38,5 +38,16 @@ class Solicitud_cursos extends CI_Controller
         echo $inst[0]->DIAS;
     }
 
+    public function trae_precio_curso()
+    {
+        $id_curso = $this->input->post('id_curso', TRUE);
+        $where = "id_curso = ".$id_curso;
+        $datos = $this->curso->trae_curso($where);
+        foreach ($datos as $row) {
+            echo $row->precio_iva;
+        }
+        
+    }
+
 
 }
