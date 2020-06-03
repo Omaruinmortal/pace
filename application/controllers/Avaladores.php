@@ -40,7 +40,7 @@ class Avaladores extends CI_Controller
             $this->form_validation->set_rules('nombre_completo', 'Nombre Completo', 'required');            
 
             $this->form_validation->set_message("nombre_avalador", "El campo acronimo es requerido");
-            $this->form_validation->set_message("nombre_completo", "El campo Nombre comopleto de institución es requerido");
+            $this->form_validation->set_message("nombre_completo", "El campo Nombre completo de institución es requerido");
 
             if ($this->form_validation->run() == TRUE) {
                 $sql = "INSERT INTO tbl_instituciones (nombre_completo,acronimo)
@@ -53,10 +53,9 @@ class Avaladores extends CI_Controller
                 );
             } else {
                 $array = array(
-                    'error' => true,
-                    'nombre_error' => form_error('nombre_avalador', null, null),
+                    'error' => true,                    
                     'nombre_completo_error' => form_error('nombre_completo', null, null),
-                   
+                    'nombre_avalador_error' => form_error('nombre_avalador', null, null),
                 );
             }
 
@@ -94,30 +93,40 @@ class Avaladores extends CI_Controller
         if ($this->input->is_ajax_request()) {
             $id_institucion = $this->input->post("id_institucion");
             $nombre_completo = $this->input->post("nombre_completo");
-            $acronimo = $this->input->post("acronimo");
-
+            $nombre_avalador = $this->input->post("nombre_avalador");
+            
             $this->form_validation->set_rules('nombre_completo', 'Nombre', 'required'); 
-            $this->form_validation->set_rules('acronimo', 'Acronimo', 'required');            
+            $this->form_validation->set_rules('nombre_avalador', 'Acronimo', 'required');            
 
             $this->form_validation->set_message("nombre_completo", "El campo nombre completo es requerido");
-            $this->form_validation->set_message("acronimo", "El campo acronimo es requerido");
+            $this->form_validation->set_message("nombre_avalador", "El campo acronimo es requerido");
 
             if ($this->form_validation->run() == TRUE) {
                 //aqui pendiente agregar variables a array DATA de modelo
 
                 $sql = "UPDATE tbl_instituciones SET 
                         nombre_completo='".$nombre_completo."',
-                        acronimo='".$acronimo."'
+                        acronimo='".$nombre_avalador."'
                         WHERE id_institucion='".$id_institucion."'";
-                $this->avalador->moficia_avalador($sql);
-                $array = array(
-                    'success' => 'OK'
-                );
+                $mod = $this->avalador->modifica_avalador($sql);
+                if($mod==2){
+                    $array = array(
+                        'success' => 'OK'
+                    );
+                }else{
+                    $array = array(
+                        'error' => 'error'
+                    );
+                    die();
+                }
+                
+                
+               
             } else {
                 $array = array(
-                    'error' => true,
-                    'nombre_error' => form_error('nombre_completo', null, null),
-                    'acronimo_error' => form_error('acronimo', null, null),
+                    'error' => 'falta_datos',                    
+                    'nombre_completo_error' => form_error('nombre_completo', null, null),
+                    'nombre_avalador_error' => form_error('nombre_avalador', null, null),
                 );
             }
 

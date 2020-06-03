@@ -40,8 +40,8 @@
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Acronimo <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="text" value="<?php echo $acronimo; ?>" id="acronimo" name="acronimo" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                            <small id="alert-acronimo" class="form-text"></small>
+                                            <input class="form-control" type="text" value="<?php echo $acronimo; ?>" id="nombre_avalador" name="nombre_avalador" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                            <small id="alert-nombre_avalador" class="form-text"></small>
                                         </div>
                                     </div>                                 
                                     <div class="form-group row">
@@ -78,9 +78,6 @@
 <script src="<?php echo base_url(); ?>assets/js/sweetalert2.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/apexcharts/apexcharts.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="<?php echo base_url(); ?>assets/pages/jquery.crm_dashboard.init.js"></script>
 
 
 <!-- App js -->

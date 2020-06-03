@@ -44,7 +44,7 @@ class Avalador extends CI_Model {
         $this->db->delete('tbl_instituciones');
     }
 
-    function moficia_avalador($sql)
+    function modifica_avalador($sql)
     {
         $query = $this->db->query($sql);
         return $query;

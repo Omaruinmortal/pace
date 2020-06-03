@@ -39,7 +39,7 @@
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Acronimo <font color="red">*</font></label>
                                         <div class="col-sm-8">
                                             <input class="form-control" type="text" id="nombre_avalador" name="nombre_avalador" onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
-                                            <small id="alert-nombre_avalador" class="form-text"></small>
+                                            <small id="alert-nombre_avalador" name="alert-nombre_avalador" class="form-text"></small>
                                         </div>
                                     </div>                                    
                                     <div class="form-group row">

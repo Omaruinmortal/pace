@@ -74,9 +74,6 @@
 <script src="<?php echo base_url(); ?>assets/js/sweetalert2.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/apexcharts/apexcharts.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="<?php echo base_url(); ?>assets/pages/jquery.crm_dashboard.init.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
 

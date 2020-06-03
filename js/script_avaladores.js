@@ -105,24 +105,24 @@ pace.avaladores = (function () {
                     data: $("#form_avalador").serialize(),
                     dataType: 'json',
                     success: function (response, textStatus, jqXHR) {
-                        if (response.error) {
+                        if (response.falta_datos) {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Debe de llenar los campos faltantes',
                                 showConfirmButton: false,
                                 timer: 1100
                             })
-                            if (response.nombre_error != '') {
-                                $('#alert-nombre_completo').html(response.nombre_error);
+                            if (response.nombre_completo_error != '') {
+                                $('#alert-nombre_completo').html(response.nombre_completo_error);
                                 document.getElementById("alert-nombre_completo").style.color = '#ff5733';
                             } else {
                                 $('#alert-nombre_completo').html('');
                             }
-                            if (response.nombre_error != '') {
-                                $('#alert-nombre_completo').html(response.nombre_error);
-                                document.getElementById("alert-nombre_completo").style.color = '#ff5733';
+                            if (response.nombre_avalador_error != '') {
+                                $('#alert-nombre_avalador').html(response.nombre_avalador_error);
+                                document.getElementById("alert-nombre_avalador").style.color = '#ff5733';
                             } else {
-                                $('#alert-nombre_completo').html('');
+                                $('#alert-nombre_avalador').html('');
                             }
                         }
                         if (response.success == 'OK') {
@@ -133,7 +133,7 @@ pace.avaladores = (function () {
                                 timer: 1500
                             })
                             $('#alert-nombre_completo').html('');
-                            $('#alert-nombre_completo').html('');
+                            $('#alert-nombre_avalador').html('');
                             $('#form_avalador')[0].reset();
                         }
 
@@ -163,18 +163,18 @@ pace.avaladores = (function () {
                                 showConfirmButton: false,
                                 timer: 1100
                             })
-                            if (response.nombre_error != '') {
-                                $('#alert-nombre_completo').html(response.nombre_error);
+                            if (response.nombre_completo_error != '') {
+                                $('#alert-nombre_completo').html(response.nombre_completo_error);
                                 document.getElementById("alert-nombre_completo").style.color = '#ff5733';
                             } else {
                                 $('#alert-nombre_completo').html('');
                             }
 
-                            if (response.acronimo_error != '') {
-                                $('#alert-acronimo').html(response.acronimo_error);
-                                document.getElementById("alert-acronimo").style.color = '#ff5733';
+                            if (response.nombre_avalador_error != '') {
+                                $('#alert-nombre_avalador').html(response.nombre_avalador_error);
+                                document.getElementById("alert-nombre_avalador").style.color = '#ff5733';
                             } else {
-                                $('#alert-acronimo').html('');
+                                $('#alert-nombre_avalador').html('');
                             }
                             
                         }
@@ -208,6 +208,10 @@ pace.avaladores = (function () {
                 } else {
                     document.getElementById("alert-nombre_completo").innerHTML = '';
                 }
+            }
+
+            document.getElementById("nombre_avalador").onclick = function () {
+                document.getElementById("alert-nombre_avalador").innerHTML = '';
             }
         }
 

@@ -15,7 +15,7 @@ pace.solicitud_curso = (function () {
                  }
             });
 
-            $( "#f_solicitud" ).change(function() {
+            $( "#fecha_solicitud_curso" ).change(function() {
                 data = this.value;
                 $.ajax({
                     url: base_url + '/solicitud_cursos/fecha_actual',
@@ -49,7 +49,7 @@ pace.solicitud_curso = (function () {
             
         },
 
-        valida_formulario_solicitud_curso (){
+        valida_formulario_solicitud_curso: function(){
 
             $( "#curso" ).change(function() {
                 var curso= document.getElementById('curso').value;
@@ -62,16 +62,9 @@ pace.solicitud_curso = (function () {
 
             });
 
-            $('input[type="file"]').change(function(e){
-                var fileName = e.target.files[0].name;
-                document.getElementById('nombre_archivo').innerHTML = fileName;  
-                document.getElementById('alert-archivo_cartel').innerHTML = '';  
-                document.getElementById('alert-nombre_cartel').style.display = '';  
-            });
-
-            document.getElementById("cantidad_manuales_fact").onblur = function () {
-                var manuales = document.getElementById("cantidad_manuales_fact").value;
-                var n_participantes = document.getElementById("n_participantes").value;        
+            document.getElementById("manuales_seg_factura").onblur = function () {
+                var manuales = document.getElementById("manuales_seg_factura").value;
+                var n_participantes = document.getElementById("numero_participantes").value;        
 
                 if(parseInt(manuales) < parseInt(n_participantes)){
                     Swal.fire({
@@ -94,7 +87,7 @@ pace.solicitud_curso = (function () {
                     
                     success: function (response, textStatus, jqXHR) {
                         var total = n_participantes * response;
-                        document.getElementById('precio_curso').innerHTML = '<b>$'+total+'</b>';  
+                        document.getElementById('precio_tentativo').innerHTML = '<b>$'+total+'</b>';  
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log('error');
@@ -106,6 +99,110 @@ pace.solicitud_curso = (function () {
             }
 
 
-        }
+        },
+
+        submit_curso_solicitado: function(){
+            
+            $("#form_curso_solicitado").submit(function (event) {
+                $.ajax({
+                    url: base_url + '/Cursos_solicitados/guarda_curso_solicitado',
+                    type: 'POST',
+                    dataType: 'html', //expect return data as html from server
+                    data: $("#form_curso_solicitado").serialize(),
+                    dataType: 'json',
+                    success: function (response, textStatus, jqXHR) {
+                        if (response.error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Debe de llenar los campos faltantes',
+                                showConfirmButton: false,
+                                timer: 1100
+                            })
+                            if (response.curso != '') {
+                                $('#alert-nombre_curso').html(response.curso);
+                                document.getElementById("alert-nombre_curso").style.color = '#ff5733';
+                            } else {
+                                $('#alert-nombre_curso').html('');
+                            }
+                            if (response.nombre_institucion != '') {
+                                $('#alert-nombre_institucion').html(response.nombre_institucion);
+                                document.getElementById("alert-nombre_institucion").style.color = '#ff5733';
+                            } else {
+                                $('#alert-nombre_institucion').html('');
+                            }
+                            if (response.tipo_curso != '') {
+                                $('#alert-tipo_curso').html(response.tipo_curso);
+                                document.getElementById("alert-tipo_curso").style.color = '#ff5733';
+                            } else {
+                                $('#alert-tipo_curso').html('');
+                            }
+                            if (response.fecha_solicitud_curso != '') {
+                                $('#alert-fecha_solicitud_curso').html(response.fecha_solicitud_curso);
+                                document.getElementById("alert-fecha_solicitud_curso").style.color = '#ff5733';
+                            } else {
+                                $('#alert-fecha_solicitud_curso').html('');
+                            }
+                            if (response.sede != '') {
+                                $('#alert-sede').html(response.sede);
+                                document.getElementById("alert-sede").style.color = '#ff5733';
+                            } else {
+                                $('#alert-sede').html('');
+                            }
+                            if (response.id_estado != '') {
+                                $('#alert-id_estado').html(response.id_estado);
+                                document.getElementById("alert-id_estado").style.color = '#ff5733';
+                            } else {
+                                $('#alert-id_estado').html('');
+                            }
+                            if (response.id_municipio != '') {
+                                $('#alert-id_municipio').html(response.id_municipio);
+                                document.getElementById("alert-id_municipio").style.color = '#ff5733';
+                            } else {
+                                $('#alert-id_municipio').html('');
+                            }
+                            if (response.numero_participantes != '') {
+                                $('#alert-numero_participantes').html(response.numero_participantes);
+                                document.getElementById("alert-numero_participantes").style.color = '#ff5733';
+                            } else {
+                                $('#alert-numero_participantes').html('');
+                            }
+                            if (response.factura != '') {
+                                $('#alert-factura').html(response.factura);
+                                document.getElementById("alert-factura").style.color = '#ff5733';
+                            } else {
+                                $('#alert-factura').html('');
+                            }
+                            if (response.manuales_seg_factura != '') {
+                                $('#alert-manuales_seg_factura').html(response.manuales_seg_factura);
+                                document.getElementById("alert-manuales_seg_factura").style.color = '#ff5733';
+                            } else {
+                                $('#alert-manuales_seg_factura').html('');
+                            }
+                        }
+                        if (response.success == 'OK') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'El avaluador se guardo correctamente.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            $('#alert-nombre_curso').html('');
+                            $('#alert-precio').html('');
+                            $('#form_curso_solicitado')[0].reset();
+                        }
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log('error');
+                        console.log('error(s):' + textStatus, errorThrown);
+                    }
+                });
+
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            });
+        },
+
+
     }
 })();
