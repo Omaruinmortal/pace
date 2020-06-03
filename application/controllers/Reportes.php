@@ -38,7 +38,7 @@ class Reportes extends CI_Controller
         $data['nombre'] = 'Omar Martínez Torres';
         $data['curso'] = 'ACLS';
         $data['nombre_participante'] = 'Omaru Martínez Torres';
-        $this->mpdf->load('formatos_imprimir/pdf',$data);
+        $this->mpdf->carta_compromiso_acls('formatos_imprimir/pdf',$data);
     }
     
 }

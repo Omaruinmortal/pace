@@ -40,7 +40,7 @@ class Mpdf
  * @return  void
  */
 
-	public function load($view, $data = array())
+	public function carta_compromiso_acls($view, $data = array())
 	{
 		$html = $this->ci()->load->view($view, $data, TRUE);
 		$mpdf = new \Mpdf\Mpdf(
