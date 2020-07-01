@@ -40,31 +40,4490 @@ class Mpdf
  * @return  void
  */
 
-	public function carta_compromiso_acls($view, $data = array())
+	public function course_information_participants_acls($view, $data = array()) 
 	{
-		$html = $this->ci()->load->view($view, $data, TRUE);
-		$mpdf = new \Mpdf\Mpdf(
-		['margin_top'   =>0,
-        'margin_left'   =>1,
-        'mode'          =>  'utf-8', 
-        'margin_right'  =>1,
-        'format'        =>  'A4',
-        'orientation'   =>  'P' ,
-		'mirrorMargins' =>false]); // false para que no imprima a doble cara
-		//$mpdf->SetImportUse();
 
-		// Add First page
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF ACLS---------------------------------*/
 
 
-		$pagecount = $mpdf->SetSourceFile('assets/media/acls/carta_compromiso_acls.pdf');
-		$tplId = $mpdf->ImportPage(1);
-		$mpdf->SetPageTemplate($tplId);
-		//$mpdf->AddPage('L');
-		$stylesheet = file_get_contents('assets/css/style_pdf/acls/style_carta_compromiso.css');
-		$mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
-		$mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'letter', 
+	    'orientation' => 'L' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
 
-		$mpdf->Output();
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/1.course_information_participants_acls.pdf');
+
+	    for ($i=1; $i<=($pagecount); $i++) {
+	    	$mpdf->AddPage();
+	    	$tplId = $mpdf->ImportPage($i);
+	    	$mpdf->UseTemplate($tplId);
+	    }
+	    
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/scourse_information_participants_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Agenda_12_part_acls1($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/14.1Agenda_12_part_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/s1Agenda_12_part_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Agenda_24_part_acls2($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/14.2Agenda_24_part_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/s2Agenda_24_part_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function monitorizacion_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/15.monitorizacion_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/smonitorizacion_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function lista_comprobacion_via_aerea_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/22.lista_comprobacion_via_aerea_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/slista_comprobacion_via_aerea_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Bls_alta_calidad_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/23.Bls_alta_calidad_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/sBls_alta_calidad_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function lista_comprobacion_aprendizaje_practica_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/24.lista_comprobacion_aprendizaje_practica_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/slista_comprobacion_aprendizaje_practica_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function lista_prueba_megacode_acls1($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/25.1lista_prueba_megacode_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/s1lista_prueba_megacode_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function lista_prueba_megacode_acls2($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/25.2lista_prueba_megacode_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/s2lista_prueba_megacode_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function lista_prueba_megacode_acls3($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/25.3lista_prueba_megacode_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/s3lista_prueba_megacode_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function lista_prueba_megacode_acls4($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/25.4lista_prueba_megacode_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/s4lista_prueba_megacode_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function lista_prueba_megacode_acls5($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/25.5lista_prueba_megacode_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/s5lista_prueba_megacode_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function lista_prueba_megacode_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/25.lista_prueba_megacode_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/slista_prueba_megacode_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/38.evaluacion_teorica_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/sevaluacion_teorica_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_remediar_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/39.evaluacion_teorica_remediar_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/sevaluacion_teorica_remediar_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function constancia_participacion_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/40.constancia_participacion_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/sconstancia_participacion_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function carta_PI_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/41.carta_PI_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/scarta_PI_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Instructor_Candidate_Aplication_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/42.Instructor_Candidate_Aplication_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/sInstructor_Candidate_Aplication_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/45.Reporte_Director_curso_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/sReporte_Director_curso_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/46.ejemplo_reporte_logistica_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/sejemplo_reporte_logistica_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function carta_compromiso_acls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/0.carta_compromiso_acls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/scarta_compromiso_acls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
 	}
+
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF ALSO---------------------------------*/
+
+
+	public function Course_information_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/1.Course_information_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sCourse_information_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function course_participants_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/2.course_participants_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/scourse_participants_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_agenda_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/12.ejemplo_agenda_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sejemplo_agenda_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function apendiceN_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/13.apendiceN_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sapendiceN_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function examen_destresas_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/14.examen_destresas_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sexamen_destresas_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/15.evaluacion_teorica_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sevaluacion_teorica_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Formato_Remediacion_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/17.Formato_Remediacion_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sFormato_Remediacion_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_remediar_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/18.evaluacion_teorica_remediar_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sevaluacion_teorica_remediar_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function constancia_participacion_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/19.constancia_participacion_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sconstancia_participacion_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function carta_PI_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/20.carta_PI_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/scarta_PI_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/23.Reporte_Director_curso_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sReporte_Director_curso_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_also($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/also/24.ejemplo_reporte_logistica_also.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/also/sejemplo_reporte_logistica_also.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF AMLS---------------------------------*/
+
+
+	public function course_information_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/1.course_information_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/scourse_information_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function course_participants_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/2.course_participants_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/scourse_participants_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function agenda_amls($view, $data = array()) {
+
+
+
+    $html = $this->ci()->load->view($view, $data, TRUE);
+    $mpdf = new \Mpdf\Mpdf( 
+    ['margin_top' =>0, 
+    'margin_left' =>1, 
+    'mode' => 'utf-8', 
+    'margin_right' =>1, 
+    'format' => 'A4', 
+    'orientation' => 'P' , 
+    'mirrorMargins' =>false])// false para que no imprima a doble cara
+     /$mpdf->SetImportUse();
+    
+    // Add First page 
+
+     $pagecount = $mpdf->SetSourceFile('assets/media/amls/13.agenda_amls.pdf');
+    $tplId = $mpdf->ImportPage(1);
+    $mpdf->SetPageTemplate($tplId);
+    //$mpdf->AddPage('L');
+    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sagenda_amls.css');
+    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+    $mpdf->Output();
+    } 
+
+	public function hoja_monitorizacion_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/14.hoja_monitorizacion_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/shoja_monitorizacion_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function AMLS_3E_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/15.AMLS_3E_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sAMLS_3E_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function AMLS_BLS_Pretest_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/16.AMLS_BLS_Pretest_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sAMLS_BLS_Pretest_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function AMLS_ALS_Pretest_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/17.AMLS_ALS_Pretest_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sAMLS_ALS_Pretest_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function AMLS_BLS_Post_Test_UK_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/18.AMLS_BLS_Post_Test_UK_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sAMLS_BLS_Post_Test_UK_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function AMLS_ALS_Post_Test_UK_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/19.AMLS_ALS_Post_Test_UK_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sAMLS_ALS_Post_Test_UK_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_practica_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/28.evaluacion_practica_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sevaluacion_practica_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function constancia_participacion_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/31.constancia_participacion_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sconstancia_participacion_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function carta_PI_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/32.carta_PI_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/scarta_PI_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/35.Reporte_Director_curso_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sReporte_Director_curso_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_amls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/amls/36.ejemplo_reporte_logistica_amls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/amls/sejemplo_reporte_logistica_amls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	}
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF BLS---------------------------------*/
+  
+
+	public function course_information_participants_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/1.course_information_participants_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/scourse_information_participants_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Plantilla_Respuesta_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/13.Plantilla_Respuesta_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sPlantilla_Respuesta_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function agenda_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/14.agenda_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sagenda_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function monitorizacion_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/15.monitorizacion_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/smonitorizacion_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function RCP_DEA_adultos_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/20.RCP_DEA_adultos_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sRCP_DEA_adultos_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function RCP_lactantes_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/21.RCP_lactantes_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sRCP_lactantes_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/38.evaluacion_teorica_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sevaluacion_teorica_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_cremediar_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/39.evaluacion_teorica_cremediar_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sevaluacion_teorica_cremediar_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function constancia_participacion_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/40.constancia_participacion_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sconstancia_participacion_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Carta_PI_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/41.Carta_PI_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sCarta_PI_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Instructor_Candidate_Aplication_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/42.Instructor_Candidate_Aplication_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sInstructor_Candidate_Aplication_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/45.Reporte_Director_curso_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sReporte_Director_curso_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_bls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/bls/46.ejemplo_reporte_logistica_bls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/bls/sejemplo_reporte_logistica_bls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	}
+
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF BLSO---------------------------------*/
+
+
+	public function Course_information_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/1.Course_information_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sCourse_information_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function course_participants_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/2.course_participants_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/scourse_participants_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_agenda_curso_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/12.ejemplo_agenda_curso_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sejemplo_agenda_curso_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function apendiceN_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/13.apendiceN_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sapendiceN_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/15.evaluacion_teorica_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sevaluacion_teorica_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function participan_evaluation_form_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/16.participan_evaluation_form_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sparticipan_evaluation_form_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function formato_remediacion_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/17.formato_remediacion_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sformato_remediacion_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_remediar_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/18.evaluacion_teorica_remediar_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sevaluacion_teorica_remediar_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function contancia_participacion_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/19.contancia_participacion_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/scontancia_participacion_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_curso_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/21.evaluacion_curso_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sevaluacion_curso_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/23.Reporte_Director_curso_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sReporte_Director_curso_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_blso($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/blso/24.ejemplo_reporte_logistica_blso.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/blso/sejemplo_reporte_logistica_blso.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	}
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF HEARTSAVER----------------------------*/
+ 
+
+	public function course_information_participants_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/1.course_information_participants_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/scourse_information_participants_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function agenda_curso_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/14.agenda_curso_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sagenda_curso_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function monitorizacion_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/15.monitorizacion_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/smonitorizacion_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function RCP_DEA_adultos_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/16.RCP_DEA_adultos_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sRCP_DEA_adultos_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function RCP_ninos_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/17.RCP_ninos_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sRCP_ninos_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function RCP_lactantes_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/18.RCP_lactantes_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sRCP_lactantes_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function primeros_auxilios_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/19.primeros_auxilios_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sprimeros_auxilios_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/38.evaluacion_teorica_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sevaluacion_teorica_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_remediar_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/39.evaluacion_teorica_remediar_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sevaluacion_teorica_remediar_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function constancia_participacion_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/40.constancia_participacion_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sconstancia_participacion_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Carta_PI_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/41.Carta_PI_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sCarta_PI_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Instructor_Candidate_Aplication_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/42.Instructor_Candidate_Aplication_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sInstructor_Candidate_Aplication_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/45.Reporte_Director_curso_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sReporte_Director_curso_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_heart($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/heartsaver/46.ejemplo_reporte_logistica_heart.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/heartsaver/sejemplo_reporte_logistica_heart.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF PALS---------------------------------*/
+
+
+	public function course_information_participants_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/1.course_information_participants_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/scourse_information_participants_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function agenda_curso_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/14.agenda_curso_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sagenda_curso_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function monitorizacion_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/15.monitorizacion_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/smonitorizacion_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Manejo_via_aerea_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/26.Manejo_via_aerea_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sManejo_via_aerea_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function RCP_DEA_ninos_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/27.RCP_DEA_ninos_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sRCP_DEA_ninos_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function RCP_lactantes_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/28.RCP_lactantes_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sRCP_lactantes_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function megacode_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/29.megacode_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/smegacode_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ritmo_terapia_electrica_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/30.ritmo_terapia_electrica_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sritmo_terapia_electrica_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function acceso_vascular_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/31.acceso_vascular_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sacceso_vascular_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function prueba_escenarios_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/36.prueba_escenarios_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sprueba_escenarios_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function comprobacion_avance_curso_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/37.comprobacion_avance_curso_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/scomprobacion_avance_curso_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/38.evaluacion_teorica_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sevaluacion_teorica_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_remediacion_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/39.evaluacion_teorica_remediacion_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sevaluacion_teorica_remediacion_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function constancia_participacion_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/40.constancia_participacion_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sconstancia_participacion_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Carta_PI_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/41.Carta_PI_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sCarta_PI_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Instructor_Candidate_Aplication_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/42.Instructor_Candidate_Aplication_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sInstructor_Candidate_Aplication_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reportee_Director_curso_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/45.Reportee_Director_curso_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sReportee_Director_curso_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_pals($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pals/46.ejemplo_reporte_logistica_pals.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pals/sejemplo_reporte_logistica_pals.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	}
+
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF PEARS---------------------------------*/
+ 
+
+	public function course_information_participants_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/1.course_information_participants_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/scourse_information_participants_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function agenda_curso_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/14.agenda_curso_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/sagenda_curso_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function monitorizacion_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/15.monitorizacion_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/smonitorizacion_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/38.evaluacion_teorica_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/sevaluacion_teorica_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function evaluacion_teorica_remediacion_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/39.evaluacion_teorica_remediacion_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/sevaluacion_teorica_remediacion_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function constancia_participacion_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/40.constancia_participacion_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/sconstancia_participacion_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Carta_PI_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/41.Carta_PI_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/sCarta_PI_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Instructor_Candidate_Aplication_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/42.Instructor_Candidate_Aplication_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/sInstructor_Candidate_Aplication_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/45.Reporte_Director_curso_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/sReporte_Director_curso_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_pears($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/pears/46.ejemplo_reporte_logistica_pears.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/pears/sejemplo_reporte_logistica_pears.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF PHTLS---------------------------------*/
+
+
+	public function course_information_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/1.course_information_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/scourse_information_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function course_participants_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/2.course_participants_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/scourse_participants_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function agenda_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/13.agenda_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sagenda_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function hoja_monitorizacion_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/14.hoja_monitorizacion_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/shoja_monitorizacion_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function valores_iniciales_caso_1_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/20.valores_iniciales_caso_1_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/svalores_iniciales_caso_1_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function valores_iniciales_caso_2_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/21.valores_iniciales_caso_2_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/svalores_iniciales_caso_2_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function estacion_evaluacion_final_caso_1A_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/22.estacion_evaluacion_final_caso_1A_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sestacion_evaluacion_final_caso_1A_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function estacion_evaluacion_final_caso_1B_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/23.estacion_evaluacion_final_caso_1B_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sestacion_evaluacion_final_caso_1B_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function estacion_evaluacion_final_caso_2A_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/24.estacion_evaluacion_final_caso_2A_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sestacion_evaluacion_final_caso_2A_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function estacion_evaluacion_final_caso_2B_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/25.estacion_evaluacion_final_caso_2B_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sestacion_evaluacion_final_caso_2B_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function estacion_evaluacion_final_caso_3A_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/26.estacion_evaluacion_final_caso_3A_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sestacion_evaluacion_final_caso_3A_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function estacion_evaluacion_final_caso_3B_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/27.estacion_evaluacion_final_caso_3B_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sestacion_evaluacion_final_caso_3B_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function check_liste_evaluacion_practica_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/28.check_liste_evaluacion_practica_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/scheck_liste_evaluacion_practica_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Pos_evaluacion_teorica_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/29.Pos_evaluacion_teorica_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sPos_evaluacion_teorica_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function hoja_respuestas_teorica_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/30.hoja_respuestas_teorica_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/shoja_respuestas_teorica_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function constancia_participacion_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/31.constancia_participacion_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sconstancia_participacion_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function carta_PI_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/32.carta_PI_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/scarta_PI_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/35.Reporte_Director_curso_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sReporte_Director_curso_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_phtls($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/phtls/36.ejemplo_reporte_logistica_phtls.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/phtls/sejemplo_reporte_logistica_phtls.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF SONO---------------------------------*/
+
+
+	public function registro_instructores_PACE_SONO_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/1.registro_instructores_PACE_SONO_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sregistro_instructores_PACE_SONO_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function registro_participantes_PACE_SONO_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/2.registro_participantes_PACE_SONO_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sregistro_participantes_PACE_SONO_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Convocatoria_ALSO_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/9.Convocatoria_ALSO_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sConvocatoria_ALSO_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Plantilla_Respuesta_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/10.Plantilla_Respuesta_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sPlantilla_Respuesta_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function AGENDA_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/11.AGENDA_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sAGENDA_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Examen_imagenes_PACE_SONO_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/13.Examen_imagenes_PACE_SONO_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sExamen_imagenes_PACE_SONO_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Examen_teorico_PACE_SONO_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/14.Examen_teorico_PACE_SONO_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sExamen_teorico_PACE_SONO_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function formato_remediaciones_PACE_SONO_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/15.formato_remediaciones_PACE_SONO_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sformato_remediaciones_PACE_SONO_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Tarjeta_PACE_SONO_Basico_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/16.Tarjeta_PACE_SONO_Basico_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sTarjeta_PACE_SONO_Basico_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Candidato_instructor_PACE_SONO_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/17.Candidato_instructor_PACE_SONO_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sCandidato_instructor_PACE_SONO_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/20.Reporte_Director_curso_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sReporte_Director_curso_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_sono($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/sono/21.ejemplo_reporte_logistica_sono.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/sono/sejemplo_reporte_logistica_sono.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+    /*-------------------------------------------------------------------------------------
+    ----------------------------------------MPDF TNCC---------------------------------*/ 
+
+	public function Revision_posterior_curso_tncc1($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/1.1Revision_posterior_curso_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/s1Revision_posterior_curso_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function carta_bienvenida_curso_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/1.carta_bienvenida_curso_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/scarta_bienvenida_curso_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Final_Faculty_Roster_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/2.Final_Faculty_Roster_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sFinal_Faculty_Roster_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Lista_Instructores_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/3.Lista_Instructores_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sLista_Instructores_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Lista_Participantes_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/4.Lista_Participantes_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sLista_Participantes_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Resumen_Calificaciones_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'L' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/5.Resumen_Calificaciones_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sResumen_Calificaciones_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Agenda_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/6.Agenda_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sAgenda_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function REGISTRO_UNICO_PARTICIPANTES_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/7.REGISTRO_UNICO_PARTICIPANTES_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sREGISTRO_UNICO_PARTICIPANTES_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function CARTA_COMPROMISO_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/8.CARTA_COMPROMISO_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sCARTA_COMPROMISO_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Estacion_Examen_1_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/9.Estacion_Examen_1_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sEstacion_Examen_1_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Estacion_Examen_2_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/10.Estacion_Examen_2_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sEstacion_Examen_2_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function CASOS_PET_ABCDEF_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/11.CASOS_PET_ABCDEF_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sCASOS_PET_ABCDEF_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function CASOS_VIA_AEREA_ABCD_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/12.CASOS_VIA_AEREA_ABCD_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sCASOS_VIA_AEREA_ABCD_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Instructor_Potential_Application_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/13.Instructor_Potential_Application_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sInstructor_Potential_Application_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function CANDIDATO_INSTRUCTOR_PACE_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/14.CANDIDATO_INSTRUCTOR_PACE_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sCANDIDATO_INSTRUCTOR_PACE_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Formato_Remediales_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/15.Formato_Remediales_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sFormato_Remediales_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Instructor_Candidate_Instructor_Monitoring_Form_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/16.Instructor_Candidate_Instructor_Monitoring_Form_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sInstructor_Candidate_Instructor_Monitoring_Form_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function Reporte_Director_curso_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/19.Reporte_Director_curso_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sReporte_Director_curso_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	} 
+
+	public function ejemplo_reporte_logistica_tncc($view, $data = array()) 
+	{
+
+	    $html = $this->ci()->load->view($view, $data, TRUE);
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+	    //$mpdf->SetImportUse();
+	    
+	    // Add First page 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/tncc/20.ejemplo_reporte_logistica_tncc.pdf');
+	    $tplId = $mpdf->ImportPage(1);
+	    $mpdf->SetPageTemplate($tplId);
+	    //$mpdf->AddPage('L');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sejemplo_reporte_logistica_tncc.css');
+	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	}
+
+
+
+
 
 }

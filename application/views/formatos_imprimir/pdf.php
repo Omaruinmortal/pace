@@ -11,5 +11,5 @@
 </div>
 
 <div id="nombre_participante">
-    <?php echo $nombre_participante;?>
+	<?php echo $nombre_participante;?>    
 </div>
