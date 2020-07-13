@@ -1,14 +1,120 @@
-#fecha_sede {
+#instructores_1 {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 150px;
-    left: 470px;
+    font-size: 10pt;
+    top: 500px;
+    left: 120px;
 }
-#nombre_participante {
+#instructores_2 {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 500px;
+    left: 520px;
+}
+#table_instructores{
+	line-height: 16px;
+}
+
+#coordinator {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 760px;
-
+    top: 213px;
+    left: 540px; 
+}
+#dir_medico {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 233px;
+    left: 500px;
+}
+#center_enter {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 253px;
+    left: 550px;
+}
+#site_cap {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 273px;
+    left: 535px;
+}
+#nombre_sede {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 293px;
+    left: 520px;
+}
+#date_ini_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 366px;
+    left: 280px;
+}
+#time_ini_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 366px;
+    left: 510px;
+}
+#students {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 366px;
+    left: 850px;
+    width: 100%;
+}
+#date_fin_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 386px;
+    left: 240px;
+}
+#time_fin_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 386px;
+    left: 440px;
+}
+#time_inst {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 386px;
+    left: 660px;
+}
+#cards {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 386px;
+    left: 850px;
+    width: 100%
+}
+#date {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 658px;
+    left: 695px;
+    width: 100%
+}
+#folio {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 708px;
+    left: 920px;
+    width: 100%
 }

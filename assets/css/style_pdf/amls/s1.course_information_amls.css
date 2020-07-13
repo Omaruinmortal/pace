@@ -1,33 +1,134 @@
-#fecha_sede {
+
+#curso_nacional{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 10pt;
+    top: 160px;
+    left: 180px;
+    width: 100%
+
+}
+#fecha_curso{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    top: 160px;
+    left: 423px;
+}
+#coordinador_curso{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 160px;
+    left: 680px;
+}
+#Localidad{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 193px;
+    left: 340px;
+}
+#facultad_afiliada{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 193px;
+    left: 760px;
+}
+#curso1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 220px;
+    left: 272px;
+}
+#curso2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 220px;
+    left: 472px;
+}
+#curso3{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 220px;
+    left: 612px;
+}
+#curso4{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 220px;
+    left: 730px;
+}
+#curso5{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 220px;
+    left: 957px;
+}
+#instructores{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 315px;
+    left: 40px;    
+    width:945px
+    /*945px*/   
+}
+#table_instructores{
+    border-collapse: collapse;
+    width: 100%;
+    font-family: helvetica !important;
+}
+#table_instructores tr td{    
+    height: 32.3px;
+    font-size: 11px;
+    padding-left: 3px    
 }
 
-#nombre {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+#table_instructores tr td:nth-child(1){
+    width: 157px;
 }
-
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
+#table_instructores tr td:nth-child(2){
+    width: 204px;
 }
+#table_instructores tr td:nth-child(3){
+    width: 288px;
+}
+#table_instructores tr td:nth-child(4){
+    width: 138px;
+}
+#table_instructores tr td:nth-child(5){
+    width: 39.1px;
+    text-align: left;
+    padding-left: 18px;  
+    font-size: 18px;
+    color: #655F5F
 
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+}
+#table_instructores tr td:nth-child(6){
+    width: 39.1px;
+    text-align: right;
+    padding-right: 25px;
+    font-size: 18px;
+    color: #655F5F
+
+}
+#table_instructores tr td:nth-child(7){
     text-align: center;
-
 }
+
+
+
+
+
+
+
+
+
+

@@ -1,33 +1,45 @@
-#fecha_sede {
+#folio {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    top: 708px;
+    left: 975px;
 }
-
-#nombre {
+#datos{
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    top: 267px;    
+    width: 100%;
+    padding-left: 82px;
+    
 }
-
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
+div table {
+    border-collapse: collapse;
+    background: white;
+    width: 879px;
+    border: solid;
+    border-width: 1px;
 }
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
-    text-align: center;
+div table tr td:nth-child(1){
+    width: 274.4px;
+    height: 53px;
+    padding-left: 3px;
 
 }
+div table tr td:nth-child(2){
+    width: 151px;
+    padding-left: 3px;  
+}
+div table tr td:nth-child(3){
+    width: 151.2px;
+    padding-left: 3px;  
+}
+div table tr td:nth-child(4){
+    width: 151.1px;
+}
+div table tr{
+    height: 90px;
+    padding-left: 3px;
+}
+

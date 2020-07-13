@@ -1,33 +1,112 @@
-#fecha_sede {
+#instructores_1 {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 10pt;
+    top: 508px;
+    left: 110px;
+}
+#instructores_2 {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 510px;
+    left: 550px;
+}
+#table_instructores{
+    line-height: 15px;
 }
 
-#nombre {
+#coordinator {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    top: 196px;
+    left: 655px; 
 }
-
-#curso {
+#dir_medico {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 388px;
-    left: 520px;
+    top: 218px;
+    left: 615px;
 }
-
-#nombre_participante {
+#center_enter {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 748px;
-    width: 785px;
-    text-align: center;
-
+    top: 239px;
+    left: 675px;
+}
+#site_cap {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 259px;
+    left: 655px;
+}
+#nombre_sede {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 279px;
+    left: 655px;
+}
+#date_ini_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 363px;
+    left: 280px;
+}
+#time_ini_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 364px;
+    left: 560px;
+}
+#students {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 363px;
+    left: 900px;
+    width: 100%;
+}
+#date_fin_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 382px;
+    left: 245px;
+}
+#time_fin_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 382px;
+    left: 475px;
+}
+#time_inst {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 382px;
+    left: 725px;
+}
+#cards {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 382px;
+    left: 900px;
+    width: 100%
+}
+#date {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 678px;
+    left: 770px;
+    width: 100%
 }

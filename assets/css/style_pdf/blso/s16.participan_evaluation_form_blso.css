@@ -1,33 +1,35 @@
-#fecha_sede {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
-}
 
-#nombre {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
-}
 
-#curso {
+#date{
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 388px;
-    left: 520px;
-}
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    top: 246px;    
     text-align: center;
-
+    left: 160px
 }
+#sponsor{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 246px;    
+    text-align: center;
+    left: 410px
+}
+#participant{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 273px;    
+    text-align: center;
+    left: 240px
+}
+#folio{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 985px;    
+    text-align: center;
+    left: 695px
+}
+

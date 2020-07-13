@@ -1,33 +1,120 @@
-#fecha_sede {
+#instructores_1 {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 10pt;
+    top: 485px;
+    left: 120px;
 }
-
-#nombre {
+#instructores_2 {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
-}
-
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
+    font-size: 10pt;
+    top: 485px;
     left: 520px;
 }
+#table_instructores{
+    line-height: 16px;
+}
 
-#nombre_participante {
+#coordinator {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 748px;
-    width: 785px;
-    text-align: center;
-
+    top: 213px;
+    left: 540px; 
+}
+#dir_medico {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 233px;
+    left: 500px;
+}
+#center_enter {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 253px;
+    left: 550px;
+}
+#site_cap {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 273px;
+    left: 535px;
+}
+#nombre_sede {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 293px;
+    left: 520px;
+}
+#date_ini_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 366px;
+    left: 280px;
+}
+#time_ini_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 366px;
+    left: 510px;
+}
+#students {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 366px;
+    left: 850px;
+    width: 100%;
+}
+#date_fin_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 386px;
+    left: 240px;
+}
+#time_fin_curse {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 386px;
+    left: 440px;
+}
+#time_inst {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 386px;
+    left: 660px;
+}
+#cards {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 386px;
+    left: 850px;
+    width: 100%
+}
+#date {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 643px;
+    left: 695px;
+    width: 100%
+}
+#folio {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 706px;
+    left: 920px;
+    width: 100%
 }

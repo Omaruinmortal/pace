@@ -1,33 +1,62 @@
-#fecha_sede {
+#fecha_actual_sede {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 130px;
+    left: 475px;
+}
+#instructor {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    top: 162px;
+    left: 115px;  
+}
+#ciudad_curso {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 309px;
+    left: 365px;
+}
+#estado_curso {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 309px;
+    left: 530px;
 }
 
-#nombre {
+#dia1_curso {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    top: 330px;
+    left: 125px;
+    width: 100%;
 }
-
-#curso {
+#dia2_curso {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 388px;
-    left: 520px;
+    top: 330px;
+    left: 187px;
+    width: 100%;
 }
-
-#nombre_participante {
+#mes_curso {
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    top: 330px;
+    left: 280px;
+    width: 100%;
+}
+#director_curso {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 768px;
+    width: 100%;
     text-align: center;
-
 }
+

@@ -1,33 +1,91 @@
-#fecha_sede {
+#Renewal_date_provider {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 11pt;
+    top: 247px;
+    left: 290px;
 }
-
-#nombre {
+#name_candidate {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    font-size: 11pt;
+    top: 279px;
+    left: 210px;
 }
-
-#curso {
+#address {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
+    font-size: 11pt;
+    top: 310px;
+    left: 200px;
 }
-
-#nombre_participante {
+#city {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
-    text-align: center;
-
+    font-size: 11pt;
+    top: 343px;
+    left: 130px;
+}
+#state {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 343px;
+    left: 430px;
+}
+#cp {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 343px;
+    left: 650px;
+}
+#tel {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 374px;
+    left: 130px;
+}
+#email {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 373px;
+    left: 380px;
+}
+#id_instructor {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 913px;
+    left: 550px;
+}
+#date_renewal {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 913px;
+    left: 200px;
+}
+#tc_name {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 942px;
+    left: 150px;
+}
+#tc_id {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 943px;
+    left: 640px;
+}
+#date {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 971px;
+    left: 600px;
 }

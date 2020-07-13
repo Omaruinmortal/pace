@@ -1,33 +1,190 @@
-#fecha_sede {
+#nombre{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
-}
+    font-size: 9pt;
+    top: 120px;
+    left: 120px;
 
-#nombre {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
 }
-
-#curso {
+#fecha_nac{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
+    font-size: 9pt;
+    top: 120px;
+    left: 580px;
+}
+#edad{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 135px;
+    left: 120px;
+    width: 100%;
+}
+#perfil{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 135px;
+    left: 280px
+}
+#telefono_fij{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;    
+    top: 150px;
+    left: 159px;
+    
+}
+#residencia{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 135px;
     left: 520px;
+ 
 }
-
-#nombre_participante {
+#telefono_cel{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
-    text-align: center;
+    font-size: 9pt;    
+    top: 150px;
+    left: 415px;
+}
+#domicilio{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 166px;
+    left: 130px;     
+    width: 100%;
+}
 
+#col1{
+    width: 41%;
+    float: left;
+}
+
+#col2{
+    width: 12%;
+    float: left;
+}
+
+#col3{
+    width: 15%;
+    float: left;
+}
+
+#disp_viajar{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 166px;
+    left: 695px; 
+    width: 100%
+}
+#Lugar_trab{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 198px;
+    left: 170px;    
+}
+#email{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 198px;
+    left: 460px;
+}
+#fecha_lugar_curso{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 220px;
+    left: 400px;   
+}
+#puntaje_teorico{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 236px;
+    left: 235px;
+    width: 100%  
+
+}
+#puntaje_megaparto{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 236px;
+    left: 560px;
+    width: 100% 
+}
+#instructor{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 252px;
+    left: 210px;
+}
+#fecha_lugar_instr{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 266px;
+    left: 470px;
+}
+#fecha_lugar_monit{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 283px;
+    left: 450px;
+}
+#numero_monit{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 300px;
+    left: 317px;
+    
+}
+#tema_exp{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 314px;
+    left: 163px;
+}
+#inst_sup{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 314px;
+    left: 400px;
+}
+#talleres{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 330px;
+    left: 115px;    
+}
+#inst_sup2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 353px;
+    left: 240px;
+}
+#nombre_fir_fac{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    top: 825px;    
+    width: 100%;
+    text-align: center;
+    padding-left: 7%
+    
 }

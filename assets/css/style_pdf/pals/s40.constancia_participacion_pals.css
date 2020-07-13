@@ -1,33 +1,37 @@
-#fecha_sede {
+#nombre_estudiante {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
-}
-
-#nombre {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
-}
-
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
-}
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    font-size: 25pt;
+    top: 330px;
+    font-weight: 1;
+    width: 100%;
     text-align: center;
+}
+#parrafo {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 19pt;
+    top: 400px;
+    width: 75%;
+    left: 12.5%;
+    text-align: center;
+    line-height: 1.5em;
+  
+}
+#nac {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 15pt;
+    top: 725px;
+    left: 160px;
+  
+}
+#folio {
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 15pt;
+    top: 725px;
+    left: 950px;
+    
 
 }

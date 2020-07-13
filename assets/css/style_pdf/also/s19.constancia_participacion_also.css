@@ -1,14 +1,156 @@
-#fecha_sede {
-    position: absolute;
+
+#participante1{
+	position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 150px;
-    left: 470px;
+    font-size: 11pt;
+    top: 64px;
+    left: 185px;
 }
-#nombre_participante {
-    position: absolute;
+#participante2{
+	position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 760px;
+    font-size: 9pt;
+    top: 225px;
+    left: 90px;    
+    width: 310px;
+    text-align: left;
+    color: #3c343b   
+}
+#capacitacion{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 293px;
+    left: 90px;    
+    width: 310px;
+    text-align: center;
+    color: #3c343b;
+}
+#fecha_emision{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 317px;
+    left: 90px;    
+    width: 100px;
+    text-align: center;
+    color: #3c343b;
+    letter-spacing: 1px;
 
 }
+#fecha_renovacion{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 317px;
+    left: 255px;    
+    width: 143px;
+    text-align: center;
+    color: #3c343b;
+    letter-spacing: 1px;
+
+}
+#centro{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 250px;
+    left: 500px;    
+    width: 200px;
+    text-align: center;
+    color: #3c343b;
+
+}
+#director_curso{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 280px;
+    left: 500px;    
+    width: 260px;
+    text-align: center;
+    color: #3c343b;   
+
+}
+#folio1{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 377px;
+    left: 700px;
+    font-weight: bold;  
+     
+
+}
+#participante3{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 19pt;
+    top: 720px;
+    width: 100%;
+    text-align: center;   
+
+}
+#lugar1{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.7pt;
+    top: 827px;
+    left: 440px   
+
+}
+#dia1{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.4pt;
+    top: 867px;
+    left: 210px;
+    width: 100%
+
+}
+#dia2{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.4pt;
+    top: 868px;
+    left: 250px;
+    width: 100%
+
+}
+#mes{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.4pt;
+    top: 870px;
+    left: 310px;   
+
+}
+#anio{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.4pt;
+    top: 870px;
+    left: 400px;
+
+}
+#lugar2{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.4pt;
+    top: 870px;
+    left: 480px;
+
+}
+#folio2{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 992px;
+    left: 709px;
+    font-weight: bold;
+
+}
+
+
+
+	

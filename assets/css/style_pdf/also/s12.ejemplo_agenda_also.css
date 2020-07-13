@@ -1,14 +1,111 @@
-#fecha_sede {
-    position: absolute;
+#ciudad{
+	position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 150px;
+    font-size: 18pt;
+    top:80px;
     left: 470px;
-}
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 760px;
+    letter-spacing: 1px
 
+}
+#sede{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 7pt;
+    top:119px;
+    left: 236px
+
+}
+#lugar{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 7pt;
+    top:119px;
+    left: 510px
+
+}
+#date_course{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 7pt;
+    top:135px;
+    left: 242px
+
+}
+#provee{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 7pt;    
+    top:135px;
+    left: 547px
+}
+
+#table_agenda{
+	font-family: helvetica !important;
+    font-size: 8pt;
+    margin-left: 70px;
+    border-collapse: collapse;
+    width: 84%
+}
+#div_table_agenda{
+	position: absolute;
+	top: 150px;
+    width: 100%;
+    text-align: center;
+}
+#titulo{
+	background: #00b0f0;
+	padding: 5px;	
+}
+#td_title{
+	text-align: center;
+	color: #0071c6
+}
+#fecha_inicial{
+	 color: #7030a0;
+	 padding-left: 5px
+}
+#fecha_cardinal{
+	font-size: 12pt; 
+	letter-spacing: 1em; 
+	padding-left: 10%
+}
+#fecha_siguiente{
+	background: white;
+}
+#fecha_siguiente_pos{
+	padding-left: 5px
+}
+
+#hospedaje{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 7.3pt;
+    top:598px;
+    left: 205px;
+    font-weight: bold;
+
+}
+#recomendaciones{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 7.3pt;
+    top:612px;
+    left: 138px;
+    font-weight: bold;
+    color:#7030a0
+}
+#instructores{
+	position: absolute;
+    font-family: helvetica !important;
+    font-size: 7.3pt;
+    top:640px;
+    left: 138px;
+    font-weight: bold;
+    color:#7030a0;  
+}
+#instructores_table{
+	font-weight: bold;
+	font-family: helvetica !important;
+    color:#7030a0;
+    font-size: 7.3pt;
 }

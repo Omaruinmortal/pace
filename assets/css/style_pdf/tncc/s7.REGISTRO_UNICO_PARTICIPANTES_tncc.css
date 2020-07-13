@@ -1,33 +1,209 @@
-#fecha_sede {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
-}
 
-#nombre {
+#ciudad{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    font-size: 10pt;
+    top: 220px;
+    left: 240px;
 }
-
-#curso {
+#dia{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
-}
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    font-size: 10pt;
+    top: 220px;
+    left: 410px;
+    width: 100px;
     text-align: center;
-
+}
+#mes{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 220px;
+    left: 510px;
+    width: 100px;
+    text-align: center;
+}
+#anio{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 220px;
+    left: 610px;
+    width: 100px;
+    text-align: center;
+}
+#nombre{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 250px;
+    left: 190px;
+    letter-spacing: 1.2em
+}
+#paterno{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 282px;
+    left: 280px;
+    letter-spacing: 1.2em
+}
+#materno{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 312px;
+    left: 280px;
+    letter-spacing: 1.2em
+}
+#nacimiento{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 351px;
+    left: 280px
+}
+#edad{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 351px;
+    left: 480px
+}
+#sexo{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 351px;
+    left: 610px
+}
+#enfermeria{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 385px;
+    left: 307px
+}
+#otro{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 385px;
+    left: 370px
+}
+#cual{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 385px;
+    left: 450px
+}
+#institucion{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 416px;
+    left: 180px
+}
+#hospital{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 416px;
+    left: 360px
+}
+#ciudad_hospi{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 450px;
+    left: 200px
+}
+#juris{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 450px;
+    left: 400px
+}
+#turno{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 449px;
+    left: 600px
+}
+#area{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 482px;
+    left: 265px;
+}
+#calle{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 515px;
+    left: 285px;
+}
+#no_ext{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 515px;
+    left: 480px;
+    width: 30px;
+    text-align: center;
+}
+#colonia{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 515px;
+    left: 570px;
+    text-align: center;
+}
+#cp{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 547px;
+    left: 150px;
+}
+#ciudad_vivienda{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 547px;
+    left: 260px;
+}
+#estado{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 547px;
+    left: 500px;
+}
+#tel{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 580px;
+    left: 550px
+}
+#cel{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 580px;
+    left: 250px
+}
+#email{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 610px;
+    left: 180px
 }
