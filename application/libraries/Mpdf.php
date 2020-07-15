@@ -45,9 +45,8 @@ class Mpdf
 
     /*-------------------------------------------------------------------------------------
     ----------------------------------------MPDF ACLS---------------------------------*/
-
-
-	    $html = $this->ci()->load->view($view, $data, TRUE);
+    
+	    
 	    $mpdf = new \Mpdf\Mpdf( 
 	    ['margin_top' =>0, 
 	    'margin_left' =>1, 
@@ -56,24 +55,30 @@ class Mpdf
 	    'format' => 'letter', 
 	    'orientation' => 'L' , 
 	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
-	    //$mpdf->SetImportUse();
 	    
-	    // Add First page 
-
 	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/1.course_information_participants_acls.pdf');
 
-	    for ($i=1; $i<=($pagecount); $i++) {
-	    	$mpdf->AddPage();
-	    	$tplId = $mpdf->ImportPage($i);
-	    	$mpdf->UseTemplate($tplId);
+	    for ($i=1; $i <= $pagecount ; $i++) {
+	        $data['opc']=$i; 
+
+	    	if ($i==1) {
+	    		$html = $this->ci()->load->view($view, $data, TRUE);
+	    		$tplId = $mpdf->ImportPage($i);
+	    		$mpdf->UseTemplate($tplId);
+	    	}else{
+	    		$html = $this->ci()->load->view($view, $data, TRUE);
+	    		$mpdf->AddPage();
+	    		$tplId = $mpdf->ImportPage($i);
+	    		$mpdf->UseTemplate($tplId);
+	    	}
+
+	    	$stylesheet = file_get_contents('assets/css/style_pdf/acls/s1.course_information_participants_acls.css');
+	        $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	        $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
 	    }
-	    
-	    //$mpdf->AddPage('L');
-	    $stylesheet = file_get_contents('assets/css/style_pdf/acls/scourse_information_participants_acls.css');
-	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
-	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
-	    
+
 	    $mpdf->Output();
+	    
 	} 
 
 	public function Agenda_12_part_acls1($view, $data = array()) 
@@ -785,8 +790,6 @@ class Mpdf
 
 	public function Formato_Remediacion_also($view, $data = array()) 
 	{
-
-	    $html = $this->ci()->load->view($view, $data, TRUE);
 	    $mpdf = new \Mpdf\Mpdf( 
 	    ['margin_top' =>0, 
 	    'margin_left' =>1, 
@@ -798,14 +801,30 @@ class Mpdf
 	    //$mpdf->SetImportUse();
 	    
 	    // Add First page 
+	    $tam_reg_tabla=$data['tam_reg_tabla'];	    
+        $pages=ceil(count($data['datos'])/$tam_reg_tabla);
 
 	    $pagecount = $mpdf->SetSourceFile('assets/media/also/17.Formato_Remediacion_also.pdf');
 	    $tplId = $mpdf->ImportPage(1);
 	    $mpdf->SetPageTemplate($tplId);
-	    //$mpdf->AddPage('L');
+	    //$mpdf->AddPage();
+
 	    $stylesheet = file_get_contents('assets/css/style_pdf/also/s17.Formato_Remediacion_also.css');
 	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
-	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+
+	    for ($i=0; $i<$pages; $i++) { 
+	    	$data['veces']=$i;
+
+	    	if ($i==0) {	    		
+	    		$html = $this->ci()->load->view($view, $data, TRUE);	    		
+	            $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    	}else{
+	    		$html = $this->ci()->load->view($view, $data, TRUE);
+	    		$mpdf->AddPage();
+                $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    	}
+
+	    }
 	    
 	    $mpdf->Output();
 	} 

@@ -35,9 +35,11 @@ class Reportes extends CI_Controller
 public function course_information_participants_acls() 
 {     
     $this->load->library('Mpdf');
+    $fecha_actual = new DateTime('NOW');
     $where = "";
     $datos = $this->curso->trae_curso($where);
 
+    $fecha_actual=$fecha_actual->format('d/m/Y'); 
     $lead_instructor='Omar Martinez';
     $id_lead_instructor='0085';
     $exp_card_date=new DateTime('2021-05-12');
@@ -48,15 +50,22 @@ public function course_information_participants_acls()
     $city_sz="Guanajuato, 36000";
     $location_course="Escuela de Medicina de la UG";
 
-    $data = array(); 
-    $data['lead_instructor'] = $lead_instructor;
-    $data['id_lead_instructor'] = $id_lead_instructor;
-    $data['exp_card_date']=$exp_card_date->format('d/m/Y');
-    $data['tra_center']=$tra_center;
-    $data['name_tra_center']=$name_tra_center;
-    $data['adress']=$adress;
-    $data['city_sz']=$city_sz;
-    $data['location_course']=$location_course;
+    $pagina1=array(
+        'lead_instructor' => $lead_instructor,
+        'id_lead_instructor' => $id_lead_instructor,
+        'exp_card_date'=> $exp_card_date->format('d/m/Y'),
+        'tra_center'=> $tra_center,
+        'name_tra_center'=> $name_tra_center,
+        'adress'=> $adress,
+        'city_sz'=> $city_sz,
+        'location_course'=> $location_course,
+    );
+    $pagina2=array(       
+        'fecha_actual'=> $fecha_actual,      
+    );
+
+    $data['pages']=array($pagina1, $pagina2); 
+  
 
     $this->mpdf->course_information_participants_acls('formatos_imprimir/acls/v1.course_information_participants_acls.php',$data); 
 } 
@@ -1022,10 +1031,13 @@ public function Formato_Remediacion_also()
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),       
+
     );
 
     $data['datos'] = $datos;
-    $data['folio'] = '4532'; 
+    $data['folio'] = '4532';
+    $data['tam_reg_tabla']=9; 
 
     $this->mpdf->Formato_Remediacion_also('formatos_imprimir/also/v17.Formato_Remediacion_also.php',$data); 
 } 
