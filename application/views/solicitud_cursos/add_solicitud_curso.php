@@ -105,10 +105,11 @@
                                         </div>
                                         
                                     </div>
-                                    <div class="form-group row" style="display: none;" id="f_factura">
+
+                                    <div class="form-group row" style="display: ;" id="f_factura">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Subir Factura AHA <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <input type="file" class="custom-file-input" id="factura" name="factura"  lang="es">
+                                            <input type="file" class="custom-file-input" id="factura" name="factura" lang="es" data-max-size="2048">
                                             <label class="custom-file-label" id="nombre_archivo" for="customFileLang">Seleccionar Archivo (2MB)</label>
                                             <small id="alert-factura" class="form-text"></small>
                                         </div>
@@ -126,7 +127,7 @@
                                     <div class="form-group row" style="display: ;" id="div_precio_tentativo">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Precio tentativo</label>
                                         <div class="col-sm-4">
-                                            <label for="" id="precio_tentativo" name="precio_tentativo" class="form-text"></label>
+                                            <input class="form-control" type="number" id="precio_tentativo" name="precio_tentativo"  autocomplete="off" readonly>
                                         </div>
                                     </div>
                                                                   
@@ -145,7 +146,7 @@
                                     </div>                                  
                                     </div>
                                 <?php } ?>
-                                <small id="alert-radio_cartel" class="form-text">HOLA</small>
+                                <small id="alert-radio_cartel" class="form-text"></small>
                                 </div>
                                 </div>
                             </div>                       

@@ -12,7 +12,7 @@
                             <li class="breadcrumb-item active">Agregar Avalador</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Instituciones Avaladoras</h4>
+                    <h4 class="page-title">Instituciones Avaladoras</h4> 
                 </div>
             </div>
         </div>

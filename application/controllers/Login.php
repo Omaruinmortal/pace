@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends CI_Controller
 {
+	
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,6 +13,7 @@ class Login extends CI_Controller
 		$this->load->model('admin');
 		$this->load->helper('url');
 	}
+
 	public function index()
 	{
 		if ($this->admin->logged_id()) {
@@ -50,11 +52,11 @@ class Login extends CI_Controller
 						redirect('dashboard/');
 					}
 				} else {
-					$data['error'] = '<div class="alert icon-custom-alert alert-outline-pink b-round fade show" role="alert" id="alert_login">                                            
+					$data['error'] = '<div class="alert icon-custom-alert alert-outline-pink b-round fade show" role="alert" id="alert_login">
 					<i class="mdi mdi-alert-outline alert-icon"></i>
 					<div class="alert-text">
 						<strong>Error!</strong>  Usuario y/o Contraseña incorrectos.
-					</div>					
+					</div>
 					<div class="alert-close">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true"><i class="mdi mdi-close text-danger"></i></span>
