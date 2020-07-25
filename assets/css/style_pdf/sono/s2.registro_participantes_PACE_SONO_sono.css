@@ -1,33 +1,59 @@
-#fecha_sede {
+#folio {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 11pt;
+    top: 677px;
+    left: 970px;
 }
-
-#nombre {
+#participantes{
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    top: 297px;    
+    width: 933px;
+    left: 66.5px;
+    
 }
+#table_participantes {
+    border-collapse: collapse;
+    width: 100%;
 
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
 }
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+#table_participantes tr td{
+    height: 41px;
+}
+#table_participantes tr td:nth-child(1){
     text-align: center;
-
+    width: 45px;
+    padding-bottom: 12px
 }
+#table_participantes tr td:nth-child(2){    
+    padding-left: 5px;  
+    width: 253px
+}
+#table_participantes tr td:nth-child(3){
+    padding-left: 5px; 
+    width: 160px  
+}
+#table_participantes tr td:nth-child(4){
+    width: 94px
+}
+#table_participantes tr td:nth-child(5){
+    text-align: center;
+    width: 95px   
+}
+#table_participantes tr td:nth-child(6){
+    text-align: center;
+    width: 97px 
+}
+#table_participantes tr td:nth-child(7){
+    text-align: center;
+    width: 139px
+}
+#table_participantes tr td:nth-child(8){
+    text-align: center;
+}
+#number{
+    background: white;
+}
+

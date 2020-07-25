@@ -1,33 +1,245 @@
-#fecha_sede {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
-}
 
-#nombre {
+#apli_dead{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    font-size: 10pt;
+    top: 217px;
+    left: 180px;
 }
-
-#curso {
+#send_to{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
+    font-size: 10pt;
+    top:243px;
+    left: 100px;
+    width: 660px;
+    line-height: 23px;
+    text-align: justify;
+
 }
-
-#nombre_participante {
+#apli_name{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 316px;
+    left: 150px;
+}
+#address{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top:340px;
+    left: 50px;
+    width: 710px;
+    line-height: 30px;
+    text-indent: 60px;
+    text-align: justify;
+}
+#phone1_opc{
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    top: 405px;
+    width: 30px;
+    height: 20px;
+    border-radius: 25%;
+    border: 1px solid;
+}
+#phone1_1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 408px;
+    left: 330px;
+    width: 70px;
     text-align: center;
-
+}
+#phone1_2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 408px;
+    left: 405px;
+    width: 70px;
+    text-align: center;
+}
+#phone1_3{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 408px;
+    left: 495px;
+    width: 80px;
+    text-align: center;
+}
+#phone2_opc{  
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 436px;
+    width: 30px;
+    height: 20px;
+    border-radius: 25%;
+    border: 1px solid;
+}
+#phone2_1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 439px;
+    left: 330px;
+    width: 70px;
+    text-align: center;
+}
+#phone2_2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 439px;
+    left: 405px;
+    width: 70px;
+    text-align: center;
+}
+#phone2_3{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 439px;
+    left: 495px;
+    width: 80px;
+    text-align: center;
+}
+#email_opc1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 466px;
+    width: 30px;
+    height: 20px;
+    border-radius: 25%;
+    border: 1px solid;
+}
+#email1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 469px;
+    left: 320px;
+}
+#email_opc2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 498px;
+    width: 30px;
+    height: 20px;
+    border-radius: 25%;
+    border: 1px solid;
+}
+#email2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 499px;
+    left: 320px;
+}
+#rn_licence{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 531px;
+    left: 190px;
+}
+#prov_course{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 561px;
+    left: 260px;
+}
+#course_director{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 592px;
+    left: 160px;
+}
+#location{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 623px;
+    left: 220px;
+}
+#application{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 9pt;
+    left: 72px;
+}
+#p1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top:815px;
+    left: 50px;
+    width: 710px;
+    line-height: 30px;
+    text-indent: 530px;
+    text-align: justify;
+}
+#p2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top:145px;
+    left: 50px;
+    width: 710px;
+    line-height: 30px;
+    text-indent: 315px;
+    text-align: justify;
+}
+#p3{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top:267px;
+    left: 50px;
+    width: 710px;
+    line-height: 30px;
+    text-indent: 350px;
+    text-align: justify;
+}
+#p4{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top:360px;
+    left: 50px;
+    width: 710px;
+    line-height: 30px;
+    text-indent: 350px;
+    text-align: justify;
+}
+#p5{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top:543px;
+    left: 50px;
+    width: 710px;
+    line-height: 30px;
+    text-indent: 350px;
+    text-align: justify;
+}
+#p6{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top:665px;
+    left: 50px;
+    width: 710px;
+    line-height: 30px;
+    text-indent: 530px;
+    text-align: justify;
 }

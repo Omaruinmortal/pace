@@ -6,7 +6,6 @@
 	<?php echo $fecha_curso; ?>
 </div>
 
-
 <div id="coordinador_curso">
 	<?php echo $coordinador_curso; ?>
 </div>
@@ -35,44 +34,40 @@
 	<?php echo $curso5; ?>
 </div>
 
+<?php
+    $inicial = $tam_reg_tabla*$veces;
+    $final   = $tam_reg_tabla*($veces+1);
+    $tam_array = count($instructores);
+?>
+
 <div id="instructores">
 	<table border="0" id="table_instructores">
-		<?php for ($i=0; $i < 13; $i++):?>
-		<?php foreach ($instructores as $inst): ?>
+		<?php for ($i=$inicial; $i < $final; $i++):?>
+			<?php if(($tam_array)>$i): ?>
 			<tr id="tr_table">
 				<td>
-					<?php echo $inst['nombre']; ?>
+					<?php echo $instructores[$i]['nombre']; ?>
 				</td>
 				<td>
-					<?php echo $inst['correo']; ?>
+					<?php echo $instructores[$i]['correo']; ?>
 				</td>
 				<td>
-					<?php echo $inst['direccion']; ?>
+					<?php echo $instructores[$i]['direccion']; ?>
 				</td>
 				<td>
-					<?php echo $inst['tel']; ?>
+					<?php echo $instructores[$i]['tel']; ?>
 				</td>
 				<td>
-					<?php echo $inst['reconocidos']; ?>
+					<?php echo $instructores[$i]['reconocidos']; ?>
 				</td>
 				<td>
-					<?php echo $inst['reconocidon']; ?>
+					<?php echo $instructores[$i]['reconocidon']; ?>
 				</td>
 				<td>
-					<?php echo $inst['monitoreado']; ?>
+					<?php echo $instructores[$i]['monitoreado']; ?>
 				</td>
-
-
 			</tr>
-		<?php endforeach; ?>
+		<?php endif; ?>
 	<?php endfor; ?>
 	</table>
-	<?php  
-
-
-
-
-
-
-	?>
 </div>

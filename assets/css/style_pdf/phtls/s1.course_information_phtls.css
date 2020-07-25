@@ -76,9 +76,10 @@
     font-family: helvetica !important;
     font-size: 9pt;
     top: 288.3px;
-    left: 41px;    
-    width:947px;
-    background: white
+    left: 40px;    
+    width:949px;
+    background: white;
+    height: 600px
     /*945px*/   
 }
 #table_instructores{

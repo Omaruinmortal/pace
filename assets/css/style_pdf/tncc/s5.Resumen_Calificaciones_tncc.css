@@ -1,33 +1,167 @@
-#fecha_sede {
+
+#no_curso {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 11pt;
+    top: 231px;    
+    left: 100px;
+    width: 390px;
+    text-align: left;
 }
 
-#nombre {
+#no_curso2 {
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    font-size: 11pt;
+    top: 203px;    
+    left: 100px;
+    width: 390px;
+    text-align: left;
 }
-
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
+#director_curso{
+	position: absolute;
+	font-family: helvetica !important;
+    font-size: 11pt;
+    top: 231px;    
+    left: 630px;
+    width: 340px;
+    text-align: left;
 }
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+#director_curso2{
+	position: absolute;
+	font-family: helvetica !important;
+    font-size: 11pt;
+    top: 203px;    
+    left: 630px;
+    width: 340px;
+    text-align: left;
+}
+#option_indica{
+	position: absolute;
+	font-family: helvetica !important;
+    font-size: 11pt;
+    top: 178px;    
+    width: 50px;
     text-align: center;
+}
 
+#participantes1{
+	position: absolute;
+	font-family: helvetica !important;
+    top: 366px;    
+    width: 1008px;
+    left: 33px;
+}
+#table_participantes1{
+	font-family: helvetica !important;
+	font-size: 12px;
+	width: 100%;
+	border-collapse: collapse;
+
+}
+#table_participantes1 tr td{
+	height: 29.4px
+}
+
+#table_participantes1 tr td:nth-child(1){
+	width: 298px;
+	padding-left: 7px;
+	font-size: 11px
+}
+#table_participantes1 tr td:nth-child(2){
+	width: 66.5px;
+	text-align: center;
+}
+#table_participantes1 tr td:nth-child(3),#table_participantes1 tr td:nth-child(5){
+	width: 76px;
+	text-align: center;
+}
+#table_participantes1 tr td:nth-child(4){
+	width: 66px;
+	text-align: center;
+}
+
+#table_participantes1 tr td:nth-child(6){
+	width: 84px;
+	text-align: center;
+}
+#table_participantes1 tr td:nth-child(7){
+	width: 104px;
+	text-align: center;
+}
+#table_participantes1 tr td:nth-child(8){
+	width: 88px;
+	text-align: center;
+}
+#table_participantes1 tr td:nth-child(9){
+	width: 73px;
+	text-align: center;
+}
+#table_participantes1 tr td:nth-child(10){
+	text-align: center;
+}
+#number{
+	background: white;
+	font-size: 13px;
+}
+
+
+#participantes2{
+	position: absolute;
+	font-family: helvetica !important;
+    top: 344px;    
+    width: 1016px;
+    left: 20px;
+}
+#table_participantes2{
+	font-family: helvetica !important;
+	font-size: 12px;
+	width: 100%;
+	border-collapse: collapse;
+
+}
+#table_participantes2 tr td{
+	height: 29.6px
+}
+
+#table_participantes2 tr td:nth-child(1){
+	width: 288px;
+	padding-left: 7px;
+	font-size: 11px
+}
+#table_participantes2 tr td:nth-child(2){
+	width: 94px;
+	text-align: center;
+}
+#table_participantes2 tr td:nth-child(3){
+	width: 67px;
+	text-align: center;
+}
+#table_participantes2 tr td:nth-child(4){
+	width: 75px;
+	text-align: center;
+}
+#table_participantes2 tr td:nth-child(5){
+	width: 66px;
+	text-align: center;
+}
+
+#table_participantes2 tr td:nth-child(6){
+	width: 76px;
+	text-align: center;
+}
+#table_participantes2 tr td:nth-child(7){
+	width: 85px;
+	text-align: center;
+}
+#table_participantes2 tr td:nth-child(8){
+	width: 104px;
+	text-align: center;
+}
+#table_participantes2 tr td:nth-child(9){
+    width: 85px;
+	text-align: center;
+}
+#table_participantes2 tr td:nth-child(10){
+	text-align: center;
 }

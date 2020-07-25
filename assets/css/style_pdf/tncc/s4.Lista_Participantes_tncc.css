@@ -1,3 +1,10 @@
+#option_indica{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 122px;
+}
+
 #no_curso {
     position: absolute;
     top: 212px;    

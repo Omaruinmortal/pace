@@ -12,11 +12,12 @@
     top: 267px;    
     width: 100%;
     padding-left: 82px;
+    background: white;
+    height: 700px
     
 }
 div table {
-    border-collapse: collapse;
-    background: white;
+    border-collapse: collapse;    
     width: 879px;
     border: solid;
     border-width: 1px;

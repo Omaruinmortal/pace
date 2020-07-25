@@ -1,33 +1,138 @@
-#fecha_sede {
+#nombre_estudiante{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
-}
+    font-size: 11pt;
+    left: 160px;
+    top: 104px;
 
-#nombre {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
 }
-
-#curso {
+#fecha_prueba{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
+    font-size: 10pt;
+    left: 510px;
+    top: 106px;
+    
 }
-
-#nombre_participante {
+#instructor_iniciales{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    font-size: 8pt;
+    left: 178px;
+    top: 717px;
+
+}
+#instructor_num{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    left: 175px;
+    top: 734px;
+    width: 150px;
     text-align: center;
+}
+#fecha_actual{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    left: 400px;
+    top: 734px;
+    width: 150px;
+    text-align: center;
+    
+}
 
+
+
+
+#nombre_estudiante1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    left: 160px;
+    top: 99px;
+
+}
+#fecha_prueba1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    left: 510px;
+    top: 100px;
+    
+}
+#instructor_iniciales1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    left: 178px;
+    top: 710px;
+
+}
+#instructor_num1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    left: 175px;
+    top: 727px;
+    width: 150px;
+    text-align: center;
+}
+#fecha_actual1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    left: 400px;
+    top: 727px;
+    width: 150px;
+    text-align: center;
+    
+}
+
+
+
+
+
+#nombre_estudiante2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    left: 160px;
+    top: 99px;
+
+}
+#fecha_prueba2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    left: 510px;
+    top: 100px;
+    
+}
+#instructor_iniciales2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    left: 178px;
+    top: 725px;
+
+}
+#instructor_num2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    left: 175px;
+    top: 743px;
+    width: 150px;
+    text-align: center;
+}
+#fecha_actual2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    left: 400px;
+    top: 741px;
+    width: 150px;
+    text-align: center;
+    
 }

@@ -1,33 +1,125 @@
-#fecha_sede {
+
+#sede{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 8.5pt;
+    top:116px;
+    left: 200px
+
+}
+#lugar{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.5pt;
+    top:116px;
+    left: 630px
+
+}
+#date_course{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.5pt;
+    top:132px;
+    left: 210px
+
+}
+#provee{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8.5pt;
+    top:132px;
+    left: 555px
 }
 
-#nombre {
-    position: absolute;
+#table_agenda{
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    font-size: 8pt;
+    margin-left: 65px;
+    border-collapse: collapse;
+    width: 90%;
 }
-
-#curso {
+#div_table_agenda{
     position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
-}
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    top: 144px;
+    width: 100%;
     text-align: center;
+}
+#table_agenda tr td:nth-child(1){
+    width: 59px; 
+    font-size: 9.8px
+}
+#table_agenda tr td:nth-child(2){
+    width: 270px;
+}
+#table_agenda tr td:nth-child(3){
+    width: 167px;
+    font-size: 9.7px;
+    padding-left: 5px
+}
+#table_agenda tr td:nth-child(4){
+    font-size: 9.7px
+}
+#titulo{
+    background: #00b0f0;
+    padding: 5px;   
+}
+#td_title{
+    text-align: center;
+    color: #0071c6;
+}
+#fecha_inicial{
+     color: #7030a0;
+     padding-left: 5px
+}
+#fecha_cardinal{
+    font-size: 12pt; 
+    letter-spacing: 1em; 
+    padding-left: 10%
+}
+#fecha_siguiente{
+    background: white;
+}
+#fecha_siguiente_pos{
+    padding-left: 5px
+}
+
+#hospedaje{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 7.3pt;
+    top:598px;
+    left: 205px;
+    font-weight: bold;
 
 }
+#recomendaciones{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 8pt;
+    top:442px;
+    left:70px;
+    font-weight: bold;
+    color:#7030a0
+}
+#instructores{
+    position: absolute;
+    top:454px;
+    left: 70px;      
+}
+#instructores_table{
+    font-family: helvetica !important;
+    font-size: 7.8pt;
+}
+#instructores_name{
+    font-family: helvetica !important;
+    font-size: 8pt;
+    font-weight: bold;
+    vertical-align: bottom;
+
+}
+#titulo td:nth-child(1){
+    height: 23px;
+    font-size: 8.7pt;
+}
+
+

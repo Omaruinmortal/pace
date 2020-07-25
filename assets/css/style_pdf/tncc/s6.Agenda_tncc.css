@@ -1,33 +1,170 @@
-#fecha_sede {
+
+#fecha_curso{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 11pt;
+    top: 53px;
+    left: 454px;
+}
+#dir_curso{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 71px;
+    left: 471px;
+}
+#no_curso{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 1020px;
+    left: 385px;
+    width: 200px;
+    width: 90px;
+    text-align: left;
 }
 
-#nombre {
+
+#contenedor_tb1{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    top: 165px;
+    left: 40px;
+    background: red;
+    width: 754px
+}
+#tb1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 13pt;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
-}
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+#tb1 tr td{
     text-align: center;
+    height: 30px
+}
 
+#tb1 tr td:nth-child(1){
+    width: 122px;
+    background: #d9d9d9;
+    border: 1.4px solid #4bacc6;
+    font-weight: bold;
+    font-size: 13.5px !important
+}
+
+#tb1 tr td:nth-child(2){
+    width: 304px;
+    background: #e5dfec;
+    border: 1.4px solid #4bacc6;
+}
+#tb1 tr td:nth-child(3){
+    width: 162px;
+    background: #e5dfec;
+    border: 1.4px solid #4bacc6;
+}
+#tb1 tr td:nth-child(4){
+    background: #e5dfec;
+    border: 1.4px solid #4bacc6;
+}
+
+
+#contenedor_tb2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    top: 524px;
+    left: 109px;
+    background: white;
+    width: 590px
+}
+#tb2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 11pt;
+    width: 100%;
+    border-collapse: collapse;
+}
+#tb2 tr td{
+    text-align: center;
+    font-weight: bold;
+    height: 121px
+}
+
+#tb2 tr td:nth-child(1){
+    width: 100px;
+    background: #d9d9d9;
+    font-weight: bold;
+    font-size: 15px;
+    
+}
+
+#tb2 tr td:nth-child(2){
+    width: 163px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px
+
+}
+#tb2 tr td:nth-child(3){
+    width: 163px;
+    width: 163px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px
+}
+#tb2 tr td:nth-child(4){
+    width: 163px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px
+}
+
+
+#contenedor_tb3{
+    position: absolute;
+    font-family: helvetica !important;
+    top: 165px;
+    left: 41px;
+    background: white;
+    width: 748px;
+}
+
+
+#tb3{
+    position: absolute;
+    font-family: helvetica !important;
+    border-collapse: collapse;
+    width: 100%;    
+}
+
+#tb3 tr td{
+    text-align: center;
+    height: 33px;
+    font-size: 16px
+}
+
+#tb3 tr td:nth-child(1){
+    background: #d9d9d9;
+    font-weight: bold;
+    font-size: 14px!important;
+    width: 110px
+}
+
+#tb3 tr td:nth-child(2){
+    background: #e5dfec;
+    padding-left: 11px;
+    width: 320px;
+    padding-right: 10px
+
+    
+}
+#tb3 tr td:nth-child(3){   
+    background: #e5dfec;
+    width: 135px
+
+}
+#tb3 tr td:nth-child(4){
+    background: #e5dfec;
 }

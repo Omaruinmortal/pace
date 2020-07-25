@@ -10,6 +10,8 @@
     top: 299px;    
     width: 847.6px;
     left: 94.3px;
+    background: white;
+    height: 600px
     /* 94*/
     
 }
@@ -20,7 +22,6 @@ div table {
     width: 100%;
     font-family: helvetica !important;
     font-size: 8pt;
-    background: white
 }
 div table tr td:nth-child(1){
     width: 360px;

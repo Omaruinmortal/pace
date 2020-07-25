@@ -1,33 +1,80 @@
-#fecha_sede {
+#instructor{
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    top: 602px;
+    left: 330px;
 }
-
-#nombre {
+#id_instructor{
     position: absolute;
     font-family: helvetica !important;
     font-size: 12pt;
-    top: 342px;
-    left: 335px;
-}
-
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
-}
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    top: 634px;
+    left: 190px;
+    width: 230px;
     text-align: center;
-
 }
+#exp_card_date{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 634px;
+    left: 640px;
+}
+#course_rev{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 665px;
+}
+#course_purpo{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 696px;
+}
+
+#name_rf{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 883px;
+    left: 180px;
+}
+#fecha_actual{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 923px;
+    left: 590px;
+}
+
+#instructor2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 340px;
+    left: 285px;
+}
+#fecha_actual2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 372px;
+    left: 620px;
+}
+#coordinator{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 411px;
+    left: 225px;
+}
+#fecha_actual3{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 12pt;
+    top: 443px;
+    left: 620px;
+}
+

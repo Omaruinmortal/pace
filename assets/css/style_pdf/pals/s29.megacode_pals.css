@@ -1,33 +1,274 @@
-#fecha_sede {
+
+#nombre_estudiante{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 10pt;
+    top: 130px;
+    left: 210px;
+}
+#fecha_prueba{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 130px;
+    left: 650px;
+}
+#instructor_iniciales1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 900px;
+    left: 200px;
+}
+#instructor_num1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 900px;
+    left: 430px;
+}
+#fecha_actual1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 900px;
+    left: 630px;
+}
+#instructor_iniciales1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 900px;
+    left: 200px;
+}
+#instructor_num1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 900px;
+    left: 430px;
+}
+#fecha_actual1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 900px;
+    left: 630px;
 }
 
-#nombre {
+#instructor_iniciales2{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    font-size: 10pt;
+    top: 883px;
+    left: 200px;
+}
+#instructor_num2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 883px;
+    left: 430px;
+}
+#fecha_actual2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 883px;
+    left: 630px;
+}
+#instructor_iniciales3{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 881px;
+    left: 200px;
+}
+#instructor_num3{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 881px;
+    left: 430px;
+}
+#fecha_actual3{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 881px;
+    left: 630px;
 }
 
-#curso {
+#instructor_iniciales5{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
+    font-size: 10pt;
+    top: 833px;
+    left: 200px;
+}
+#instructor_num5{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 833px;
+    left: 430px;
+}
+#fecha_actual5{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 833px;
+    left: 630px;
 }
 
-#nombre_participante {
+#instructor_iniciales6{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
-    text-align: center;
+    font-size: 10pt;
+    top: 965px;
+    left: 200px;
+}
+#instructor_num6{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 965px;
+    left: 430px;
+}
+#fecha_actual6{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 965px;
+    left: 630px;
+}
 
+#instructor_iniciales7{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 914px;
+    left: 200px;
+}
+#instructor_num7{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 914px;
+    left: 430px;
+}
+#fecha_actual7{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 914px;
+    left: 630px;
+}
+
+#instructor_iniciales8{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 914px;
+    left: 200px;
+}
+#instructor_num8{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 914px;
+    left: 430px;
+}
+#fecha_actual8{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 914px;
+    left: 630px;
+}
+
+#instructor_iniciales9{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 913px;
+    left: 200px;
+}
+#instructor_num9{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 913px;
+    left: 430px;
+}
+#fecha_actual9{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 913px;
+    left: 630px;
+}
+#instructor_iniciales10{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 874px;
+    left: 200px;
+}
+#instructor_num10{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 874px;
+    left: 430px;
+}
+#fecha_actual10{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 874px;
+    left: 630px;
+}
+#instructor_iniciales11{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 765px;
+    left: 200px;
+}
+#instructor_num11{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 765px;
+    left: 430px;
+}
+#fecha_actual11{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 765px;
+    left: 630px;
+}
+
+#instructor_iniciales12{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 885px;
+    left: 200px;
+}
+#instructor_num12{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 885px;
+    left: 430px;
+}
+#fecha_actual12{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 885px;
+    left: 630px;
 }

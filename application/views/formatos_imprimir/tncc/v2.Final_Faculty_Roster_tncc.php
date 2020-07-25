@@ -1,23 +1,49 @@
+<?php 
+switch ($option_indica) {
+	case 1: $display=""; $left=263;break;
+	case 2: $display=""; $left=433;break;	
+	default:$display="none"; $left=0;break;
+}
+?>
+<div id="option_indica" style="display: <?php echo $display; ?>; left: <?php echo $left; ?>px">
+	X	
+</div>
+
 <div id="num_curso">
 	<?php echo $num_curso; ?>	
 </div>
 <div id="director_curso">
 	<?php echo $director_curso; ?>	
 </div>
+
+<?php
+    $inicial = $tam_reg_tabla*$veces;
+    $final   = $tam_reg_tabla*($veces+1);
+    $tam_array = count($instructor);
+?>
+
 <div id="instructor">
 	<table border="0" id="table_intr">
-		<?php for ($i=1; $i<14; $i++):?>			
-		<?php foreach ($instructor as $dato): ?>
+		<?php for ($i=$inicial; $i < $final ; $i++):?>
+			<?php if(($tam_array)>$i): ?>	
 		
 			<tr>
-				<td><?php echo $dato['instructor']; ?></td>
-				<td><?php echo $dato['inst_candida']; ?></td>
-				<td><?php echo $dato['last_dig_social']; ?></td>
-				<td><?php echo $dato['intr_num']; ?></td>
-				<td><?php echo $dato['email']; ?></td>
+				<td><?php echo $instructor[$i]['instructor']; ?></td>
+				<td><?php echo $instructor[$i]['inst_candida']; ?></td>
+				<td><?php echo $instructor[$i]['last_dig_social']; ?></td>
+				<td><?php echo $instructor[$i]['intr_num']; ?></td>
+				<td><?php echo $instructor[$i]['email']; ?></td>
 			</tr>
 
-	    <?php endforeach; ?>
-	    <?php endfor; ?>
+	    <?php else: ?>
+			    <tr>
+			    	<td></td>
+			    	<td></td>
+			    	<td></td>
+			    	<td></td>
+			    	<td></td>
+			    </tr>
+		    <?php endif; ?>
+		<?php endfor; ?>
 	</table>	
 </div>

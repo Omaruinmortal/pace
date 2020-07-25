@@ -1,33 +1,154 @@
-#fecha_sede {
+#name_candidate{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 10pt;
+    top: 182px;
+    left: 268px;
 }
-
-#nombre {
+#address{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    font-size: 10pt;
+    top: 208px;
+    left: 165px;
 }
-
-#curso {
+#city{
     position: absolute;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
-}
-
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+    font-size: 10pt;
+    top: 235px;
+    left: 130px;
+    width: 160px;
     text-align: center;
 
+}
+#state{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 235px;
+    left: 350px;
+    width: 190px;
+    text-align: center;
+}
+#cp{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 235px;
+    left: 628px;
+}
+#tel{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 262px;
+    left: 145px;
+    width: 190px;
+    text-align: center;
+}
+#email{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 262px;
+    left: 400px;
+}
+#facultad{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 309px;
+    left: 308px;
+}
+#date_moni{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 335px;
+    left: 215px;
+}
+#program_moni{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 372px;
+}
+#no_provider{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 417px;
+    left: 265px;
+    width: 180px;
+    text-align: center;
+}
+#date_provider{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 417px;
+    left: 610px;
+}
+#no_monito{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 443px;
+    left: 265px;
+    width: 205px;
+    text-align: center;
+}
+#date_monito{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 443px;
+    left: 610px;
+}
+#comments_lecture{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 485px;
+    left: 105px;
+    width: 600px;
+    text-indent: 226px;
+    line-height: 28px
+}
+#appro{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 692px;
+    left: 300px;
+    width: 120px;
+    text-align: center;
+}
+#remoni{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 692px;
+    left: 530px;
+    width: 120px;
+    text-align: center;
+}
+#date1{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 718px;
+    left: 585px;
+    width: 120px;
+    text-align: center;
+}
+#date2{
+    position: absolute;
+    font-family: helvetica !important;
+    font-size: 10pt;
+    top: 745px;
+    left: 585px;
+    width: 120px;
+    text-align: center;
 }

@@ -35,37 +35,52 @@
 	<?php echo $curso5; ?>
 </div>
 
+<?php
+    $inicial = $tam_reg_tabla*$veces;
+    $final   = $tam_reg_tabla*($veces+1);
+    $tam_array = count($instructores);
+?>
+
 <div id="instructores">
-	<table border="" id="table_instructores">
-		<?php for ($i=0; $i < 13; $i++):?>
-		<?php foreach ($instructores as $inst): ?>
-			<tr id="tr_table">
-				<td>
-					<?php echo $inst['nombre']; ?>
-				</td>
-				<td>
-					<?php echo $inst['correo']; ?>
-				</td>
-				<td>
-					<?php echo $inst['direccion']; ?>
-				</td>
-				<td>
-					<?php echo $inst['tel']; ?>
-				</td>
-				<td>
-					S<span id="s"><?php echo $inst['reconocidos']; ?></span>
-				</td>
-				<td>
-					N<span id="n"><?php echo $inst['reconocidon']; ?></span>
-				</td>
-				<td>
-					<?php echo $inst['monitoreado']; ?>
-				</td>
-
-
-			</tr>
-		<?php endforeach; ?>
-	<?php endfor; ?>
+	<table border="" id="table_instructores" border="1">		
+		<?php for ($i=$inicial; $i < $final ; $i++): ?>
+			<?php if(($tam_array)>$i): ?>
+			    <tr id="tr_table">
+			    	<td>
+			    		<?php echo $instructores[$i]['nombre']; ?>
+			    	</td>
+			    	<td>
+			    		<?php echo $instructores[$i]['correo']; ?>
+			    	</td>
+			    	<td>
+			    		<?php echo $instructores[$i]['direccion']; ?>
+			    	</td>
+			    	<td>
+			    		<?php echo $instructores[$i]['tel']; ?>
+			    	</td>
+			    	<td>
+			    		S<span id="s"><?php echo $instructores[$i]['reconocidos']; ?></span>
+			    	</td>
+			    	<td>
+			    		N<span id="n"><?php echo $instructores[$i]['reconocidon']; ?></span>
+			    	</td>
+			    	<td>
+			    		<?php echo $instructores[$i]['monitoreado']; ?>
+			    	</td>
+			    </tr>
+			    	<?php else: ?>
+			    		<tr id="tr_table">
+			    			<td></td>
+			    		    <td></td>
+			    		    <td></td>
+			    		    <td></td>
+			    		    <td></td>
+			    		    <td></td>
+			    		    <td></td>			    			
+			    		</tr>		    		
+			<?php endif; ?>
+		<?php endfor; ?>
+	
 	</table>
 	<?php  
 

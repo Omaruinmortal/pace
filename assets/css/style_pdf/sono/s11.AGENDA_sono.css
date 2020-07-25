@@ -1,33 +1,134 @@
-#fecha_sede {
-    position: absolute;
+#sede{
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 92px;
-    left: 462px;
+    font-size: 12px;
+    position: absolute;
+    top: 246px;
+    left: 311.5px;
+    font-weight: bold;
+    background: white
+}
+#fechas{
+    font-family: helvetica !important;
+    font-size: 12px;
+    position: absolute;
+    top: 260px;
+    left: 320px;
+    font-weight: bold;
+    background: white;
+
+}
+#n_participantes{
+    font-family: helvetica !important;
+    font-size: 12px;
+    position: absolute;
+    top: 288px;
+    left: 371px;
+    font-weight: bold;
+    background: white
+    
 }
 
-#nombre {
-    position: absolute;
+
+#agenda {
+    position: absolute;    
+    top: 320px;
+    left: 87px;
+    background: white;
+    width: 944px;
+}
+#agenda2 {
+    position: absolute;    
+    top: 150px;
+    left: 87px;
+    background: white;
+    width: 944px;
+    height: 450px
+}
+#table_agenda_1{
+    border-collapse: collapse;
     font-family: helvetica !important;
-    font-size: 12pt;
-    top: 342px;
-    left: 335px;
+    font-size: 12px
+}
+#table_agenda_1 tr td:nth-child(1){
+    width: 38px;
+}
+#table_agenda_1 tr td:nth-child(2){
+    width: 73px;
+}
+#table_agenda_1 tr td:nth-child(3){
+    width: 334px;
+}
+#table_agenda_1 tr td:nth-child(4){
+    width: 236px;
 }
 
-#curso {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 388px;
-    left: 520px;
+#dia{
+    background: #c00000;    
 }
 
-#nombre_participante {
-    position: absolute;
-    font-family: helvetica !important;
-    font-size: 12pt;
-    top: 748px;
-    width: 785px;
+#dia td{
     text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: white
+}
+#noactividad, #title{
+    background: #002060;    
+}
+#noactividad td:nth-child(1), #noactividad td:nth-child(2){
+    text-align: center;
+    color: white;
+    font-size: 13px;
+}
+#noactividad td:nth-child(3){
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    padding-left: 10px
+}
+#title td:nth-child(1){
+    font-size: 9px !important;
+}
+#title td{
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    vertical-align: top
+}
+#actividad td{
+    color: #002060;
+    height: 22px;
+    font-weight: bold;
+}
+#actividad td:nth-child(1),#actividad td:nth-child(2){
+    text-align: center;
+}
+#actividad td:nth-child(3),#actividad td:nth-child(4),#actividad td:nth-child(5){
+    padding-left: 5px
+}
 
+#title_span{
+    font-family: helvetica !important;
+    font-weight: bold;
+    font-size: 17px;
+    word-spacing: 50px
+}
+#title_span_s{
+    font-family: helvetica !important;
+    font-weight: bold;
+    font-size: 17px;
+}
+#span_s{
+    font-family: helvetica !important;
+    font-size: 17px;
+}
+#observaciones{
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    background: white;
+    top:100px;
+    left: 90px;
+    padding: 10px
 }
