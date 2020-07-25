@@ -5,6 +5,14 @@ pace.solicitud_curso = (function () {
     return {
 
         init_solicitud_curso: function () {
+            $(document).ready( function (){
+                $('input[type="file"]').change(function(e){
+                    var fileName = e.target.files[0].name;
+                    document.getElementById('nombre_archivo').innerHTML = fileName;  
+                    document.getElementById('alert-factura').innerHTML = '';  
+                });
+            }),
+
             $( "#tipo_curso" ).change(function() {
                  if(this.value != 23){
                      document.getElementById("f_factura").style.display = '';
@@ -87,7 +95,8 @@ pace.solicitud_curso = (function () {
                     
                     success: function (response, textStatus, jqXHR) {
                         var total = n_participantes * response;
-                        document.getElementById('precio_tentativo').innerHTML = '<b>$'+total+'</b>';  
+                        //document.getElementById('precio_tentativo').value(total);
+                        $('#precio_tentativo').val(total)
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log('error');
@@ -104,12 +113,14 @@ pace.solicitud_curso = (function () {
         submit_curso_solicitado: function(){
             
             $("#form_curso_solicitado").submit(function (event) {
+                let dataForm = new FormData($('#form_curso_solicitado')[0]);
                 $.ajax({
                     url: base_url + '/Cursos_solicitados/guarda_curso_solicitado',
-                    type: 'POST',
-                    dataType: 'html', //expect return data as html from server
-                    data: $("#form_curso_solicitado").serialize(),
-                    dataType: 'json',
+                    dataType : 'json',
+                    type : 'POST',
+                    data : dataForm,
+                    contentType: false,
+                    processData: false,
                     success: function (response, textStatus, jqXHR) {
                         if (response.error) {
                             Swal.fire({
@@ -172,6 +183,13 @@ pace.solicitud_curso = (function () {
                             } else {
                                 $('#alert-factura').html('');
                             }
+                            if (response.archivo_error != '') {
+                                $('#alert-factura').html(response.archivo_error);
+                                document.getElementById("alert-factura").style.color = '#ff5733';
+                            } else {
+                                $('#alert-factura').html('');
+                            }
+                            
                             if (response.manuales_seg_factura != '') {
                                 $('#alert-manuales_seg_factura').html(response.manuales_seg_factura);
                                 document.getElementById("alert-manuales_seg_factura").style.color = '#ff5733';
@@ -188,6 +206,7 @@ pace.solicitud_curso = (function () {
                             })
                             $('#alert-nombre_curso').html('');
                             $('#alert-precio').html('');
+                            document.getElementById('nombre_archivo').innerHTML = 'Seleccionar Archivo (2MB)';
                             $('#form_curso_solicitado')[0].reset();
                         }
 

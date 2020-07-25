@@ -56,6 +56,17 @@ class Main extends CI_Model {
         return $query->result();
     }
 
+    function trae_un_usuario($where){
+        $this->db->select('id_usuario, nombre, primerApellido, segundoApellido, correo, telefono, usuario, id_tipoUsuario');
+        $this->db->from('tbl_usuarios');
+        $this->db->where('visible = 1');
+        if($where != NULL) {
+            $this->db->where($where,NULL,FALSE);
+        }
+        $query = $this->db->get();
+        return $query->row();
+    }
+
     function elimina_usuario($id_usuario) {
         $this->db->where('id_usuario',$id_usuario);
         $this->db->delete('tbl_usuarios');
@@ -109,6 +120,20 @@ class Main extends CI_Model {
         }
         $query = $this->db->get();
         return $query->result();
+    }
+
+    function guarda_curso_rechazado($serv = array(), $where) {
+        $this->db->trans_begin();
+        $this->db->where($where);
+        $this->db->insert('tbl_cursos_rechazados', $serv);
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            $this->db->trans_commit();
+            return true;
+        }
     }
 
 }

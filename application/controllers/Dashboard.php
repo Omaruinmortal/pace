@@ -42,7 +42,7 @@ class Dashboard extends CI_Controller {
 			$data['todos_avaladores'] = $this->avalador->cantidad_todos_avaladores($where);
 			$data['todos_cursos'] = $this->curso->cantidad_todos_cursos($where);
 			$data['todos_intructores'] = $this->instructor->cantidad_todos_intructores($where);	
-			$data['scripts'] = array('script_usuarios');
+			$data['scripts'] = array('script_dashboard');
 			$data['layout'] = 'plantilla/lytDefault';
 			$data['contentView'] = 'dashboard';
 			$this->_renderView($data);		

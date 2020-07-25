@@ -57,7 +57,7 @@ class Avaladores extends CI_Controller
                     'nombre_completo_error' => form_error('nombre_completo', null, null),
                     'nombre_avalador_error' => form_error('nombre_avalador', null, null),
                 );
-            }
+            } 
 
             echo json_encode($array);
         }

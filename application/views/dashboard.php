@@ -19,7 +19,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
 
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -42,7 +42,7 @@
                     </div>
                     <!--end col-->
 
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -65,7 +65,7 @@
                     </div>
                     <!--end col-->
 
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -88,7 +88,7 @@
                     </div>
                     <!--end col-->
 
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -112,11 +112,36 @@
                     <!--end col-->
                 </div>
                 <div class="row">
-                    <div class="col-8">
+                  <div class="col-lg-12">
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="mt-0 header-title">Cursos pendientes por aprobar</h4>
+                              </p>
+                              <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <table id="datatable_cursos_solicitados" class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid" aria-describedby="datatable_info">
+                                              <thead>
+                                                  <tr role="row">
+                                                      <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 149px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Curso</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 107px;" aria-label="Office: activate to sort column ascending">Fecha Solicitud de Curso</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
+                                                  </tr>
+                                              </thead>
+                                          </table>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <div id="calendar" class="fc fc-ltr fc-unthemed" style="">
-                                    
+                                <div id="calendar" class="fc fc-ltr fc-unthemed" >
+
                                 </div>
                                 <div style="clear:both"></div>
                             </div>
@@ -155,18 +180,20 @@
 <script src='<?php echo base_url(); ?>assets/plugins/fullcalendar/packages/timegrid/main.js'></script>
 <script src='<?php echo base_url(); ?>assets/plugins/fullcalendar/packages/interaction/main.js'></script>
 <script src='<?php echo base_url(); ?>assets/plugins/fullcalendar/packages/list/main.js'></script>
-<script src='<?php echo base_url(); ?>assets/pages/jquery.calendar.js'></script>
+<script src="<?php echo base_url(); ?>assets/js/sweetalert2.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.responsive.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
+
+
 
 <!-- App js -->
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
-    $(document).ready(function() {
-        $("body").remove("enlarge-menu");
-        $("#li_principal").addClass("mm-active");
-        $("#ul_dashboard").addClass("mm-show");
-        $("#li_dashboard").addClass("active");
-        $("#a_dashboard").addClass("active");
-    });
+    pace.dashboard.init_dashboard();
+    pace.dashboard.calendario_dashboard();
 </script>
 </body>
 
