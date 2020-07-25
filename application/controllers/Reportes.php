@@ -6228,6 +6228,19 @@ public function formato_remediaciones_PACE_SONO_sono()
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
+        
         
 
     );

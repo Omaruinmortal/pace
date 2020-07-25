@@ -2,14 +2,14 @@
     position: absolute;
     font-family: helvetica !important;
     font-size: 10pt;
-    top: 222px;
+    top: 235px;
     left: 140px;
 }
 #fecha{
     position: absolute;
     font-family: helvetica !important;
     font-size: 10pt;
-    top: 222px;
+    top: 235px;
     left: 450px;
 }
 
@@ -17,7 +17,7 @@
     position: absolute;
     font-family: helvetica !important;
     font-size: 10pt;
-    top: 222px;
-    left: 680px;
+    top: 235px;
+    left: 650px;
     width: 100%    
 }
