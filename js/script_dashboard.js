@@ -142,6 +142,11 @@ pace.dashboard = (function () {
               });
             });
 
+            $(document).on("click", "#btn_mod_curso_solicitado", function () {
+                var data = $(this).data("id")
+                alert(data);
+            });
+
           });
 
 
