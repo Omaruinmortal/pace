@@ -159,6 +159,7 @@ pace.dashboard = (function () {
               url: base_url + '/Cursos_solicitados/calendario_cursos',
               type: 'POST',
               success: function (response, textStatus, jqXHR) {
+                console.log(response)
                 a = new FullCalendar.Calendar(e,{
                     plugins: ["dayGrid", "timeGrid"],
                     header: {
@@ -174,7 +175,7 @@ pace.dashboard = (function () {
                         list:     'Lista'
                     },
                     locale: 'es',
-                    defaultDate: response,
+                    defaultDate: "2020-10-11",
                     navLinks: !0,
                     selectable: !0,
                     selectMirror: !0,
@@ -192,12 +193,12 @@ pace.dashboard = (function () {
                     eventLimit: !0,
                     events: [{
                         title: "ACLS",
-                        start: "2020-07-23T13:00:00",
+                        start: "2020-10-23T13:00:00",
                         constraint: "businessHours",
                         className: "bg-soft-danger"
                     }, ],
                     eventClick: function(e) {
-                        confirm("delete event?") && e.event.remove()
+                        alert('Envio a otra pagina')
                     }
                 });
 

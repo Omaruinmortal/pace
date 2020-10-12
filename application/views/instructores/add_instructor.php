@@ -27,7 +27,7 @@
                         </center>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="form_usuario" method="post">
+                                <form id="form_instructor" method="post">
 
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Titulo de Inscructor <font color="red">*</font></label>

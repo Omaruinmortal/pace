@@ -32,8 +32,7 @@ class Cursos_solicitados extends CI_Controller
         date_default_timezone_set('America/Mexico_City');
     }
 
-    public function guarda_curso_solicitado()
-    {
+    public function guarda_curso_solicitado(){
 
         if ($this->input->is_ajax_request()) {
 
@@ -129,7 +128,9 @@ class Cursos_solicitados extends CI_Controller
     }
 
     public function calendario_cursos() {
-     echo date("Y-m-d");
+      $sql = '1=1';
+      $respuesta_fechas_cursos = $this->curso_solicitado->trae_cursos_solicitados($sql);
+      echo json_encode($respuesta_fechas_cursos);
     }
 
     public function trae_cursos_solicitados() {

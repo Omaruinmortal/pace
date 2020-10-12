@@ -5,12 +5,12 @@ pace.instructores = (function () {
     return {
         valida_formulario_add_intructores: function () {
 
-            $("#form_usuario").submit(function (event) {
+            $("#form_instructor").submit(function (event) {
                 $.ajax({
-                    url: base_url + '/usuarios/guarda_usuario',
+                    url: base_url + '/intructores/guarda_usuario',
                     type: 'POST',
                     dataType: 'html', //expect return data as html from server
-                    data: $("#form_usuario").serialize(),
+                    data: $("#form_instructor").serialize(),
                     dataType: 'json',
                     success: function (response, textStatus, jqXHR) {
                         if (response.error) {
