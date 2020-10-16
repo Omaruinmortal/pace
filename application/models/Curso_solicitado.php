@@ -27,6 +27,18 @@ class Curso_solicitado extends CI_Model {
       return $query->result();
     }
 
+    function trae_fechas_calendario($where)
+    {
+      $this->db->select('id_curso_solicitado,nombre_institucion,tbl_cursos.nombre_curso_disciplina,DATE_FORMAT(fecha_solicitud_curso, "%Y-%m-%d") as fecha_solicitud_curso, estado');
+      $this->db->from('tbl_cursos_solicitados,tbl_cursos');
+      $this->db->order_by('fecha_solicitud_curso','asc');
+      if($where != NULL) {
+          $this->db->where($where, NULL, FALSE);
+      }
+      $query = $this->db->get();
+      return $query->result();
+    }
+
     function modificar_curso_solicitado($serv = array(), $where) {
         $this->db->trans_begin();
         $this->db->where($where);
@@ -58,6 +70,16 @@ class Curso_solicitado extends CI_Model {
     function trae_mensaje_rechazo($where) {
         $this->db->select('*');
         $this->db->from('tbl_cursos_rechazados');
+        if ($where != NULL) {
+            $this->db->where($where, NULL, FALSE);
+        }
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    function trae_curso_solicitado($where) {
+        $this->db->select('*');
+        $this->db->from('view_cursos_solicitados');
         if ($where != NULL) {
             $this->db->where($where, NULL, FALSE);
         }

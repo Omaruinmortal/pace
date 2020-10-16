@@ -128,9 +128,16 @@ class Cursos_solicitados extends CI_Controller
     }
 
     public function calendario_cursos() {
-      $sql = '1=1';
-      $respuesta_fechas_cursos = $this->curso_solicitado->trae_cursos_solicitados($sql);
-      echo json_encode($respuesta_fechas_cursos);
+      $where = 'estado = 2 AND tipo_curso = tbl_cursos.`id_curso`';
+      $respuesta_fechas_cursos = $this->curso_solicitado->trae_fechas_calendario($where);
+      foreach($respuesta_fechas_cursos as $row) {
+        $result[] = array(
+          'id' => $row->id_curso_solicitado,
+          'title' => $row->nombre_curso_disciplina.' '.$row->nombre_institucion,
+          'start' => $row->fecha_solicitud_curso
+        );
+      }
+      echo json_encode($result);
     }
 
     public function trae_cursos_solicitados() {
@@ -167,7 +174,7 @@ class Cursos_solicitados extends CI_Controller
             $status = '<span class="badge badge-soft-warning p-2">Pendiente</span>';
           }
           if($estado == 2){
-            $status = '<button type="button" id="btn_pago_curso" data-id="' . $row->id_curso_solicitado . '"  title="Pagar Curso" class="tabledit-edit-button btn btn-sm btn-warning" style="float: none; margin: 4px;"><span class="ti-money"></span></button> <span class="badge badge-soft-success p-2">Aceptado</span>';
+            $status = '<button type="button" id="btn_agrega_participantes" data-id="' . $row->id_curso_solicitado . '"  title="Agregar Participantes" class="tabledit-edit-button btn btn-sm btn-success" style="float: none; margin: 4px;"><span class="typcn typcn-group-outline"></span></button> <button type="button" id="btn_pago_curso" data-id="' . $row->id_curso_solicitado . '"  title="Pagar Curso" class="tabledit-edit-button btn btn-sm btn-warning" style="float: none; margin: 4px;"><span class="ti-money"></span></button> <span class="badge badge-soft-success p-2">Aceptado</span>';
           }
           if($estado == 3){
             $status = '<button type="button" id="btn_mod_curso_solicitado" data-id="' . $row->id_curso_solicitado . '"  title="Modificar Curso" class="tabledit-edit-button btn btn-sm btn-success" style="float: none; margin: 4px;"><span class="ti-pencil"></span></button> <a type="button" id="btn_mensaje_rechazo" title="Da click para ver motivo de rechazo" data-id="' . $row->id_curso_solicitado . '"><span class="badge badge-soft-danger p-2">Rechazado</span></a>';

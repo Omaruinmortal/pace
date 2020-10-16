@@ -28,6 +28,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('curso');
 		$this->load->model('instructor');
 		$this->load->model('cartel');
+		$this->load->model('curso_solicitado');
 		
         date_default_timezone_set('America/Mexico_City');
     }
@@ -318,6 +319,36 @@ class Dashboard extends CI_Controller {
 
 		}
 	}
+
+	public function vista_agrega_participantes()	{
+        if($this->admin->logged_id())
+		{
+			$id_curso = $this->input->get('id_curso', TRUE);
+			$where_id_curso = 'id_curso_solicitado = '.$id_curso;
+			$curso_solicitado = $this->curso_solicitado->trae_curso_solicitado($where_id_curso);
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['id_curso'] = $curso_solicitado->id_curso_solicitado;
+			$data['curso'] = $curso_solicitado->curso;
+			$data['nombre_institucion'] = $curso_solicitado->nombre_institucion;
+			$data['nombre_curso_disciplina'] =  $curso_solicitado->nombre_curso_disciplina;
+			$data['fecha_solicitud_curso'] =  $curso_solicitado->fecha_solicitud_curso;
+			$data['sede'] =  $curso_solicitado->sede;
+			$data['estado'] =  $curso_solicitado->estado;
+			$data['municipio'] =  $curso_solicitado->municipio;
+			$data['numero_participantes'] = $curso_solicitado->numero_participantes;
+			
+
+            $data['scripts'] = array('script_participantes');
+            $data['layout'] = 'plantilla/lytDefault';
+            $data['contentView'] = 'participantes/agrega_participantes';
+            $this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+		
+    }
 
 
 	public function logout()

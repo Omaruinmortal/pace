@@ -142,6 +142,11 @@ pace.dashboard = (function () {
               });
             });
 
+            $(document).on("click", "#btn_agrega_participantes", function () {
+                var data = $(this).data("id")
+                document.location.href = base_url + '/Dashboard/vista_agrega_participantes?id_curso=' + data
+              });
+
             $(document).on("click", "#btn_mod_curso_solicitado", function () {
                 var data = $(this).data("id")
                 alert(data);
@@ -158,8 +163,10 @@ pace.dashboard = (function () {
           $.ajax({
               url: base_url + '/Cursos_solicitados/calendario_cursos',
               type: 'POST',
+              dataType: 'json',
               success: function (response, textStatus, jqXHR) {
-                console.log(response)
+                var events = response;
+                console.log(events);
                 a = new FullCalendar.Calendar(e,{
                     plugins: ["dayGrid", "timeGrid"],
                     header: {
@@ -191,12 +198,7 @@ pace.dashboard = (function () {
                     },
                     editable: !0,
                     eventLimit: !0,
-                    events: [{
-                        title: "ACLS",
-                        start: "2020-10-23T13:00:00",
-                        constraint: "businessHours",
-                        className: "bg-soft-danger"
-                    }, ],
+                    events: events,
                     eventClick: function(e) {
                         alert('Envio a otra pagina')
                     }
