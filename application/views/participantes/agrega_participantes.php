@@ -147,6 +147,7 @@
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 <script>
     pace.agrega_participantes.init();
+    pace.agrega_papeleria.init();
 </script>
 </body>
 

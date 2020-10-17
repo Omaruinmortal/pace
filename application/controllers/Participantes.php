@@ -85,7 +85,10 @@ class Participantes extends CI_Controller
             $data[] = array(
                 $row->nombre . ' ' . $row->primer_apellido . ' ' . $row->segundo_apellido,
                 $row->correo,
-                '<button type="button" id="btn_eliminar_usuario" data-id="' . $row->id_participante . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>'
+                '<button type="button" id="btn_eliminar_usuario" data-id="' . $row->id_participante . '" title="Eliminar" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 4px;"><span class="ti-trash"></span></button>
+
+                <button type="button" id="btn_papeleria_usuario" data-id="' . $row->id_participante . '" title="Papeleria" class="tabledit-papeleria-button btn btn-sm btn-success" style="float: none; margin: 4px;"><span class="ti-files"></span></button>
+                '
             );           
         }
         $result = array(

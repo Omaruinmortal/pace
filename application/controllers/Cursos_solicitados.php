@@ -60,6 +60,7 @@ class Cursos_solicitados extends CI_Controller
                 $this->form_validation->set_rules('factura', 'factura', 'required');
             }
             $this->form_validation->set_rules('manuales_seg_factura', 'Manuales Factura', 'required');
+            
 
 
 

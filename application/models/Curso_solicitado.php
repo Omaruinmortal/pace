@@ -101,6 +101,16 @@ class Curso_solicitado extends CI_Model {
         }
     }
 
+    function trae_curso_solicitado_papeleria($where) {
+        $this->db->select('*');
+        $this->db->from('view_papeleria');
+        if ($where != NULL) {
+            $this->db->where($where, NULL, FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 
 
 
