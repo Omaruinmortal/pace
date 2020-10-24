@@ -30,8 +30,41 @@ class Reportes extends CI_Controller
 		$this->load->model('cartel');
 		$this->load->model('curso_solicitado');
         $this->load->model('participante');
+        $this->load->library('Mpdf');
         
         date_default_timezone_set('America/Mexico_City');
+    }
+
+    public function getDate(){        
+        $fecha_actual = $this->admin->trae_fecha_actual("Select curdate() as date_actual");
+        $fecha_actual = new DateTime($fecha_actual[0]->date_actual);
+        $fecha_actual = $fecha_actual->format('d/m/Y');
+
+        return $fecha_actual;       
+    }
+
+    public function get_data_participante($participante, $curso){
+        $where = "id_participante=".$participante." and id_curso=".$curso;
+        $buscar_datos_pdf = $this->participante->trae_un_participantes($where);
+    
+        $name = ucwords(strtolower($buscar_datos_pdf->nombre." ".$buscar_datos_pdf->primer_apellido." ".$buscar_datos_pdf->segundo_apellido));
+        $correo = $buscar_datos_pdf->correo;
+        $tel = $buscar_datos_pdf->telefono;
+
+        $datos = array(
+            'name' => $name,
+            'correo' => $correo,
+            'tel' => $tel,           
+        ); 
+
+        return $datos;
+    }
+
+    public function get_data_curso($curso){
+        $where = "id_curso_solicitado=".$curso;
+        $buscar_datos_pdf = $this->curso_solicitado->trae_curso_solicitado($where);
+
+        return $buscar_datos_pdf;        
     }
 
     /*-------------------------------------------------------------------------------------
@@ -153,17 +186,19 @@ public function monitorizacion_acls()
 
 public function lista_comprobacion_via_aerea_acls() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf');
-    $fecha_actual = new DateTime('NOW'); 
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
-    
+
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
@@ -176,17 +211,19 @@ public function lista_comprobacion_via_aerea_acls()
 
 public function Bls_alta_calidad_acls() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf');
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
@@ -198,41 +235,45 @@ public function Bls_alta_calidad_acls()
 } 
 
 public function lista_comprobacion_aprendizaje_practica_acls() 
-{ 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+{     
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
-    $data['fecha_actual']=$fecha_actual; 
+    $data['fecha_actual']=$fecha_actual;
 
     $this->mpdf->lista_comprobacion_aprendizaje_practica_acls('formatos_imprimir/acls/v24.lista_comprobacion_aprendizaje_practica_acls.php',$data); 
 } 
 
 public function lista_prueba_megacode_acls1() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
@@ -245,40 +286,44 @@ public function lista_prueba_megacode_acls1()
 
 public function lista_prueba_megacode_acls2() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
-    $data['fecha_actual']=$fecha_actual; 
+    $data['fecha_actual']=$fecha_actual;
 
     $this->mpdf->lista_prueba_megacode_acls2('formatos_imprimir/acls/v25.2lista_prueba_megacode_acls.php',$data); 
 } 
 
 public function lista_prueba_megacode_acls3() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
@@ -291,17 +336,19 @@ public function lista_prueba_megacode_acls3()
 
 public function lista_prueba_megacode_acls4() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
@@ -314,17 +361,19 @@ public function lista_prueba_megacode_acls4()
 
 public function lista_prueba_megacode_acls5() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
@@ -337,17 +386,19 @@ public function lista_prueba_megacode_acls5()
 
 public function lista_prueba_megacode_acls() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num = "";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
@@ -360,45 +411,53 @@ public function lista_prueba_megacode_acls()
 
 public function evaluacion_teorica_acls() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf');
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array(); 
     
-    $data['fecha']=$fecha_actual->format('d/m/Y');
-    $data['nombre'] ='Omar Martínez Torres';
-    $data['version']="009"; 
+    $data['fecha'] = $date;
+    $data['nombre'] =$datos['name'];
+    $data['version'] = ""; 
 
     $this->mpdf->evaluacion_teorica_acls('formatos_imprimir/acls/v38.evaluacion_teorica_acls.php',$data); 
 } 
 
 public function evaluacion_teorica_remediar_acls() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf');
-    $fecha_actual = new DateTime('NOW');
+
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+
     $data = array(); 
     
-    $data['fecha']=$fecha_actual->format('d/m/Y');
-    $data['nombre'] ='Omar Martínez Torres';
-    $data['version']="009"; 
+    $data['fecha'] = $date;
+    $data['nombre'] =$datos['name'];
+    $data['version'] = ""; 
 
     $this->mpdf->evaluacion_teorica_remediar_acls('formatos_imprimir/acls/v39.evaluacion_teorica_remediar_acls.php',$data); 
 } 
 
 public function constancia_participacion_acls() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+    $datos_curso = $this->get_data_curso($curso );
+    
     $data = array();
 
     //---Variables
-    $fecha_actual=$fecha_actual->format('d/m/Y'); 
-    $estudiante="Omar Martínez Torres";
+    $fecha_actual = $date; 
+    $estudiante = $datos['name'];
     $duracion_horas="5 horas";
     $fecha_curso="14 de Agosto de 2020";
-    $ciudad_curso="Guanajuato, Gto";
+    $ciudad_curso = $datos_curso->municipio.", ".$datos_curso->estado;
     $nac="0012";
     $folio="0089";
     $curso="RCP Familiares y Amigos Reanimación Cardiopulmonar <br> de la American Heart Association";
@@ -1375,26 +1434,27 @@ public function apendiceN_also()
 
 public function examen_destresas_also() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $datos = $this->get_data_participante($participante, $curso);
+ 
     $data = array(); 
-    $data['nombre'] = 'Omar Martínez Torres';
-    $data['folio'] = '8975';   
+    $data['nombre'] = $datos['name'];
+    $data['folio'] = 0;
 
     $this->mpdf->examen_destresas_also('formatos_imprimir/also/v14.examen_destresas_also.php',$data);
 } 
 
 public function evaluacion_teorica_also() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $datos = $this->get_data_participante($participante, $curso);
+ 
     $data = array(); 
-
     $data['nombre_participante'] = array(
-                                        array('nombre' => 'Omar Martínez Torres1', 'folio'=>4345),
-                                        array('nombre' => 'Omar Martínez Torres2', 'folio'=>4344),
-                                        array('nombre' => 'Omar Martínez Torres3', 'folio'=>4341),
-                                    );
+        array('nombre' => $datos['name'], 'folio'=>0)
+    );
 
     $this->mpdf->evaluacion_teorica_also('formatos_imprimir/also/v15.evaluacion_teorica_also.php',$data); 
 } 
@@ -1427,27 +1487,31 @@ public function Formato_Remediacion_also()
 
 public function evaluacion_teorica_remediar_also() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $data = array();    
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $datos = $this->get_data_participante($participante, $curso);
+ 
+    $data = array(); 
     $data['nombre_participante'] = array(
-                                        array('nombre' => 'Omar Martínez Torres1', 'folio'=>4345),
-                                        array('nombre' => 'Omar Martínez Torres2', 'folio'=>4344),
-                                        array('nombre' => 'Omar Martínez Torres3', 'folio'=>4341),
-                                    ); 
-
+        array('nombre' => $datos['name'], 'folio'=>0)
+    );
     $this->mpdf->evaluacion_teorica_remediar_also('formatos_imprimir/also/v18.evaluacion_teorica_remediar_also.php',$data); 
 } 
 
 public function constancia_participacion_also() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf');
 
-    $data['participante']=mb_strtoupper("CARLA GARCÍA CASTANEDO");
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+    $datos_curso = $this->get_data_curso($curso );
+    
+
+    $data['participante'] = mb_strtoupper($datos['name']);
     $data['capacitacion']=mb_strtoupper("proveedor");
-    $data['fecha_emision']="19/01/2020";
-    $data['fecha_renovacion']="19/01/2022";
+    $data['fecha_emision'] = $date;
+    $data['fecha_renovacion'] = "19/01/2020";
     $data['centro']=mb_strtoupper("Centro PACE");
     $data['director_curso']=mb_strtoupper("DR. RODOLFO JESÚS MORALES GONZÁLEZ");
     $data['folio']="2108";
@@ -1455,8 +1519,8 @@ public function constancia_participacion_also()
     $data['dia2']="19";
     $data['mes']=mb_strtoupper("Enero");
     $data['anio']="2020";
-    $data['lugar']=mb_strtoupper("PLAYA DEL CARMEN, QUINTANA ROO");
-  
+    $data['lugar'] = mb_strtoupper($datos_curso->municipio.", ".$datos_curso->estado);
+
     $this->mpdf->constancia_participacion_also('formatos_imprimir/also/v19.constancia_participacion_also.php',$data); 
 } 
 
@@ -2392,100 +2456,105 @@ public function monitorizacion_bls()
 
 public function RCP_DEA_adultos_bls() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+   
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num ="";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
-    $data['fecha_actual']=$fecha_actual;
+    $data['fecha_actual'] = $fecha_actual;
 
     $this->mpdf->RCP_DEA_adultos_bls('formatos_imprimir/bls/v20.RCP_DEA_adultos_bls.php',$data); 
 } 
 
 public function RCP_lactantes_bls() 
-{ 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
+{    
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+   
     $data = array();
 
     //---Variables 
-    $fecha_prueba=$fecha_actual->format('d/m/Y');
-    $estudiante="Omar Martínez Torres";
-    $instructor_ini="OMT";
-    $instructor_num="0015";
-    $fecha_actual=$fecha_actual->format('d/m/Y');
+    $fecha_prueba = $date;
+    $estudiante = $datos['name'];
+    $instructor_ini = "";
+    $instructor_num ="";
+    $fecha_actual = $date;
 
     $data['fecha_prueba'] = $fecha_prueba;
     $data['nombre_estudiante'] = $estudiante; 
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
-    $data['fecha_actual']=$fecha_actual; 
+    $data['fecha_actual'] = $fecha_actual;
+   
 
     $this->mpdf->RCP_lactantes_bls('formatos_imprimir/bls/v21.RCP_lactantes_bls.php',$data); 
 } 
 
 public function evaluacion_teorica_bls() 
-{ 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
-    $fecha_actual = new DateTime('NOW');
-    $participante = $this->input->get['pte'];
-    $curso = $this->input->get['curso'];
-
-    $where="id_participante=".$participante;
-    $buscar_datos_pdf =$this->participante->trae_un_participantes($where);
+{     
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
     
     $data = array(); 
+    $data['fecha'] = $date;
+    $data['nombre'] = $datos['name']; 
+    $data['version'] = "";
 
-    $data['fecha']=$fecha_actual->format('d/m/Y');
-    $data['nombre'] ='Omar Martínez Torres';
-    $data['version']="009";
+    $this->mpdf->evaluacion_teorica_bls('formatos_imprimir/bls/v38.evaluacion_teorica_bls.php',$data);
 
-    $this->mpdf->evaluacion_teorica_bls('formatos_imprimir/bls/v38.evaluacion_teorica_bls.php',$data); 
 } 
 
 public function evaluacion_teorica_cremediar_bls() 
-{ 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf');
-    $fecha_actual = new DateTime('NOW'); 
+{     
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+    
     $data = array(); 
-    $data['fecha']=$fecha_actual->format('d/m/Y');
-    $data['nombre'] ='Omar Martínez Torres';
-    $data['version']="009";
+    $data['fecha'] = $date;
+    $data['nombre'] = $datos['name']; 
+    $data['version'] = "";
 
     $this->mpdf->evaluacion_teorica_cremediar_bls('formatos_imprimir/bls/v39.evaluacion_teorica_cremediar_bls.php',$data); 
 } 
 
 public function constancia_participacion_bls() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf');
-    $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get('pte');
+    $curso = $this->input->get('curso');
+    $date = $this->getDate();
+    $datos = $this->get_data_participante($participante, $curso);
+    $datos_curso = $this->get_data_curso($curso );
+
     $data = array(); 
 
     //---Variables
-    $fecha_actual=$fecha_actual->format('d/m/Y'); 
-    $estudiante="Omar Martínez Torres";
+    $fecha_actual = $date; 
+    $estudiante = $datos['name'];
     $duracion_horas="5 horas";
     $fecha_curso="14 de Agosto de 2020";
-    $ciudad_curso="Guanajuato, Gto";
-    $nac="0012";
-    $folio="0089";
+    $ciudad_curso = $datos_curso->municipio.", ".$datos_curso->estado;
+    $nac="";
+    $folio="";
     $curso="RCP Familiares y Amigos Reanimación Cardiopulmonar <br> de la American Heart Association";
-
     $parrafo="Por su valiosa participación en el curso <br>".$curso." con una  duración de ".$duracion_horas.".<br>Efectuado el día ".$fecha_curso." <br> en la ciudad de ".$ciudad_curso.".";  
     
     $data['nombre_estudiante'] = $estudiante; 
