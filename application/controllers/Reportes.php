@@ -2444,7 +2444,9 @@ public function evaluacion_teorica_bls()
     $participante = $this->input->get['pte'];
     $curso = $this->input->get['curso'];
 
-    $buscar_datos_pdf ="";
+    $where="id_participante=".$participante;
+    $buscar_datos_pdf =$this->participante->trae_un_participantes($where);
+    
     $data = array(); 
 
     $data['fecha']=$fecha_actual->format('d/m/Y');
