@@ -67,6 +67,33 @@ class Reportes extends CI_Controller
         return $buscar_datos_pdf;        
     }
 
+    public function date_format_complete($date){
+        $fecha = (explode("-",$date));
+        $fecha_completa = $fecha[0]." ".$this->meses_letra($fecha[1])." ".$fecha[2];
+
+        return $fecha_completa;       
+
+    }
+    public function meses_letra($mes){
+        switch($mes){
+            case '01': $mes = "Enero"; break;
+            case '02': $mes = "Febrero"; break;
+            case '03': $mes = "Marzo"; break;
+            case '04': $mes = "Abril"; break;
+            case '05': $mes = "Mayo"; break;
+            case '06': $mes = "Junio"; break;
+            case '07': $mes = "Julio"; break;
+            case '08': $mes = "Agosto"; break;
+            case '09': $mes = "Septiembre"; break;
+            case '10': $mes = "Octubre"; break;
+            case '11': $mes = "Noviembre"; break;
+            case '12': $mes = "Diciembre"; break;
+            default: $mes = $mes; break;
+        }
+        return $mes;
+
+    }
+
     /*-------------------------------------------------------------------------------------
     ----------------------------------------Reportes ACLS---------------------------------*/
 
@@ -456,7 +483,7 @@ public function constancia_participacion_acls()
     $fecha_actual = $date; 
     $estudiante = $datos['name'];
     $duracion_horas="5 horas";
-    $fecha_curso="14 de Agosto de 2020";
+    $fecha_curso = $this->date_format_complete($datos_curso->fecha_solicitud_curso);
     $ciudad_curso = $datos_curso->municipio.", ".$datos_curso->estado;
     $nac="0012";
     $folio="0089";
@@ -2550,7 +2577,7 @@ public function constancia_participacion_bls()
     $fecha_actual = $date; 
     $estudiante = $datos['name'];
     $duracion_horas="5 horas";
-    $fecha_curso="14 de Agosto de 2020";
+    $fecha_curso = $this->date_format_complete($datos_curso->fecha_solicitud_curso);
     $ciudad_curso = $datos_curso->municipio.", ".$datos_curso->estado;
     $nac="";
     $folio="";
