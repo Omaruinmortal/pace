@@ -20,12 +20,17 @@ class Reportes extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        //load model admin
+        //load model admin  
         $this->load->library('form_validation');
-        $this->load->model('curso');
-        $this->load->model('admin');
-        $this->load->model('avalador');
-        $this->load->model('instructor');
+        $this->load->model('main');
+		$this->load->model('admin');
+		$this->load->model('avalador');
+		$this->load->model('curso');
+		$this->load->model('instructor');
+		$this->load->model('cartel');
+		$this->load->model('curso_solicitado');
+        $this->load->model('participante');
+        
         date_default_timezone_set('America/Mexico_City');
     }
 
@@ -2436,6 +2441,10 @@ public function evaluacion_teorica_bls()
     $this->load->model('curso'); 
     $this->load->library('Mpdf'); 
     $fecha_actual = new DateTime('NOW');
+    $participante = $this->input->get['pte'];
+    $curso = $this->input->get['curso'];
+
+    $buscar_datos_pdf ="";
     $data = array(); 
 
     $data['fecha']=$fecha_actual->format('d/m/Y');

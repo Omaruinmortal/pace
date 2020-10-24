@@ -79,7 +79,8 @@ class Participantes extends CI_Controller
     public function trae_participantes_curso()
     {
         $data = array();
-        $where = "";
+        $curso=$this->input->get("curso");
+        $where = "id_curso=".$curso;
         $datos = $this->participante->trae_participantes($where);
         foreach ($datos as $row) {
             $data[] = array(

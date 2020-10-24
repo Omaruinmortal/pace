@@ -6,11 +6,13 @@ pace.agrega_participantes = (function () {
         init: function () {
             $(document).ready(function () {
                 var numero_participantes = $('#num_participantes').val()
+                let params = new URLSearchParams(location.search);
+                var curso = params.get('id_curso');
                 
                 var tabla_participantes = $('#datatable_participantes').dataTable({
                     "ajax": {
-                        url: base_url + '/Participantes/trae_participantes_curso',
-                        type: 'POST'
+                        url: base_url + '/Participantes/trae_participantes_curso?curso='+curso,
+                        type: 'POST',
                     },
                     "order": [[0, "asc"]],
                     "pageLength": 10,

@@ -56,50 +56,41 @@
                 <div class="card">
                     <div class="card-body">
                         <!--INICIO DE CONTENIDO-->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row">
 
-                    <?php foreach ($papeleria_curso as $dato):?>
-
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-2 align-self-center">
-                                        <div class="icon-info">
-                                            <i class="mdi mdi-file-multiple text-blue"></i>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="row">
+                                <?php $i=0; foreach ($papeleria_curso as $dato):?>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                                        <div class="card card_papeleria" id="papeleria<?php echo $i; ?>">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-2 align-self-center">
+                                                        <div class="icon-info">
+                                                            <i class="mdi mdi-file-multiple text-blue"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-10 align-self-center text-right" style="height: 120px">
+                                                        <div class="ml-2">
+                                                            <p class="mb-1 text-muted"><?= $dato->pap_nombre; ?></p>
+                                                            <a href="<?php echo base_url()."index.php/Reportes/".$dato->pap_url."?pte=".$id_participante."&curso=".$id_curso; ?>" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a><br>
+                                                            <a href="<?php echo base_url()."index.php/Reportes/".$dato->pap_url."?pte=".$id_participante."&curso=".$id_curso; ?>" class="mt-0 mb-1" target="_blank">Visualizar<i class="dripicons-preview text-muted mr-2 text-pink"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end card-body-->
                                         </div>
+                                        <!--end card-->
                                     </div>
-                                    <div class="col-10 align-self-center text-right">
-                                        <div class="ml-2">
-                                            <p class="mb-1 text-muted"><?= $dato->pap_nombre; ?></p>
-                                            <a href="<?php echo base_url()."index.php/Reportes/".$dato->pap_url; ?>" class="mt-0 mb-1">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a><br>
-                                            <a href="" class="mt-0 mb-1">Visualizar<i class="dripicons-preview text-muted mr-2 text-pink"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <!--end col-->
+                                <?php $i++; endforeach; ?>
                             </div>
-                            <!--end card-body-->
                         </div>
-                        <!--end card-->
-                    </div>
-                    <!--end col-->
-                    <?php endforeach; ?>
 
-                   
-
-                 
-                </div>              
-     
-            </div>
-            <!--FIN DE CONTENIDO-->
-
-
+                        <!--FIN DE CONTENIDO-->
                     </div>
                 </div>
             </div>
-           
-           
         </div>
     </div>
     <footer class="footer text-center text-sm-left">
