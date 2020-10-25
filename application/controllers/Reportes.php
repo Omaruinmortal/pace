@@ -22,6 +22,8 @@ class Reportes extends CI_Controller
         parent::__construct();
         //load model admin  
         $this->load->library('form_validation');
+        $this->load->library('Mpdf');
+        $this->load->library('functions');
         $this->load->model('main');
 		$this->load->model('admin');
 		$this->load->model('avalador');
@@ -30,69 +32,10 @@ class Reportes extends CI_Controller
 		$this->load->model('cartel');
 		$this->load->model('curso_solicitado');
         $this->load->model('participante');
-        $this->load->library('Mpdf');
+        
         
         date_default_timezone_set('America/Mexico_City');
-    }
-
-    public function getDate(){        
-        $fecha_actual = $this->admin->trae_fecha_actual("Select curdate() as date_actual");
-        $fecha_actual = new DateTime($fecha_actual[0]->date_actual);
-        $fecha_actual = $fecha_actual->format('d/m/Y');
-
-        return $fecha_actual;       
-    }
-
-    public function get_data_participante($participante, $curso){
-        $where = "id_participante=".$participante." and id_curso=".$curso;
-        $buscar_datos_pdf = $this->participante->trae_un_participantes($where);
-    
-        $name = ucwords(strtolower($buscar_datos_pdf->nombre." ".$buscar_datos_pdf->primer_apellido." ".$buscar_datos_pdf->segundo_apellido));
-        $correo = $buscar_datos_pdf->correo;
-        $tel = $buscar_datos_pdf->telefono;
-
-        $datos = array(
-            'name' => $name,
-            'correo' => $correo,
-            'tel' => $tel,           
-        ); 
-
-        return $datos;
-    }
-
-    public function get_data_curso($curso){
-        $where = "id_curso_solicitado=".$curso;
-        $buscar_datos_pdf = $this->curso_solicitado->trae_curso_solicitado($where);
-
-        return $buscar_datos_pdf;        
-    }
-
-    public function date_format_complete($date){
-        $fecha = (explode("-",$date));
-        $fecha_completa = $fecha[0]." ".$this->meses_letra($fecha[1])." ".$fecha[2];
-
-        return $fecha_completa;       
-
-    }
-    public function meses_letra($mes){
-        switch($mes){
-            case '01': $mes = "Enero"; break;
-            case '02': $mes = "Febrero"; break;
-            case '03': $mes = "Marzo"; break;
-            case '04': $mes = "Abril"; break;
-            case '05': $mes = "Mayo"; break;
-            case '06': $mes = "Junio"; break;
-            case '07': $mes = "Julio"; break;
-            case '08': $mes = "Agosto"; break;
-            case '09': $mes = "Septiembre"; break;
-            case '10': $mes = "Octubre"; break;
-            case '11': $mes = "Noviembre"; break;
-            case '12': $mes = "Diciembre"; break;
-            default: $mes = $mes; break;
-        }
-        return $mes;
-
-    }
+    }   
 
     /*-------------------------------------------------------------------------------------
     ----------------------------------------Reportes ACLS---------------------------------*/
@@ -215,8 +158,8 @@ public function lista_comprobacion_via_aerea_acls()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -240,8 +183,8 @@ public function Bls_alta_calidad_acls()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -265,8 +208,8 @@ public function lista_comprobacion_aprendizaje_practica_acls()
 {     
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -290,8 +233,8 @@ public function lista_prueba_megacode_acls1()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -315,8 +258,8 @@ public function lista_prueba_megacode_acls2()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -340,8 +283,8 @@ public function lista_prueba_megacode_acls3()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -365,8 +308,8 @@ public function lista_prueba_megacode_acls4()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -390,8 +333,8 @@ public function lista_prueba_megacode_acls5()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -415,8 +358,8 @@ public function lista_prueba_megacode_acls()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array();
 
@@ -440,8 +383,8 @@ public function evaluacion_teorica_acls()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array(); 
     
@@ -457,8 +400,8 @@ public function evaluacion_teorica_remediar_acls()
 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
 
     $data = array(); 
     
@@ -473,9 +416,9 @@ public function constancia_participacion_acls()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
-    $datos_curso = $this->get_data_curso($curso );
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
+    $datos_curso = $this->functions->get_data_curso($curso );
     
     $data = array();
 
@@ -483,7 +426,7 @@ public function constancia_participacion_acls()
     $fecha_actual = $date; 
     $estudiante = $datos['name'];
     $duracion_horas="5 horas";
-    $fecha_curso = $this->date_format_complete($datos_curso->fecha_solicitud_curso);
+    $fecha_curso = $this->functions->date_format_complete($datos_curso->fecha_solicitud_curso);
     $ciudad_curso = $datos_curso->municipio.", ".$datos_curso->estado;
     $nac="0012";
     $folio="0089";
@@ -824,213 +767,29 @@ public function Course_information_also()
 
 public function course_participants_also() 
 { 
-    $this->load->model('curso'); 
-    $this->load->library('Mpdf'); 
     $this->load->library('Functions');
-    $data = array();
+    $curso = $this->input->get('curso');
+    $participantes = $this->functions->get_data_participantes($curso);
 
-    $data['folio']=32;
+    $data = array();
+    $data['folio']="";
     $data['tam_reg_tabla']=10;
 
-    $data['participantes'] = array(
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    array(
-                                        'nombre' => 'Omar Martínez Martínez',
-                                        'correo' => 'omar@gmail.com',
-                                        'escrito'=> 85,
-                                        'practico'=> 90,
-                                        'aprueba'=> $this->functions->aprobado_noaprobado(1),
-                                        'pi'=> 90,
-                                        ),
-                                    
+    $arreglo_completo = array();
 
-                            );
+    foreach ($participantes as $dato) {
+        $datos = array(
+            'nombre' => $dato->nombre." ".$dato->primer_apellido." ".$dato->segundo_apellido,
+            'correo' => $dato->correo,
+            'escrito'=> "",
+            'practico'=> "",
+            'aprueba'=> $this->functions->aprobado_noaprobado(),
+            'pi'=> "",
+        );
+        array_push($arreglo_completo,$datos);
+    }    
 
-    
-
+    $data['participantes'] = $arreglo_completo;
     $this->mpdf->course_participants_also('formatos_imprimir/also/v2.course_participants_also.php',$data); 
 }
 
@@ -1463,7 +1222,7 @@ public function examen_destresas_also()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $datos = $this->get_data_participante($participante, $curso);
+    $datos = $this->functions->get_data_participante($participante, $curso);
  
     $data = array(); 
     $data['nombre'] = $datos['name'];
@@ -1476,7 +1235,7 @@ public function evaluacion_teorica_also()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $datos = $this->get_data_participante($participante, $curso);
+    $datos = $this->functions->get_data_participante($participante, $curso);
  
     $data = array(); 
     $data['nombre_participante'] = array(
@@ -1516,7 +1275,7 @@ public function evaluacion_teorica_remediar_also()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $datos = $this->get_data_participante($participante, $curso);
+    $datos = $this->functions->get_data_participante($participante, $curso);
  
     $data = array(); 
     $data['nombre_participante'] = array(
@@ -1530,9 +1289,9 @@ public function constancia_participacion_also()
 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
-    $datos_curso = $this->get_data_curso($curso );
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
+    $datos_curso = $this->functions->get_data_curso($curso );
     
 
     $data['participante'] = mb_strtoupper($datos['name']);
@@ -2485,8 +2244,8 @@ public function RCP_DEA_adultos_bls()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
    
     $data = array();
 
@@ -2510,8 +2269,8 @@ public function RCP_lactantes_bls()
 {    
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
    
     $data = array();
 
@@ -2536,8 +2295,8 @@ public function evaluacion_teorica_bls()
 {     
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
     
     $data = array(); 
     $data['fecha'] = $date;
@@ -2552,8 +2311,8 @@ public function evaluacion_teorica_cremediar_bls()
 {     
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
     
     $data = array(); 
     $data['fecha'] = $date;
@@ -2567,9 +2326,9 @@ public function constancia_participacion_bls()
 { 
     $participante = $this->input->get('pte');
     $curso = $this->input->get('curso');
-    $date = $this->getDate();
-    $datos = $this->get_data_participante($participante, $curso);
-    $datos_curso = $this->get_data_curso($curso );
+    $date = $this->functions->getDate();
+    $datos = $this->functions->get_data_participante($participante, $curso);
+    $datos_curso = $this->functions->get_data_curso($curso );
 
     $data = array(); 
 
@@ -2577,7 +2336,7 @@ public function constancia_participacion_bls()
     $fecha_actual = $date; 
     $estudiante = $datos['name'];
     $duracion_horas="5 horas";
-    $fecha_curso = $this->date_format_complete($datos_curso->fecha_solicitud_curso);
+    $fecha_curso = $this->functions->date_format_complete($datos_curso->fecha_solicitud_curso);
     $ciudad_curso = $datos_curso->municipio.", ".$datos_curso->estado;
     $nac="";
     $folio="";
