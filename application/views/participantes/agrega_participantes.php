@@ -17,7 +17,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">Llenar datos de Participantes del curso:</h4>
@@ -36,6 +36,203 @@
                 <!--end card-->
             </div>
             <!--end col-->
+            <div class="col-md-7">
+                <div class="row">
+                    <div id="demo" class="carousel slide col-xs-12 col-sm-12 col-md-12 col-lg-12" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                          <li data-target="#demo" data-slide-to="0" class="active"></li>
+                          <li data-target="#demo" data-slide-to="1"></li>
+                        </ul>
+                
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <?php 
+                                $doc_completo = "";
+                                $i=1;
+                                $y=1;
+                                $tam_array = count($papeleria_curso);
+                                $divs="";
+                                $iteracion=ceil($tam_array);
+                                
+                                if($tam_array>4){
+                                    $lim=4;
+                                }else{
+                                    $lim=$tam_array;
+                                }
+
+                                foreach ($papeleria_curso as $dato) {
+                                    if($i==$lim-1){$active = "active";}
+                                    else{$active = ""; }
+
+                                    if($y<$lim){
+                                        $divs.= '
+                                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                                             <div class="card card_papeleria" id="papeleria'.$y.'">
+                                                 <div class="card-body">
+                                                     <div class="row">
+                                                         <div class="col-2 align-self-center">
+                                                             <div class="icon-info">
+                                                                 <i class="mdi mdi-file-multiple text-blue"></i>
+                                                             </div>
+                                                         </div>
+                                                         <div class="col-10 align-self-center text-right" style="height: 120px">
+                                                             <div class="ml-2">
+                                                                 <p class="mb-1 text-muted">'.$dato->pap_nombre.'</p>
+                                                                 <a href="'.base_url().'index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                                 <!--end card-body-->
+                                             </div>
+                                             <!--end card-->
+                                         </div>
+                                         <!--end col-->                                         
+                                         ';                                         
+                                        $y++;
+                                        
+                                        if($y==$lim){
+                                            $doc_completo.= 
+                                                '<div class="carousel-item '.$active.'">
+                                                    <div class="row">'
+                                                        .$divs.
+                                                    '</div>
+                                                </div>
+                                                ';
+
+                                        $divs="";
+                                        $y=1;                                        
+                                        }
+                                    }
+
+
+                                    $i++;
+                                }
+
+                                echo $doc_completo;
+
+
+
+
+
+
+
+
+
+                            $i = 1;
+                            $y = 1;
+                            $divs = "";
+                            $completo = "";
+                            $active="";
+                            $tam = count($papeleria_curso);
+                            $z=1;
+
+                            
+                            foreach ($papeleria_curso as $dato) {
+                                if($y==4){$active = "active";}
+                                else{$active = ""; }
+                                $m=1;
+                                
+                                
+
+                                if($z<4){
+                                    $divs.= '
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                                        <div class="card card_papeleria" id="papeleria'.$y.'">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-2 align-self-center">
+                                                        <div class="icon-info">
+                                                            <i class="mdi mdi-file-multiple text-blue"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-10 align-self-center text-right" style="height: 120px">
+                                                        <div class="ml-2">
+                                                            <p class="mb-1 text-muted">'.$dato->pap_nombre.'</p>
+                                                            <a href="'.base_url().'index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end card-body-->
+                                        </div>
+                                        <!--end card-->
+                                    </div>
+                                    <!--end col--> 
+                                    
+                                    ';
+                                    $m++;
+                                }
+
+                                if($m==3){
+                                        $z=1;
+                                        $completo.= 
+                                                '<div class="carousel-item '.$active.'">
+                                                    <div class="row">'
+                                                        .$divs.
+                                                    '</div>
+                                                </div>
+                                                ';
+    
+                                        
+                                        $divs="";
+                                    
+                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                if($i<4){
+                                    
+                            
+                                    $i++;
+
+                                }else{
+                                    $i = 0;
+                                    $completo.= 
+                                            '<div class="carousel-item '.$active.'">
+                                                <div class="row">'
+                                                    .$divs.
+                                                '</div>
+                                            </div>
+                                            ';
+
+                                    
+                                    $divs="";
+                                }
+                                $y++;                              
+
+                            }
+
+
+                            
+                            ?>
+
+                                                      
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <i class="fas fa-chevron-left" style="color:gray"></i>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <i class="fas fa-chevron-right" style="color:gray"></i>
+                        </a>
+                    </div>
+                </div> 
+                <!--end row-->                
+            </div>
+            <!--end col -->
         </div>
         <div class="row">
             <div class="col-md-5">

@@ -327,7 +327,12 @@ class Dashboard extends CI_Controller {
 		{
 			$id_curso = $this->input->get('id_curso', TRUE);
 			$where_id_curso = 'id_curso_solicitado = '.$id_curso;
+			$where_papeleria="id_curso_solicitado=".$id_curso." and pap_tipo_user=1";
+
 			$curso_solicitado = $this->curso_solicitado->trae_curso_solicitado($where_id_curso);
+			$papeleria_curso = $this->curso_solicitado->trae_curso_solicitado_papeleria($where_papeleria);
+			
+
 			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
 			$data['id_curso'] = $curso_solicitado->id_curso_solicitado;
 			$data['curso'] = $curso_solicitado->curso;
@@ -338,6 +343,7 @@ class Dashboard extends CI_Controller {
 			$data['estado'] =  $curso_solicitado->estado;
 			$data['municipio'] =  $curso_solicitado->municipio;
 			$data['numero_participantes'] = $curso_solicitado->numero_participantes;
+			$data['papeleria_curso'] = $papeleria_curso;
 			
 
             $data['scripts'] = array('script_participantes', 'script_papeleria');

@@ -42,70 +42,48 @@ class Reportes extends CI_Controller
 
 public function course_information_participants_acls() 
 {     
-    $this->load->library('Mpdf');
-    $fecha_actual = new DateTime('NOW');
-    $exp_card_date=new DateTime('2021-05-12');
-    $course_start=new DateTime('2021-05-30');
-    $course_end=new DateTime('2021-05-30');
-    $iss_date_card=new DateTime('2021-05-27');
 
-        $data['lead_instructor']='Omar Martinez';
-        $data['id_lead_instructor']='0085';
-        $data['exp_card_date']=$exp_card_date->format('d/m/Y');
-        $data['tra_center']='Escuela de Medicina de la UG';
-        $data['id_tra_center']=943;
-        $data['name_tra_center']="example de tra center";
-        $data['adress']='C. Principal No.S/N';
-        $data['city_sz']='Guanajuato; 36000';
-        $data['location_course']='Escuela de Medicina de la UG';
-        $data['type_course']=2;
-        $data['course_start']=$course_start->format('d/m/Y').' 10 am';
-        $data['course_end']=$course_end->format('d/m/Y').' 03 pm';
-        $data['time_inst']="1 hora";
-        $data['cards_iss']=5;
-        $data['ratio']="3:1";
-        $data['iss_date_card']=$iss_date_card->format('d/m/Y');
-        $data['tam_reg_tabla_2']=10;
-        $data['fecha_actual']=$fecha_actual->format('d/m/Y');
-
-
-        $data['instructores']=array(
-                            array('name' =>'Omar Martínez1','vencimiento'=>'12/10/2021'),
-                            array('name' =>'Omar Martínez2','vencimiento'=>'12/10/2022'),
-                            array('name' =>'Omar Martínez3','vencimiento'=>'12/10/2023'),
-                            array('name' =>'Omar Martínez4','vencimiento'=>'12/10/2024'),
-                            array('name' =>'Omar Martínez5','vencimiento'=>'12/10/2025'),
-                            array('name' =>'Omar Martínez6','vencimiento'=>'12/10/2026'),
-                            array('name' =>'Omar Martínez7','vencimiento'=>'12/10/2027'),
-                            array('name' =>'Omar Martínez8','vencimiento'=>'12/10/2028'),
-                            array('name' =>'Omar Martínez9','vencimiento'=>'12/10/2029'),
-                            array('name' =>'Omar Martínez10','vencimiento'=>'12/10/2030'),
-                            array('name' =>'Omar Martínez11','vencimiento'=>'12/10/2031'),
+    $curso = $this->input->get('curso');
+    $participantes = $this->functions->get_data_participantes($curso);
+    $datos_curso = $this->functions->get_data_curso($curso);
+    $fecha_actual = $this->functions->getDate();
+     $data = array();
+    $arreglo_completo = array();
+    $arreglo_instructores_completo = array(
+        array('name' =>'','vencimiento'=>''),
+                  
+    );
+     foreach ($participantes as $dato) {
+        $datos = array(
+            'name' => ucwords(strtolower($dato->nombre." ".$dato->primer_apellido." ".$dato->segundo_apellido)),
+            'email' => $dato->correo,
+            'cp_tel'=> "Teléfono: ".$dato->telefono,
+            'completed'=> "",
+            'remed_date'=> "",
         );
-        $data['participantes']=array(
-                            array('name' =>'Omar Martínez1', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2021'),
-                            array('name' =>'Omar Martínez2', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2022'),
-                            array('name' =>'Omar Martínez3', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2023'),
-                            array('name' =>'Omar Martínez4', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2024'),
-                            array('name' =>'Omar Martínez5', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2025'),
-                            array('name' =>'Omar Martínez6', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2026'),
-                            array('name' =>'Omar Martínez7', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2027'),
-                            array('name' =>'Omar Martínez8', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2028'),
-                            array('name' =>'Omar Martínez9', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2029'),
-                            array('name' =>'Omar Martínez10','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2030'),
-                            array('name' =>'Omar Martínez11','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez12','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez13','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez14','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez15','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez16','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez17','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez18','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez19','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez20','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez21','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                    
-                        );      
+        array_push($arreglo_completo,$datos);
+    }
+    
+    $data['lead_instructor'] = '';
+    $data['id_lead_instructor'] = '';
+    $data['exp_card_date'] = "";
+    $data['tra_center'] = $datos_curso->sede;
+    $data['id_tra_center'] = "";
+    $data['name_tra_center'] = "";
+    $data['adress'] = '';
+    $data['city_sz'] = $datos_curso->municipio." ".$datos_curso->estado;
+    $data['location_course'] = $datos_curso->sede;
+    $data['type_course'] = 2; 
+    $data['course_start'] = $datos_curso->fecha_solicitud_curso;
+    $data['course_end'] = "";
+    $data['time_inst'] = "";
+    $data['cards_iss'] = "";
+    $data['ratio'] = "";
+    $data['iss_date_card'] = "";
+    $data['tam_reg_tabla_2'] = count($participantes);
+    $data['fecha_actual'] = $fecha_actual;
+    $data['participantes'] = $arreglo_completo;
+    $data['instructores'] = $arreglo_instructores_completo;
 
     $this->mpdf->course_information_participants_acls('formatos_imprimir/acls/v1.course_information_participants_acls.php',$data); 
 } 
@@ -769,17 +747,17 @@ public function course_participants_also()
 { 
     $this->load->library('Functions');
     $curso = $this->input->get('curso');
-    $participantes = $this->functions->get_data_participantes($curso);
+    $participantes = $this->functions->get_data_participantes($curso);    
 
     $data = array();
     $data['folio']="";
-    $data['tam_reg_tabla']=10;
+    $data['tam_reg_tabla'] = count($participantes);
 
     $arreglo_completo = array();
 
     foreach ($participantes as $dato) {
         $datos = array(
-            'nombre' => $dato->nombre." ".$dato->primer_apellido." ".$dato->segundo_apellido,
+            'nombre' => ucwords(strtolower($dato->nombre." ".$dato->primer_apellido." ".$dato->segundo_apellido)),
             'correo' => $dato->correo,
             'escrito'=> "",
             'practico'=> "",
@@ -2120,70 +2098,50 @@ public function ejemplo_reporte_logistica_amls()
 
 public function course_information_participants_bls() 
 { 
-    $this->load->library('Mpdf');
-    $fecha_actual = new DateTime('NOW');
-    $exp_card_date=new DateTime('2021-05-12');
-    $course_start=new DateTime('2021-05-30');
-    $course_end=new DateTime('2021-05-30');
-    $iss_date_card=new DateTime('2021-05-27');
+    $curso = $this->input->get('curso');
+    $participantes = $this->functions->get_data_participantes($curso);
+    $datos_curso = $this->functions->get_data_curso($curso);
+    $fecha_actual = $this->functions->getDate();
 
-        $data['lead_instructor']='Omar Martinez';
-        $data['id_lead_instructor']='0085';
-        $data['exp_card_date']=$exp_card_date->format('d/m/Y');
-        $data['tra_center']='Escuela de Medicina de la UG';
-        $data['id_tra_center']=943;
-        $data['name_tra_center']="example de tra center";
-        $data['adress']='C. Principal No.S/N';
-        $data['city_sz']='Guanajuato; 36000';
-        $data['location_course']='Escuela de Medicina de la UG';
-        $data['type_course']=4;
-        $data['course_start']=$course_start->format('d/m/Y').' 10 am';
-        $data['course_end']=$course_end->format('d/m/Y').' 03 pm';
-        $data['time_inst']="1 hora";
-        $data['cards_iss']=5;
-        $data['ratio']="3:1";
-        $data['iss_date_card']=$iss_date_card->format('d/m/Y');
-        $data['tam_reg_tabla_2']=10;
-        $data['fecha_actual']=$fecha_actual->format('d/m/Y');
+    $data = array();
+    $arreglo_completo = array();
+    $arreglo_instructores_completo = array(
+        array('name' =>'','vencimiento'=>''),
+                  
+    );
 
-
-        $data['instructores']=array(
-                            array('name' =>'Omar Martínez1','vencimiento'=>'12/10/2021'),
-                            array('name' =>'Omar Martínez2','vencimiento'=>'12/10/2022'),
-                            array('name' =>'Omar Martínez3','vencimiento'=>'12/10/2023'),
-                            array('name' =>'Omar Martínez4','vencimiento'=>'12/10/2024'),
-                            array('name' =>'Omar Martínez5','vencimiento'=>'12/10/2025'),
-                            array('name' =>'Omar Martínez6','vencimiento'=>'12/10/2026'),
-                            array('name' =>'Omar Martínez7','vencimiento'=>'12/10/2027'),
-                            array('name' =>'Omar Martínez8','vencimiento'=>'12/10/2028'),
-                            array('name' =>'Omar Martínez9','vencimiento'=>'12/10/2029'),
-                            array('name' =>'Omar Martínez10','vencimiento'=>'12/10/2030'),
-                            array('name' =>'Omar Martínez11','vencimiento'=>'12/10/2031'),
+    foreach ($participantes as $dato) {
+        $datos = array(
+            'name' => ucwords(strtolower($dato->nombre." ".$dato->primer_apellido." ".$dato->segundo_apellido)),
+            'email' => $dato->correo,
+            'cp_tel'=> "Teléfono: ".$dato->telefono,
+            'completed'=> "",
+            'remed_date'=> "",
         );
-        $data['participantes']=array(
-                            array('name' =>'Omar Martínez1', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2021'),
-                            array('name' =>'Omar Martínez2', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2022'),
-                            array('name' =>'Omar Martínez3', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2023'),
-                            array('name' =>'Omar Martínez4', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2024'),
-                            array('name' =>'Omar Martínez5', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2025'),
-                            array('name' =>'Omar Martínez6', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2026'),
-                            array('name' =>'Omar Martínez7', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2027'),
-                            array('name' =>'Omar Martínez8', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2028'),
-                            array('name' =>'Omar Martínez9', 'email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2029'),
-                            array('name' =>'Omar Martínez10','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2030'),
-                            array('name' =>'Omar Martínez11','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez12','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez13','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez14','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez15','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez16','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez17','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez18','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez19','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez20','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                            array('name' =>'Omar Martínez21','email'=>'omar-martinez@hotmail.com','cp_tel'=>'Cp: 36000 Teléfono: 737658956','completed'=>'complete','remed_date'=>'12/10/2031'),
-                    
-                        );  
+        array_push($arreglo_completo,$datos);
+    }
+    
+    
+    $data['lead_instructor'] = '';
+    $data['id_lead_instructor'] = '';
+    $data['exp_card_date'] = "";
+    $data['tra_center'] = $datos_curso->sede;
+    $data['id_tra_center'] = "";
+    $data['name_tra_center'] = "";
+    $data['adress'] = '';
+    $data['city_sz'] = $datos_curso->municipio." ".$datos_curso->estado;
+    $data['location_course'] = $datos_curso->sede;
+    $data['type_course'] = 4; 
+    $data['course_start'] = $datos_curso->fecha_solicitud_curso;
+    $data['course_end'] = "";
+    $data['time_inst'] = "";
+    $data['cards_iss'] = "";
+    $data['ratio'] = "";
+    $data['iss_date_card'] = "";
+    $data['tam_reg_tabla_2'] = count($participantes);
+    $data['fecha_actual'] = $fecha_actual;
+    $data['participantes'] = $arreglo_completo;
+    $data['instructores'] = $arreglo_instructores_completo;
 
     $this->mpdf->course_information_participants_bls('formatos_imprimir/bls/v1.course_information_participants_bls.php',$data); 
 } 
