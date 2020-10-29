@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         <center>
-                            <h4 class="mt-0 header-title">Pre autorización de cruso (NAC)</h4>
+                            <h4 class="mt-0 header-title">Pre autorización de curso (NAC)</h4>
                         </center>
                         <form id="form_curso_solicitado" method="post">
                         <div class="row">                        
