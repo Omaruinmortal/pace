@@ -89,7 +89,7 @@ class Cursos_solicitados extends CI_Controller
                         values (".$curso.",'".$nombre_institucion."',".$tipo_curso.",'".$fecha_solicitud_curso."','".$sede."',".$id_estado.",".$id_municipio.",".$numero_participantes.",'" . $data['file_name'] . "',".$manuales_seg_factura.",".$precio_tentativo.",".$this->session->userdata('user_id').")";
 
                         $res = $this->curso_solicitado->guarda_curso_solicitado($sql);
-
+                        
                         if($res == true){
                             $array = array(
                                 'success' => 'OK'

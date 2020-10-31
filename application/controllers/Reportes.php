@@ -46,8 +46,9 @@ public function course_information_participants_acls()
     $curso = $this->input->get('curso');
     $participantes = $this->functions->get_data_participantes($curso);
     $datos_curso = $this->functions->get_data_curso($curso);
+    die(var_dump($datos_curso));
     $fecha_actual = $this->functions->getDate();
-     $data = array();
+    $data = array();
     $arreglo_completo = array();
     $arreglo_instructores_completo = array(
         array('name' =>'','vencimiento'=>''),

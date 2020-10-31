@@ -111,6 +111,16 @@ class Curso_solicitado extends CI_Model {
         return $query->result();
     }
 
+    function trae_nac_curso($where) {
+        $this->db->select('*');
+        $this->db->from('tbl_curso_nac');
+        if ($where != NULL) {
+            $this->db->where($where, NULL, FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 
 
 

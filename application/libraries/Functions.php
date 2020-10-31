@@ -13,6 +13,7 @@ class Functions{
       	$this->ci->load->model('cartel');
       	$this->ci->load->model('curso_solicitado');
         $this->ci->load->model('participante'); 
+        
    }   
 
 
@@ -59,8 +60,13 @@ class Functions{
     public function get_data_curso($curso){
         $where = "id_curso_solicitado=".$curso;
         $buscar_datos_pdf = $this->ci->curso_solicitado->trae_curso_solicitado($where);
-    
-        return $buscar_datos_pdf;        
+        $where_nac = "id_curso = ".$curso;
+        $nac_curso = $this->ci->curso_solicitado->trae_nac_curso($where_nac);
+        $array = array(
+            'buscar_datos_pdf' => $buscar_datos_pdf,
+            'nac_curso' => $nac_curso,
+        ); 
+        return $array;        
     }
 
 /*--------Fechas generales---------------------------------------------------------------------------------------------------------------------------------------*/
