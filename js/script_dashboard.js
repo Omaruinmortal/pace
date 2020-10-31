@@ -159,7 +159,6 @@ pace.dashboard = (function () {
               url: base_url + '/Cursos_solicitados/calendario_cursos',
               type: 'POST',
               success: function (response, textStatus, jqXHR) {
-                console.log(response)
                 a = new FullCalendar.Calendar(e,{
                     plugins: ["dayGrid", "timeGrid"],
                     header: {
