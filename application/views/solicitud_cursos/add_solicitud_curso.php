@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         <center>
-                            <h4 class="mt-0 header-title">Pre autorización de cruso (NAC)</h4>
+                            <h4 class="mt-0 header-title">Pre autorización de curso (NAC)</h4>
                         </center>
                         <form id="form_curso_solicitado" method="post">
                         <div class="row">                        
@@ -57,6 +57,36 @@
                                             <small id="alert-tipo_curso" class="form-text"></small>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                    
+                                    <div class="repeater-default">
+                                                <div data-repeater-list="fecha_solicitud">
+                                                    <div data-repeater-item="">
+                                                        <div class="form-group row d-flex align-items-end">                                                            
+                                                            <label for="example-text-input" class="col-sm-6 col-form-label text-right">Fecha de Solicitud <font color="red">*</font></label>
+                                                            <div class="col-sm-6">
+                                                            <input class="form-control " namespace type="date" value="0" name="fecha_solicitud_curso">
+                                                            <small id="alert-fecha_solicitud_curso" class="form-text"></small>
+                                                            <span data-repeater-delete="" class="btn btn-gradient-danger btn-sm">
+                                                                <span class="far fa-trash-alt mr-1"></span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                           
+                                                        </div><!--end col-->
+                                                        </div><!--end row-->
+                                                    </div><!--end /div-->
+                                                </div><!--end repet-list-->
+                                                <div class="form-group mb-0 row">
+                                                    <div class="col-sm-12">
+                                                        <span data-repeater-create="" class="btn btn-gradient-secondary">
+                                                            <span class="fas fa-plus"></span> 
+                                                        </span>
+                                                    </div><!--end col-->
+                                                </div><!--end row-->                                         
+                                            </div> <!--end repeter--> 
+                                    </div>
+
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Fecha de Solicitud <font color="red">*</font></label>
                                         <div class="col-sm-8">
@@ -193,7 +223,8 @@
 <script src="<?php echo base_url(); ?>assets/js/sweetalert2.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/apexcharts/apexcharts.min.js"></script>
-
+<script src="<?php echo base_url(); ?>assets/plugins/repeater/jquery.repeater.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/repeater/jquery.repeater.min.js"></script>
 
 <!-- App js -->
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
@@ -201,6 +232,21 @@
     pace.solicitud_curso.init_solicitud_curso();
     pace.solicitud_curso.valida_formulario_solicitud_curso();
     pace.solicitud_curso.submit_curso_solicitado();
+
+    $(document).ready(function (){
+        $('.repeater-default').repeater();
+
+        $('.repeater-custom-show-hide').repeater({
+            show: function () {
+            $(this).slideDown();
+            },
+            hide: function (remove) {
+            if (confirm('Are you sure you want to remove this item?')) {
+                $(this).slideUp(remove);
+            }
+            }
+        });
+    })
 </script>
 </body>
 

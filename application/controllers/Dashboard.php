@@ -28,7 +28,10 @@ class Dashboard extends CI_Controller {
 		$this->load->model('curso');
 		$this->load->model('instructor');
 		$this->load->model('cartel');
-		
+		$this->load->model('curso_solicitado');
+		$this->load->model('participante');
+
+		$date_actual=$this->admin->trae_fecha_actual("select CURDATE()");		
         date_default_timezone_set('America/Mexico_City');
     }
 
@@ -319,11 +322,93 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
+	public function vista_agrega_participantes()	{
+        if($this->admin->logged_id())
+		{
+			$id_curso = $this->input->get('id_curso', TRUE);
+			$where_id_curso = 'id_curso_solicitado = '.$id_curso;
+			$where_papeleria="id_curso_solicitado=".$id_curso." and pap_tipo_user=1";
+
+			$curso_solicitado = $this->curso_solicitado->trae_curso_solicitado($where_id_curso);
+			$papeleria_curso = $this->curso_solicitado->trae_curso_solicitado_papeleria($where_papeleria);
+			
+
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
+			$data['id_curso'] = $curso_solicitado->id_curso_solicitado;
+			$data['curso'] = $curso_solicitado->curso;
+			$data['nombre_institucion'] = $curso_solicitado->nombre_institucion;
+			$data['nombre_curso_disciplina'] =  $curso_solicitado->nombre_curso_disciplina;
+			$data['fecha_solicitud_curso'] =  $curso_solicitado->fecha_solicitud_curso;
+			$data['sede'] =  $curso_solicitado->sede;
+			$data['estado'] =  $curso_solicitado->estado;
+			$data['municipio'] =  $curso_solicitado->municipio;
+			$data['numero_participantes'] = $curso_solicitado->numero_participantes;
+			$data['papeleria_curso'] = $papeleria_curso;
+			
+
+            $data['scripts'] = array('script_participantes', 'script_papeleria');
+            $data['layout'] = 'plantilla/lytDefault';
+            $data['contentView'] = 'participantes/agrega_participantes';
+            $this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+		
+    }
+
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
 		redirect('login');
+	}
+
+	public function vista_papeleria_participante()
+	{
+
+		if($this->admin->logged_id())
+		{
+			$id_participante = $this->input->get('pte', TRUE);
+			$where_participante = "id_participante=".$id_participante." and visible=1";
+			$datos_participante = $this->participante->trae_participantes($where_participante);
+			
+			$data['id_participante'] = $datos_participante[0]->id_participante;
+            $data['nombre'] = $datos_participante[0]->nombre;
+            $data['primer_apellido'] = $datos_participante[0]->primer_apellido;
+            $data['segundo_apellido'] = $datos_participante[0]->segundo_apellido;
+            $data['correo'] = $datos_participante[0]->correo;
+            $data['telefono'] = $datos_participante[0]->telefono;
+            $data['id_curso'] = $datos_participante[0]->id_curso;
+
+			$id_curso = $datos_participante[0]->id_curso;
+			$where_curso = 'id_curso_solicitado = '.$id_curso;
+			$curso_solicitado = $this->curso_solicitado->trae_curso_solicitado($where_curso);
+			$data['curso'] = $curso_solicitado->curso;
+			$data['nombre_institucion'] = $curso_solicitado->nombre_institucion;
+			$data['nombre_curso_disciplina'] =  $curso_solicitado->nombre_curso_disciplina;
+			$data['fecha_solicitud_curso'] =  $curso_solicitado->fecha_solicitud_curso;
+			$data['sede'] =  $curso_solicitado->sede;
+			$data['estado'] =  $curso_solicitado->estado;
+			$data['municipio'] =  $curso_solicitado->municipio;
+			$data['numero_participantes'] = $curso_solicitado->numero_participantes;
+
+			$where_papeleria="id_curso_solicitado=".$id_curso." and pap_tipo_user=2";				
+			$papeleria_curso = $this->curso_solicitado->trae_curso_solicitado_papeleria($where_papeleria);
+			$data['papeleria_curso'] = $papeleria_curso;
+
+			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');			
+            $data['scripts'] = array('script_participantes', 'script_papeleria');
+            $data['layout'] = 'plantilla/lytDefault';
+            $data['contentView'] = 'participantes/vPapeleria';
+            $this->_renderView($data);		
+
+		}else{
+			redirect("login");
+
+		}
+		
 	}
 
 }

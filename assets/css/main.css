@@ -1,0 +1,16 @@
+.fa-chevron-right, .fa-chevron-left{
+    color: #45dbf4!important;
+    font-size: 30px!important;
+    font-weight: bold!important;
+}
+.carousel-control-next{
+    right: -64px!important;
+}
+
+.carousel-control-prev{
+    left: -50px!important;
+
+}
+.text-muted {
+    color: #6d78a0 !important;
+}
