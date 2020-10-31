@@ -165,11 +165,7 @@ pace.dashboard = (function () {
               type: 'POST',
               dataType: 'json',
               success: function (response, textStatus, jqXHR) {
-<<<<<<< HEAD
-=======
                 var events = response;
-                console.log(events);
->>>>>>> 78272792ff9fed3971bab8d718bc434672856633
                 a = new FullCalendar.Calendar(e,{
                     plugins: ["dayGrid", "timeGrid"],
                     header: {
