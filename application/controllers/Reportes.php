@@ -46,7 +46,7 @@ public function course_information_participants_acls()
     $curso = $this->input->get('curso');
     $participantes = $this->functions->get_data_participantes($curso);
     $datos_curso = $this->functions->get_data_curso($curso);
-    die(var_dump($datos_curso));
+    
     $fecha_actual = $this->functions->getDate();
     $data = array();
     $arreglo_completo = array();
@@ -85,6 +85,8 @@ public function course_information_participants_acls()
     $data['fecha_actual'] = $fecha_actual;
     $data['participantes'] = $arreglo_completo;
     $data['instructores'] = $arreglo_instructores_completo;
+    $data['qr_nac'] = $datos_curso->qr_nac;
+    
 
     $this->mpdf->course_information_participants_acls('formatos_imprimir/acls/v1.course_information_participants_acls.php',$data); 
 } 

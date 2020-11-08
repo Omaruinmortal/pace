@@ -59,6 +59,7 @@
                                     </div>
                                     <div class="form-group row">
                                     
+                                    <!--
                                     <div class="repeater-default">
                                                 <div data-repeater-list="fecha_solicitud">
                                                     <div data-repeater-item="">
@@ -73,20 +74,21 @@
                                                         </div>
                                                         <div class="col-sm-1">
                                                            
-                                                        </div><!--end col-->
-                                                        </div><!--end row-->
-                                                    </div><!--end /div-->
-                                                </div><!--end repet-list-->
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group mb-0 row">
                                                     <div class="col-sm-12">
                                                         <span data-repeater-create="" class="btn btn-gradient-secondary">
                                                             <span class="fas fa-plus"></span> 
                                                         </span>
-                                                    </div><!--end col-->
-                                                </div><!--end row-->                                         
-                                            </div> <!--end repeter--> 
+                                                    </div>
+                                                </div>                                    
+                                    </div> 
+                                    -->
                                     </div>
-
+                                    
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Fecha de Solicitud <font color="red">*</font></label>
                                         <div class="col-sm-8">
@@ -104,7 +106,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label text-right">Estado <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <select class="form-control" id="id_estado" name="id_estado">
+                                            <select class="form-control" id="id_estado" name="id_estado" onchange="">
                                                 <option value="none" selected="selected">-- Seleccione una opción --</option>
                                                 <?php 
                                                 foreach ($estados as $key => $estado) { ?>
@@ -114,15 +116,11 @@
                                             <small id="alert-id_estado" class="form-text"></small>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <div class="form-group row" >
                                         <label class="col-sm-4 col-form-label text-right">Ciudad <font color="red">*</font></label>
                                         <div class="col-sm-8">
-                                            <select class="form-control" id="id_municipio" name="id_municipio">
+                                            <select class="form-control" id="id_municipio" name="id_municipio" style="display:none;">
                                                 <option value="none" selected="selected">-- Seleccione una opción --</option>
-                                                <?php 
-                                                foreach ($ciudades as $key => $ciudad) { ?>
-                                                    <option value="<?php echo $ciudad->id; ?>"><?php echo $ciudad->nombre; ?></option>
-                                                <?php } ?>
                                             </select>
                                             <small id="alert-id_municipio" class="form-text"></small>
                                         </div>

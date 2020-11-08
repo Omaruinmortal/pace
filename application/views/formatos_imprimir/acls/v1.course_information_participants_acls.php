@@ -30,6 +30,7 @@
    switch ($opc):
    	case 1:
    	?>
+    <barcode code="<?php echo $qr_nac;?>" type="QR" class="barcode" size="0.5" error="M" disableborder="1" />
     <div id="lead_instructor">
       <?php echo $lead_instructor; ?>
     </div>
@@ -124,6 +125,7 @@
       $final=$final-1;
     }
    	?>
+    <barcode code="<?php echo $qr_nac;?>" type="QR" class="barcode" size="0.5" error="M" disableborder="1" />
    	<div id="fecha_actual_2">
       <?php echo $fecha_actual; ?>
     </div>
@@ -155,7 +157,8 @@
         ?>
         </table>  
     </div>
-
+    
+    
    	<?php
    	break;
    endswitch;

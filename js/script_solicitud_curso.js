@@ -11,6 +11,36 @@ pace.solicitud_curso = (function () {
                     document.getElementById('nombre_archivo').innerHTML = fileName;  
                     document.getElementById('alert-factura').innerHTML = '';  
                 });
+
+                $('#id_estado').change(function(e){
+                    data = this.value;
+                    const municipio = $("#id_municipio");
+                    if(data === 'none') {
+                        municipio.hide();
+                    }else{                        
+                        municipio.show();
+
+                        $.ajax({
+                            url: base_url + '/Dashboard/trae_ciudades',
+                            type: 'POST',
+                            dataType: 'html', //expect return data as html from server
+                            data: { id_estado: data },
+                            dataType: 'json',
+                            success: function (response, textStatus, jqXHR) {
+                                municipio.find('option').remove();
+                                $(response).each(function(i, v){ // indice, valor
+                                    municipio.append('<option value="' + v.id + '">' + v.nombre + '</option>');
+                                })
+            
+                                municipio.prop('disabled', false);
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.log('error');
+                                console.log('error(s):' + textStatus, errorThrown);
+                            }
+                        });
+                    }
+                });
             }),
 
             $( "#tipo_curso" ).change(function() {
@@ -200,7 +230,7 @@ pace.solicitud_curso = (function () {
                         if (response.success == 'OK') {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'El avaluador se guardo correctamente.',
+                                title: 'Se envio la solicitud del curso.',
                                 showConfirmButton: false,
                                 timer: 1500
                             })

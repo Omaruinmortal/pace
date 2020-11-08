@@ -365,8 +365,7 @@ class Dashboard extends CI_Controller {
 		redirect('login');
 	}
 
-	public function vista_papeleria_participante()
-	{
+	public function vista_papeleria_participante(){
 
 		if($this->admin->logged_id())
 		{
@@ -409,6 +408,15 @@ class Dashboard extends CI_Controller {
 
 		}
 		
+	}
+
+	public function trae_ciudades(){
+		$id_estado = $this->input->post("id_estado");
+		$where_estado=' 1=1 and id='.$id_estado;
+		$estado = $this->main->trae_estado($where_estado);
+		$where_ciudad='1=1 and estado_id ='.$estado->clave;
+		$ciudades = $this->main->trae_ciudad($where_ciudad);
+		echo json_encode($ciudades);
 	}
 
 }
