@@ -155,7 +155,7 @@ class Participantes extends CI_Controller
 
     public function hoja_registro_participante()
     {
-        echo $this->input->get("id_curso");
+       
         $id_curso = $this->input->get('id_curso', TRUE);
         $where_id_curso = 'id_curso_solicitado = '.$id_curso;
         $where_papeleria="id_curso_solicitado=".$id_curso." and pap_tipo_user=1";
@@ -182,5 +182,17 @@ class Participantes extends CI_Controller
         $data['contentView'] = 'participantes/agrega_participantes';
         $this->_renderView($data);		
 
+    }
+
+    public function busca_participante_duplicado() {
+        $correo = $this->input->post("correo");
+        $curso = $this->input->post("id_curso");
+        $where = "id_curso=".$curso.' and correo="'.$correo.'"';
+        $datos = $this->participante->trae_un_participantes($where);
+        if($datos){
+            echo 'registrado';
+        }else{
+            echo 'Ok';
+        }
     }
 }

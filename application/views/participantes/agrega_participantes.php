@@ -258,35 +258,35 @@
                         <input type="hidden" id="id_curso" name="id_curso" value="<?php echo $id_curso?>">
                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Nombre</label>
                         <div class="col-sm-8">
-                            <input class="form-control" type="text" id="nombre" name="nombre">
+                            <input class="form-control" type="text" id="nombre" name="nombre" autocomplete="off">
                             <small id="alert-nombre" class="form-text"></small>
                         </div>                           
                     </div>
                     <div class="form-group row">                         
                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Primer Apellido</label>
                         <div class="col-sm-8">
-                            <input class="form-control" type="text" id="primer_apellido" name="primer_apellido">
+                            <input class="form-control" type="text" id="primer_apellido" name="primer_apellido" autocomplete="off">
                             <small id="alert-primer_apellido" class="form-text"></small>
                         </div>                           
                     </div>
                     <div class="form-group row">                         
                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Segundo Apellido</label>
                         <div class="col-sm-8">
-                            <input class="form-control" type="text" id="segundo_apellido" name="segundo_apellido">
+                            <input class="form-control" type="text" id="segundo_apellido" name="segundo_apellido" autocomplete="off">
                             <small id="alert-segundo_apellido" class="form-text"></small>
                         </div>                           
                     </div>
                     <div class="form-group row">                         
                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Correo</label>
                         <div class="col-sm-8">
-                            <input class="form-control" type="email" id="correo" name="correo">
+                            <input class="form-control" type="email" id="correo" name="correo" autocomplete="off">
                             <small id="alert-correo" class="form-text"></small>
                         </div>                           
                     </div>
                     <div class="form-group row">                         
                         <label for="example-text-input" class="col-sm-4 col-form-label text-right">Telefono</label>
                         <div class="col-sm-8">
-                            <input class="form-control" type="text" id="telefono" name="telefono">
+                            <input class="form-control" type="text" id="telefono" name="telefono" autocomplete="off">
                             <small id="alert-telefono" class="form-text"></small>
                         </div>                           
                     </div>
