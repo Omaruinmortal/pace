@@ -156,6 +156,7 @@ public function lista_comprobacion_via_aerea_acls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
     
     $this->mpdf->lista_comprobacion_via_aerea_acls('formatos_imprimir/acls/v22.lista_comprobacion_via_aerea_acls.php',$data); 
 } 

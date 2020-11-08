@@ -32,7 +32,11 @@ class Functions{
     public function get_data_participante($participante, $curso){
         $where = "id_participante=".$participante." and id_curso=".$curso;
         $buscar_datos_pdf = $this->ci->participante->trae_un_participantes($where);
-    
+        
+        $where_curso = "id_curso_solicitado=".$curso;
+        $datos_curso = $this->ci->curso_solicitado->trae_curso_solicitado($where_curso);
+        
+
         if(!empty($buscar_datos_pdf)) {
             $name = ucwords(strtolower($buscar_datos_pdf->nombre." ".$buscar_datos_pdf->primer_apellido." ".$buscar_datos_pdf->segundo_apellido));
             $correo = $buscar_datos_pdf->correo;
@@ -48,7 +52,8 @@ class Functions{
         $datos = array(
             'name' => $name,
             'correo' => $correo,
-            'tel' => $tel,           
+            'tel' => $tel, 
+            'qr_nac' => $participante.'-'.$datos_curso->qr_nac,          
         );        
     
         return $datos;
