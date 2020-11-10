@@ -32,9 +32,7 @@ class Participantes extends CI_Controller
          
         date_default_timezone_set('America/Mexico_City');
     }
-    public function index() {
-        echo 'a';
-    }
+ 
 
     public function agrega_participante()
     {
@@ -194,5 +192,37 @@ class Participantes extends CI_Controller
         }else{
             echo 'Ok';
         }
+    }
+
+    public function registro() {
+        $qr_nac = $this->input->get("data");
+        $correo = $this->input->get("correo");        
+
+        $where_curso_solicitado = " qr_nac ='".$qr_nac."'";
+        $curso = $this->curso_solicitado->trae_curso_solicitado($where_curso_solicitado);
+        if($curso == null){
+            $data['layout'] = 'plantilla/lytVacia';
+            $data['contentView'] = 'error_404';
+            $this->_renderView($data);	
+        }else{
+            $where_participante = " id_curso = ".$curso->id_curso_solicitado.' and correo="'.$correo.'"';
+            $datos_participante = $this->participante->trae_un_participantes($where_participante);
+            if($datos_participante == null){
+                $data['layout'] = 'plantilla/lytVacia';
+                $data['contentView'] = 'error_404';
+                $this->_renderView($data);	
+            }else{
+                $data['curso'] = $curso->nombre_curso_disciplina;
+                $data['sede'] = $curso->sede;
+                $data['fecha_curso'] = $curso->fecha_solicitud_curso;
+                $data['estado'] = $curso->estado;
+                $data['municipio'] = $curso->municipio;
+        
+                $data['scripts'] = array('script_registro_participante');
+                $data['layout'] = 'plantilla/lytVacia';
+                $data['contentView'] = 'participantes/registro_participante';
+                $this->_renderView($data);	
+            }           
+        }        	
     }
 }
