@@ -76,12 +76,189 @@
                             </div><!--end card-->
                         </div><!--end col-->
                     </div><!--end row-->
-                    </div><!-- container -->
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-body">        
+                                    <h5 class="mt-0 header-title">BIENVENIDO - Registro Programa de Actualización Continua en Emergencias Médicas </h5>
+                                    <p class="text-muted mb-3">Es un registro que nos permita conocer sus datos personales y sus necesidades académicas, así como sus inquietudes.
+                                    </p>                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label for="nombre" class="col-sm-3 col-form-label text-right">Nombre :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="nombre" id="nombre">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="primer_apellido" class="col-sm-3 col-form-label text-right">Primer Apellido :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="primer_apellido" id="primer_apellido">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="Segundo Apellido" class="col-sm-3 col-form-label text-right">Segundo Apellido :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="segundo_apellido" id="segundo_apellido">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="fecha_nacimiento" class="col-sm-3 col-form-label text-right">Fecha de Nacimiento</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-md-3 my-2 control-label text-right">Especialidad :</label>
+                                                <div class="col-md-9">
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck01" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck01">Urgenciólogo</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck02" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck02">Médico General</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck03" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck03">Enfermero</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck04" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck04">Otro.</label>
+                                                        </div>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="otro_cual" class="col-sm-4 col-form-label text-right">¿Cuál? :</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" type="text" name=otro_cual" id=otro_cual">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="institucion" class="col-sm-3 col-form-label text-right">Institución :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name=institucion" id=institucion">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="hospital" class="col-sm-3 col-form-label text-right">Hospital :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name=hospital" id=hospital">
+                                                </div>
+                                            </div>  
+                                            <div class="form-group row">
+                                                <label for="ciudad" class="col-sm-3 col-form-label text-right">Ciudad :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name=ciudad" id=ciudad">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="jurisdiccion" class="col-sm-3 col-form-label text-right">Jurisdicción :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name=jurisdiccion" id=jurisdiccion">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="turno" class="col-sm-3 col-form-label text-right">Turno :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name=turno" id=turno">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="area_desempenio" class="col-sm-3 col-form-label text-right">Área de desempeño :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name=area_desempenio" id=area_desempenio">
+                                                </div>
+                                            </div>                        
+                                        </div>
 
 
-            <footer class="footer text-center text-sm-left">
-                &copy; 2019 PACE <span class="text-muted d-none d-sm-inline-block float-right">Desarrollado <i class="mdi mdi-heart text-danger"></i> por ARO Soluciones</span>
-            </footer>
+                                        
+                                    </div>                                                                      
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                            <div class="card">
+                                <div class="card-body">        
+                                    <h4>Domicilio personal</h4>                                 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label for="calle" class="col-sm-3 col-form-label text-right">Calle :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="calle" id="calle">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="n_exterior" class="col-sm-3 col-form-label text-right">Numero Exterior :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="n_exterior" id="n_exterior">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="colonia" class="col-sm-3 col-form-label text-right">Colonia :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="colonia" id="colonia">
+                                                </div>
+                                            </div>  
+                                            <div class="form-group row">
+                                                <label for="cp" class="col-sm-3 col-form-label text-right">Codigo Postal :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="cp" id="cp">
+                                                </div>
+                                            </div>  
+                                            <div class="form-group row">
+                                                <label for="estado" class="col-sm-3 col-form-label text-right">Estado :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="estado" id="estado">
+                                                </div>
+                                            </div>   
+                                            <div class="form-group row">
+                                                <label for="ciudad" class="col-sm-3 col-form-label text-right">Ciudad :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="ciudad" id="ciudad">
+                                                </div>
+                                            </div>       
+                                            <div class="form-group row">
+                                                <label for="telefono" class="col-sm-3 col-form-label text-right">Teléfono (con lada) :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="telefono" id="telefono">
+                                                </div>
+                                            </div> 
+                                            <div class="form-group row">
+                                                <label for="celular" class="col-sm-3 col-form-label text-right">Numero de Celular :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="celular" id="celular">
+                                                </div>
+                                            </div>  
+                                            <div class="form-group row">
+                                                <label for="email" class="col-sm-3 col-form-label text-right">Correo Electronico :</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="text" name="email" id="email">
+                                                </div>
+                                            </div>   
+                                            <div class="form-group row">
+                                                <label for="message" class="col-sm-3 col-form-label text-right">Message</label>
+                                                <textarea class="form-control" rows="5" id="message"></textarea>
+                                            </div>   
+                                        </div>                                       
+                                    </div>                                                                      
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                        </div><!--end col-->
+                    </div>
+                </div><!-- container -->            
             </div>
             <!-- end page content -->
         </div>
