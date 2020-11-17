@@ -30,6 +30,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('cartel');
 		$this->load->model('curso_solicitado');
 		$this->load->model('participante');
+		$this->load->model('temas');
 
 		$date_actual=$this->admin->trae_fecha_actual("select CURDATE()");		
         date_default_timezone_set('America/Mexico_City');
@@ -328,9 +329,11 @@ class Dashboard extends CI_Controller {
 			$id_curso = $this->input->get('id_curso', TRUE);
 			$where_id_curso = 'id_curso_solicitado = '.$id_curso;
 			$where_papeleria="id_curso_solicitado=".$id_curso." and pap_tipo_user=1";
+			$where_agenda = "id_curso_solicitado=".$id_curso;
 
 			$curso_solicitado = $this->curso_solicitado->trae_curso_solicitado($where_id_curso);
 			$papeleria_curso = $this->curso_solicitado->trae_curso_solicitado_papeleria($where_papeleria);
+			$agenda = $this->temas->trae_agenda($where_agenda);
 			
 
 			$data['id_tipousuario'] = $this->session->userdata('user_id_tipoUsuario');
@@ -344,6 +347,7 @@ class Dashboard extends CI_Controller {
 			$data['municipio'] =  $curso_solicitado->municipio;
 			$data['numero_participantes'] = $curso_solicitado->numero_participantes;
 			$data['papeleria_curso'] = $papeleria_curso;
+			$data['agenda'] = $agenda!="" ? 1:0;
 			
 
             $data['scripts'] = array('script_participantes', 'script_papeleria');

@@ -58,7 +58,16 @@
                             $tam_array=count($papeleria_curso);
                             
                             foreach ($papeleria_curso as $dato) {
-                                if($y==3): $active = "active"; else: $active=""; endif;
+                                if($y==3): $active = "active"; else: $active=""; endif;                                
+
+                                if(strpos(mb_strtolower($dato->pap_nombre), 'agenda')!== false){
+                                    $url = $agenda==1?'index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso: 'index.php/Agenda?id_curso='.$id_curso;
+                                    
+                                }
+                                else{
+                                    $url='index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso;
+                                    
+                                }
                                 
                                 switch ($i){  
                                     case 1:
@@ -76,7 +85,7 @@
                                                                     <div class="col-10 align-self-center text-right" style="height: 120px">
                                                                         <div class="ml-2">
                                                                             <p class="mb-1 text-muted">'.$dato->pap_nombre.'</p>
-                                                                            <a href="'.base_url().'index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
+                                                                            <a href="'.base_url().$url.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -112,7 +121,7 @@
                                                                     <div class="col-10 align-self-center text-right" style="height: 120px">
                                                                         <div class="ml-2">
                                                                             <p class="mb-1 text-muted">'.$dato->pap_nombre.'</p>
-                                                                            <a href="'.base_url().'index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
+                                                                            <a href="'.base_url().$url.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -142,7 +151,7 @@
                                                                     <div class="col-10 align-self-center text-right" style="height: 120px">
                                                                         <div class="ml-2">
                                                                             <p class="mb-1 text-muted">'.$dato->pap_nombre.'</p>
-                                                                            <a href="'.base_url().'index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
+                                                                            <a href="'.base_url().$url.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -178,7 +187,7 @@
                                                                     <div class="col-10 align-self-center text-right" style="height: 120px">
                                                                         <div class="ml-2">
                                                                             <p class="mb-1 text-muted">'.$dato->pap_nombre.'</p>
-                                                                            <a href="'.base_url().'index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
+                                                                            <a href="'.base_url().$url.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -207,7 +216,7 @@
                                                                 <div class="col-10 align-self-center text-right" style="height: 120px">
                                                                     <div class="ml-2">
                                                                         <p class="mb-1 text-muted">'.$dato->pap_nombre.'</p>
-                                                                        <a href="'.base_url().'index.php/Reportes/'.$dato->pap_url.'?curso='.$id_curso.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
+                                                                        <a href="'.base_url().$url.'" class="mt-0 mb-1" target="_blank">Descargar <i class="mdi mdi-file-multiple text-pink dripicons-download text-muted mr-2"></i></a>
                                                                     </div>
                                                                 </div>
                                                             </div>

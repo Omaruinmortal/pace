@@ -73,11 +73,6 @@
                 "php",
                 "utf-8"
             ],
-            "support": {
-                "docs": "http://mpdf.github.io",
-                "issues": "https://github.com/mpdf/mpdf/issues",
-                "source": "https://github.com/mpdf/mpdf"
-            },
             "funding": [
                 {
                     "url": "https://www.paypal.me/mpdf",
@@ -141,10 +136,6 @@
                 "qr",
                 "qrcode"
             ],
-            "support": {
-                "issues": "https://github.com/mpdf/qrcode/issues",
-                "source": "https://github.com/mpdf/qrcode/tree/test"
-            },
             "time": "2019-01-16T18:40:23+00:00"
         },
         {
@@ -1755,5 +1746,5 @@
         "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }
