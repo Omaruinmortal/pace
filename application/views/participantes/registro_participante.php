@@ -116,6 +116,12 @@
                                                 <div class="col-md-9">
                                                     <div class="checkbox my-2">
                                                         <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck09" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck09">Ginecologo</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="customCheck01" data-parsley-multiple="groups" data-parsley-mincheck="2">
                                                             <label class="custom-control-label" for="customCheck01">Urgenciólogo</label>
                                                         </div>
@@ -132,10 +138,52 @@
                                                             <label class="custom-control-label" for="customCheck03">Enfermero</label>
                                                         </div>
                                                     </div>
+                                                    <div class="form-group row">
+                                                        <label for="tipo_enfermero" class="col-sm-4 col-form-label text-right">¿Tipo de enfermero? :</label>
+                                                        <div class="col-sm-8">
+                                                            <input class="form-control" type="text" name=tipo_enfermero" id=tipo_enfermero">
+                                                        </div>
+                                                    </div>
                                                     <div class="checkbox my-2">
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="customCheck04" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                                            <label class="custom-control-label" for="customCheck04">Otro.</label>
+                                                            <label class="custom-control-label" for="customCheck04">Residente :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="tipo_recidente" class="col-sm-4 col-form-label text-right">¿Tipo de residente? :</label>
+                                                        <div class="col-sm-8">
+                                                            <input class="form-control" type="text" name=tipo_recidente" id=tipo_recidente">
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck05" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck05">Pediatra.</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck06" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck06">T.U.M.</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck07" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck07">T.E.M.</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck10" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck10">Medico Intensivista</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck08" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck08">Otro.</label>
                                                         </div>
                                                     </div>                                                    
                                                 </div>
@@ -248,14 +296,54 @@
                                                     <input class="form-control" type="text" name="email" id="email">
                                                 </div>
                                             </div>   
+                                           
                                             <div class="form-group row">
-                                                <label for="message" class="col-sm-3 col-form-label text-right">Message</label>
+                                                <label class="col-md-3 my-2 control-label text-right">¿Cuáles son los cursos relacionados a Urgencias que ha tomado?</label>
+                                                <div class="col-md-9">
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck09" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck09">RCP DEA</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck09" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck09">ACLS</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck09" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck09">BLS</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox my-2">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck09" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                            <label class="custom-control-label" for="customCheck09">PALS</label>
+                                                        </div>
+                                                    </div>                                           
+                                                </div>
+                                            </div>  
+                                            <div class="form-group row">
+                                                <label for="message" class="col-sm-3 col-form-label text-right">¿Cuáles son los cursos en los que le gustaría participar en un futuro?</label>
+                                                <textarea class="form-control" rows="5" id="message"></textarea>
+                                            </div>  
+                                            <div class="form-group row">
+                                                <label for="message" class="col-sm-3 col-form-label text-right">Desarrolle brevemente las expectativas que tiene de este curso.</label>
                                                 <textarea class="form-control" rows="5" id="message"></textarea>
                                             </div>   
                                         </div>                                       
                                     </div>                                                                      
                                 </div><!--end card-body-->
+                                <div class="row">
+                                    <div class="col-sm-12 text-right">
+                                        <button type="submit" class="btn btn-gradient-primary px-5 py-2">Guardar Registro</button>
+                                    </div>
+                                </div>
                             </div><!--end card-->
+                            
                         </div><!--end col-->
                     </div>
                 </div><!-- container -->            
