@@ -75,10 +75,20 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+	//DESARROLLO
+	
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'pace-system',
+	
+	//PRODUCCION
+	/*
+	'hostname' => 'localhost',
+	'username' => 'user_pace',
+	'password' => 'P4c312345.',
+	'database' => 'pace_system',
+	*/
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
