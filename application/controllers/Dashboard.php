@@ -442,10 +442,10 @@ class Dashboard extends CI_Controller {
 			"MODE" 						=> "AUT",
 			"ENTRY_MODE" 			=> "MANUAL",
 			"CMD_TRANS" 			=> "AUTH",
-			"RESPONSE_URL" 		=> "https://pacemd.com.mx/Dashboard/response",
+			"RESPONSE_URL" 		=> "https://pacemd.com.mx/index.php/Dashboard/response",
 			"CONTROL_NUMBER" 	=> "1",
 			"TERMINAL_ID" 	=> "1",
-			"AMOUNT" 	=> $curso_solicitado->total,
+			"AMOUNT" 	=> "0.01",
 			"MerchantNumber" 	=> "8334414",
 			"MerchantName" 	=> "PACE MD INTERNACIONAL S De RL.",
 			"MerchantCity" 	=> "GUANAJUATO",
@@ -456,23 +456,30 @@ class Dashboard extends CI_Controller {
 			"BillTo_street" 	=> "Villas San Felipe",
 			"BillTo_streetNumber" 	=> "98",
 			"BillTo_street2Col" 	=> "Villas de Guanajuato",
+			"BillTo_street2Del" => "Guanajuato",
 			"BillTo_city" 	=> "Guanajuato",
-			"BillTo_state" 	=> "Guanajuato",
-			"BillTo_country" 	=> "México",
+			"BillTo_state" 	=> "GT",
+			"BillTo_country" 	=> "MX",
 			"BillTo_postalCode" 	=> "36258",
+			"BillTo_email" => $usuario[0]->correo,
 		);
-		$fields_string = http_build_query($variables);
+		$fields_string = http_build_query($variables);/*
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, "https://via.banorte.com/bancybhosted/index.do");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string );
 		$data = curl_exec($ch);
 		curl_close($ch);
+		echo $ch;*/
+		
+
+		
+		header ("Location: https://via.banorte.com/bancybhosted/index.do?".$fields_string);
+		exit;
 	}
 
 	public function response(){
-		
-
+		echo $_REQUEST['TEXT'];
 	}
 
 }
