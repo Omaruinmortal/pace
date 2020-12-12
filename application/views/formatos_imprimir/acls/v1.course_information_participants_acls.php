@@ -156,8 +156,7 @@
             }
         ?>
         </table>  
-    </div>
-    
+    </div>   
     
    	<?php
    	break;

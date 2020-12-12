@@ -109,3 +109,57 @@
     color:#7030a0;
     font-size: 7.3pt;
 }
+    .titulo_agenda{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: #066581;
+
+    }
+
+    .principal_div{
+        position: absolute;
+        font-family: helvetica !important;
+        font-size: 8pt;
+        top: 45px;
+        left: 47px;
+        width: 700px;
+        background: white;
+        height: 980px
+    }
+    .principal_div-table{
+        border-collapse: collapse;
+        margin-top: 80px;
+        font-family: helvetica !important;
+        font-size: 11pt;
+        width: 100%;
+        border: solid;
+        border-radius: 1px;
+        border-color: #bfbfbf;
+    }
+
+    td{
+        padding: 7px;
+        border: 1px solid #8ca6ac;
+    }
+    tr:nth-child(2n+3) {
+        background-color: #c5e9f4;
+    }
+
+    tr:nth-child(2n+4) {
+        background-color: white;
+    }
+    tr:nth-child(1) {
+        background-color: #15a1cb;
+        color: white !important;
+
+    }
+    tr:nth-child(2) {
+        background-color: #15a1cb;        
+    }
+    .titulo_tabla{
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        font-size: 15px;
+    }

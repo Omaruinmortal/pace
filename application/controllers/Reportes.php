@@ -32,6 +32,7 @@ class Reportes extends CI_Controller
 		$this->load->model('cartel');
 		$this->load->model('curso_solicitado');
         $this->load->model('participante');
+        $this->load->model('temas');
         
         
         date_default_timezone_set('America/Mexico_City');
@@ -96,10 +97,13 @@ public function Agenda_12_part_acls1()
     $this->load->model('curso'); 
     $this->load->library('Mpdf'); 
     $data = array(); 
+    $where_agenda = "agenda_id=".$_GET['curso'];
+    $agenda = $this->temas->trae_agenda_completa($where_agenda);
 
     $data['estudiantes']=12; 
     $data['instructores']=2;
     $data['duracion']="Aproximadamente 15 horas, 20 minutos con pausas"; 
+    $data['agenda'] = $agenda;
 
     $this->mpdf->Agenda_12_part_acls1('formatos_imprimir/acls/v14.1Agenda_12_part_acls.php',$data); 
 } 
@@ -182,6 +186,7 @@ public function Bls_alta_calidad_acls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->Bls_alta_calidad_acls('formatos_imprimir/acls/v23.Bls_alta_calidad_acls.php',$data); 
 } 
@@ -207,6 +212,7 @@ public function lista_comprobacion_aprendizaje_practica_acls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_comprobacion_aprendizaje_practica_acls('formatos_imprimir/acls/v24.lista_comprobacion_aprendizaje_practica_acls.php',$data); 
 } 
@@ -232,6 +238,7 @@ public function lista_prueba_megacode_acls1()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac']; 
 
     $this->mpdf->lista_prueba_megacode_acls1('formatos_imprimir/acls/v25.1lista_prueba_megacode_acls.php',$data); 
 } 
@@ -257,6 +264,7 @@ public function lista_prueba_megacode_acls2()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls2('formatos_imprimir/acls/v25.2lista_prueba_megacode_acls.php',$data); 
 } 
@@ -282,6 +290,7 @@ public function lista_prueba_megacode_acls3()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls3('formatos_imprimir/acls/v25.3lista_prueba_megacode_acls.php',$data); 
 } 
@@ -307,6 +316,7 @@ public function lista_prueba_megacode_acls4()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls4('formatos_imprimir/acls/v25.4lista_prueba_megacode_acls.php',$data); 
 } 
@@ -332,6 +342,7 @@ public function lista_prueba_megacode_acls5()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls5('formatos_imprimir/acls/v25.5lista_prueba_megacode_acls.php',$data); 
 } 
@@ -357,6 +368,7 @@ public function lista_prueba_megacode_acls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls('formatos_imprimir/acls/v25.lista_prueba_megacode_acls.php',$data); 
 } 
@@ -373,6 +385,7 @@ public function evaluacion_teorica_acls()
     $data['fecha'] = $date;
     $data['nombre'] =$datos['name'];
     $data['version'] = ""; 
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->evaluacion_teorica_acls('formatos_imprimir/acls/v38.evaluacion_teorica_acls.php',$data); 
 } 
@@ -389,7 +402,8 @@ public function evaluacion_teorica_remediar_acls()
     
     $data['fecha'] = $date;
     $data['nombre'] =$datos['name'];
-    $data['version'] = ""; 
+    $data['version'] = "";
+    $data['qr_nac']=$datos['qr_nac']; 
 
     $this->mpdf->evaluacion_teorica_remediar_acls('formatos_imprimir/acls/v39.evaluacion_teorica_remediar_acls.php',$data); 
 } 
@@ -697,6 +711,10 @@ public function Course_information_also()
 { 
     $this->load->model('curso'); 
     $this->load->library('Mpdf');
+
+    $curso = $this->input->get('curso');
+    $datos_curso = $this->functions->get_data_curso($curso );
+
     $fecha_actual = new DateTime('NOW');
     $data = array();
 
@@ -742,7 +760,8 @@ public function Course_information_also()
     $data['cards'] = $cards;
     $data['instructores'] =$instructores;
     $data['date'] = $date;
-    $data['folio'] = $folio; 
+    $data['folio'] = $folio;
+    $data['qr_nac'] = $datos_curso->qr_nac;
 
     $this->mpdf->Course_information_also('formatos_imprimir/also/v1.Course_information_also.php',$data); 
 } 
@@ -751,7 +770,8 @@ public function course_participants_also()
 { 
     $this->load->library('Functions');
     $curso = $this->input->get('curso');
-    $participantes = $this->functions->get_data_participantes($curso);    
+    $participantes = $this->functions->get_data_participantes($curso);
+    $datos_curso = $this->functions->get_data_curso($curso );    
 
     $data = array();
     $data['folio']="";
@@ -772,6 +792,7 @@ public function course_participants_also()
     }    
 
     $data['participantes'] = $arreglo_completo;
+    $data['qr_nac'] = $datos_curso->qr_nac;
     $this->mpdf->course_participants_also('formatos_imprimir/also/v2.course_participants_also.php',$data); 
 }
 
@@ -784,7 +805,7 @@ public function ejemplo_agenda_also()
 
     $ciudad="Hermosillo"; 
 
-    $agenda = array(
+    $agenda_ant = array(
                     array(
                         'fecha'=>'28-nov-19',
                         'dia'=>$this->functions->cardinales(1),
@@ -1129,10 +1150,13 @@ public function ejemplo_agenda_also()
     $data['lugar'] = $lugar;
     $data['date_course'] = $date_course;
     $data['provee'] = $provee;
-    $data['agenda'] = $agenda;
     $data['hospedaje'] = $hospedaje;
     $data['recomendaciones'] = $recomendaciones;
     $data['instructores'] = $instructores;
+
+    $where_agenda = "agenda_id=".$_GET['curso'];
+    $agenda = $this->temas->trae_agenda_completa($where_agenda);
+    $data['agenda'] = $agenda;
 
 $this->mpdf->ejemplo_agenda_also('formatos_imprimir/also/v12.ejemplo_agenda_also.php',$data); 
 } 
@@ -1209,6 +1233,7 @@ public function examen_destresas_also()
     $data = array(); 
     $data['nombre'] = $datos['name'];
     $data['folio'] = 0;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->examen_destresas_also('formatos_imprimir/also/v14.examen_destresas_also.php',$data);
 } 
@@ -1223,6 +1248,7 @@ public function evaluacion_teorica_also()
     $data['nombre_participante'] = array(
         array('nombre' => $datos['name'], 'folio'=>0)
     );
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->evaluacion_teorica_also('formatos_imprimir/also/v15.evaluacion_teorica_also.php',$data); 
 } 
@@ -1231,7 +1257,11 @@ public function Formato_Remediacion_also()
 { 
     $this->load->model('curso'); 
     $this->load->library('Mpdf'); 
+    $curso = $this->input->get('curso');
+    $datos_curso = $this->functions->get_data_curso($curso );
+
     $data = array(); 
+    
     $datos = array(
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
@@ -1249,6 +1279,7 @@ public function Formato_Remediacion_also()
     $data['datos'] = $datos;
     $data['folio'] = '4532';
     $data['tam_reg_tabla']=9; 
+    $data['qr_nac'] = $datos_curso->qr_nac;
 
     $this->mpdf->Formato_Remediacion_also('formatos_imprimir/also/v17.Formato_Remediacion_also.php',$data); 
 } 
@@ -1263,6 +1294,7 @@ public function evaluacion_teorica_remediar_also()
     $data['nombre_participante'] = array(
         array('nombre' => $datos['name'], 'folio'=>0)
     );
+    $data['qr_nac']=$datos['qr_nac'];
     $this->mpdf->evaluacion_teorica_remediar_also('formatos_imprimir/also/v18.evaluacion_teorica_remediar_also.php',$data); 
 } 
 
@@ -2146,6 +2178,7 @@ public function course_information_participants_bls()
     $data['fecha_actual'] = $fecha_actual;
     $data['participantes'] = $arreglo_completo;
     $data['instructores'] = $arreglo_instructores_completo;
+    $data['qr_nac'] = $datos_curso->qr_nac;
 
     $this->mpdf->course_information_participants_bls('formatos_imprimir/bls/v1.course_information_participants_bls.php',$data); 
 } 
@@ -2178,7 +2211,12 @@ public function agenda_bls()
     $data['instructores'] = '2';
     $data['rel_est_instr'] = '6:1';
     $data['rel_est_mani'] = '3:1';
-    $data['duracion'] = '2 horas 20 minutos';   
+    $data['duracion'] = '2 horas 20 minutos';
+
+    $where_agenda = "agenda_id=".$_GET['curso'];
+    $agenda = $this->temas->trae_agenda_completa($where_agenda);
+    $data['agenda'] = $agenda;
+
 
     $this->mpdf->agenda_bls('formatos_imprimir/bls/v14.agenda_bls.php',$data); 
 } 
@@ -2223,6 +2261,7 @@ public function RCP_DEA_adultos_bls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual'] = $fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->RCP_DEA_adultos_bls('formatos_imprimir/bls/v20.RCP_DEA_adultos_bls.php',$data); 
 } 
@@ -2248,7 +2287,7 @@ public function RCP_lactantes_bls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual'] = $fecha_actual;
-   
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->RCP_lactantes_bls('formatos_imprimir/bls/v21.RCP_lactantes_bls.php',$data); 
 } 
@@ -2264,6 +2303,7 @@ public function evaluacion_teorica_bls()
     $data['fecha'] = $date;
     $data['nombre'] = $datos['name']; 
     $data['version'] = "";
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->evaluacion_teorica_bls('formatos_imprimir/bls/v38.evaluacion_teorica_bls.php',$data);
 
@@ -2280,6 +2320,7 @@ public function evaluacion_teorica_cremediar_bls()
     $data['fecha'] = $date;
     $data['nombre'] = $datos['name']; 
     $data['version'] = "";
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->evaluacion_teorica_cremediar_bls('formatos_imprimir/bls/v39.evaluacion_teorica_cremediar_bls.php',$data); 
 } 
