@@ -3,12 +3,26 @@ switch ($veces+1):
     case 1:
 ?>
 <div class="principal_div">
-  <h2 class="titulo_agenda">Agenda ALSO</h2><hr>
-  <table border="1" class="principal_div-table">
+  <h2 class="titulo_agenda">Agenda del curso de <?=$nombre_agenda;?></h2><hr>
+  <table style="width: 100%">
     <tr>
-      <td colspan="4"><center class="titulo_tabla">Primer día</center></td>
+      <td class="trans_border"><strong>Fecha del curso: </strong></td>
+      <td class="trans_border"><?=$fecha_solicitud_curso;?></td>
+      <td class="trans_border"><strong>Sede del curso: </strong></td>
+      <td class="trans_border"><?=$sede;?></td>
     </tr>
     <tr>
+      <td class="trans_border"><strong>Lugar del curso: </strong></td>
+      <td class="trans_border"><?=$municipio.", ".$estado;?></td>
+      <td class="trans_border"><strong>Número de participantes: </strong></td>
+      <td class="trans_border"><?=$numero_participantes;?></td>
+    </tr>
+  </table>
+  <table border="1" class="principal_div-table">
+    <tr class="primer_tr">
+      <td colspan="4"><center class="titulo_tabla">Primer día</center></td>
+    </tr>
+    <tr class="primer_tr">
       <td class="titulo_tabla">Horario</td>
       <td class="titulo_tabla">Tema</td>
       <td class="titulo_tabla">Instructor</td>
@@ -35,11 +49,7 @@ switch ($veces+1):
             if ($subtemas_find!=""):
               $array_subtemas = explode(',', $subtemas_find);
               foreach ($array_subtemas as $key => $index):?>
-                <li>
-                  <ol>
-                    <?=$index;?>                      
-                  </ol>
-                </li>
+                <?="<br><span>- ".$index."</span>";?>
               <?php endforeach; endif; ?>            
           </td>
           <td><?=$responsable;?></td>
@@ -59,9 +69,9 @@ switch ($veces+1):
 <div class="principal_div">
   <span>(continuación)</span>
   <table border="1" class="principal_div-table">
-    <tr>
+    <tr class="primer_tr">
       <td colspan="4"><center class="titulo_tabla">Segundo día</center></td>
-    </tr>
+    </tr class="primer_tr">
     <tr>
       <td class="titulo_tabla">Horario</td>
       <td class="titulo_tabla">Tema</td>
@@ -89,11 +99,7 @@ switch ($veces+1):
             if ($subtemas_find!=""):
               $array_subtemas = explode(',', $subtemas_find);
               foreach ($array_subtemas as $key => $index):?>
-                <li>
-                  <ol>
-                    <?=$index;?>                      
-                  </ol>
-                </li>
+                <?="<br><span>- ".$index."</span>";?>
               <?php endforeach; endif; ?>            
           </td>
           <td><?=$responsable;?></td>
@@ -108,4 +114,9 @@ switch ($veces+1):
     break;    
 endswitch;
 ?>
+<div class="qr">
+  <barcode code="<?php echo $qr_nac;?>" type="QR" class="barcode" size="0.7" error="M" disableborder="1" />
+
+</div>
+
 

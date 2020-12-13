@@ -36,7 +36,7 @@
                 <!--end card-->
             </div>
             <!--end col-->
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <div class="row">
                     <div id="demo" class="carousel slide col-xs-12 col-sm-12 col-md-12 col-lg-12" data-ride="carousel">
                         <!-- Indicators -->

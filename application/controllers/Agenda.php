@@ -84,10 +84,10 @@ class Agenda extends CI_Controller
 
             for ($i=0; $i < $tam_array; $i++) { 
                 $id_tema = $this->input->post("id_tema")[$i];
-                $ini = $this->input->post("ini")[$i];
-                $final = $this->input->post("final")[$i];
+                $ini = $this->input->post("ini")[$i];                
                 $responsable = $this->input->post("responsable")[$i];
                 $mat_obs = $this->input->post("mat_obs")[$i];
+                $final = $this->input->post("ini")[$i+1];
 
                 $this->form_validation->set_rules('id_tema[]', 'Tema', 'required');
                 $this->form_validation->set_message("id_tema[]", "El campo tema es requerido");
@@ -95,8 +95,8 @@ class Agenda extends CI_Controller
                 $this->form_validation->set_rules('ini[]', 'Fecha inicial', 'required');
                 $this->form_validation->set_message("ini[]", "El campo de fecha inicial es requerido");
 
-                $this->form_validation->set_rules('final[]', 'Fecha final', 'required');
-                $this->form_validation->set_message("final[]", "El campo de fecha final es requerido");
+                //$this->form_validation->set_rules('final[]', 'Fecha final', 'required');
+                //$this->form_validation->set_message("final[]", "El campo de fecha final es requerido");
 
                 //$this->form_validation->set_rules('grupos[]', 'Grupo', 'required');
                 //$this->form_validation->set_message("grupos[]", "El campo de grupo es requerido");

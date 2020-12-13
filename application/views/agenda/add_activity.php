@@ -107,8 +107,8 @@
                                      <div class="col-lg-2">
                                         <label for="ini" class="">Hora de inicio</label>
                                         <input class="form-control" type="time" name="ini[]" id="ini" required="">
-                                        <label for="final" class="">Hora final</label>
-                                        <input class="form-control" type="time" name="final[]" required="">
+                                        <!--<label for="final" class="">Hora final</label>
+                                        <input class="form-control" type="time" name="final[]" required="">-->
                                      </div>                                                                         
                                      <div class="col-lg-3">
                                         <label for="responsable" class="">Responsable</label>

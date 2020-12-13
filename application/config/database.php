@@ -79,8 +79,8 @@ $db['default'] = array(
 	
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'inmo290123',
-	'database' => 'pace_system',
+	'password' => '',
+	'database' => 'pace-system',
 	
 	//PRODUCCION
 	/*

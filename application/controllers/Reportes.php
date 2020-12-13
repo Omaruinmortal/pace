@@ -800,365 +800,15 @@ public function ejemplo_agenda_also()
 { 
     $this->load->model('curso'); 
     $this->load->library('Mpdf');
-    $this->load->library('Functions');
     $data = array();
-
-    $ciudad="Hermosillo"; 
-
-    $agenda_ant = array(
-                    array(
-                        'fecha'=>'28-nov-19',
-                        'dia'=>$this->functions->cardinales(1),
-                        'contenido'=>array(
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'07:30',
-                            'actividad'=>'Junta de instructores, recepción y registro',
-                            'responsable'=>'TODOS Y LOGISTICA',
-                            'mat_obs'=>'Registros y gafetes',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal',
-                        ),
-
-                        array(
-                            'duracion'=>'40 MIN',
-                            'hora'=>'08:00',
-                            'actividad'=>'Seguridad en el cuidado materno',
-                            'responsable'=>'Dr. Rafael Nieves',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal',    
-                        ),
-
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'08:40',
-                            'actividad'=>'Hemorragia vaginal al final del embarazo',
-                            'responsable'=>'Dr. Iván Méndez',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal',    
-                        ),
-
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'09:05',
-                            'actividad'=>'Reanimación Materna y trauma en el embarazo',
-                            'responsable'=>'Dra. Guadalupe Martinez',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-                        
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'09:30',
-                            'actividad'=>'Hemorragia Postparto',
-                            'responsable'=>'Dr. Rafael Nieves',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'10:00',
-                            'actividad'=>'R E C E S O',
-                            'responsable'=>'',
-                            'mat_obs'=>'Logistica',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'10:30',
-                            'actividad'=>'Taller de Parto Instrumentado',
-                            'responsable'=>'Dr. Guadalupe Martínez',
-                            'mat_obs'=>'2 pelvis con feto y vacum',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'11:40',
-                            'actividad'=>'Taller de Distocia de Hombros',
-                            'responsable'=>'Dr. Iván Méndez',
-                            'mat_obs'=>'2 pelvis con feto',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'#00b050',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'12:50',
-                            'actividad'=>'Taller de Reanimación materna y HPP 4¨S',
-                            'responsable'=>'Dr.Rafael Nieves/Dra. Magali Rosas',
-                            'mat_obs'=>'4 Pelvis, úteros, pinzas foester, bakri.',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'red',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'45 MIN',
-                            'hora'=>'14:00',
-                            'actividad'=>'COMIDA',
-                            'responsable'=>'Logística',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'100     ',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'14:45',
-                            'actividad'=>'Complicaciones en el primer trimestre del embarazo',
-                            'responsable'=>'Dr. Iván Méndez',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'100     ',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'15:10',
-                            'actividad'=>'Trabajo de parto pretermino y RPM',
-                            'responsable'=>'Dra. Guadalupe Martínez',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'15:35',
-                            'actividad'=>'Distocia del trabajo de parto',
-                            'responsable'=>'Dra. Magali Rosas',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-
-                        array(
-                            'duracion'=>'20 MIN',
-                            'hora'=>'16:00',
-                            'actividad'=>'Junta de instructores',
-                            'responsable'=>'Dr. Rafael Nieves',
-                            'mat_obs'=>'',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'normal'
-                        ),
-                    ),
-                    ),
-                    array(
-                        'fecha'=>'29-nov-19',
-                        'dia'=>$this->functions->cardinales(2),
-                        'contenido'=>array( 
-
-                        array(
-                            'duracion'=>'40 MIN',
-                            'hora'=>'08:00',
-                            'actividad'=>'Complicaciones médicas del embarazo',
-                            'responsable'=>'Dr. Rafael Nieves',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'08:40',
-                            'actividad'=>'Taller de Vigilancia Fetal Intraparto',
-                            'responsable'=>'Dr. Rafael Nieves/Dra. Gpe Mtz',
-                            'mat_obs'=>'Video proyector de alta definición',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'#4eb9f4',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'09:50',
-                            'actividad'=>'R E C E S O',
-                            'responsable'=>'Logística',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'10:20',
-                            'actividad'=>'Taller de AMEU',
-                            'responsable'=>'Dra. Magali Rosas/Dr. Iván Méndez',
-                            'mat_obs'=>'4 Equipos de AMEUHotel City ExpressH',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'#7634b0',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'11:30',
-                            'actividad'=>'Taller de Casos Obstétricos',
-                            'responsable'=>'Dr.Rafael Nieves/Dra. Magali Rosas',
-                            'mat_obs'=>'Noelia, Hidralacina, MgSO4, soluciones',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'red',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'12:40',
-                            'actividad'=>'Taller de Malas Presentaciones',
-                            'responsable'=>'Dra.Guadalupe Mtz/Dr Iván Méndez',
-                            'mat_obs'=>'2 pelvis con fetos',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'wine',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'75 MIN',
-                            'hora'=>'13:10',
-                            'actividad'=>'EVALUACION FINAL ESCRITO Y MEGAPARTO',
-                            'responsable'=>'Todos',
-                            'mat_obs'=>'4 pelvis con feto y placenta',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'#7634b0',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'60 MIN',
-                            'hora'=>'14:30',
-                            'actividad'=>'COMIDA',
-                            'responsable'=>'Logística',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'15:30',
-                            'actividad'=>'ENTREGA DE RESULTADOS Y CLAUSURA',
-                            'responsable'=>'Todos',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'16:00',
-                            'actividad'=>'JUNTA DE INSTRUCTORES Y EVALUACION DEL CURSO',
-                            'responsable'=>'Todos',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-                        ),
-                    ),
-            );
-
-    $sede ='PACE';
-    $lugar ='HIES HOSPITAL INFANTIL DEL ESTADO SONORA';
-    $date_course = '28 Y 29 NOVIEMBRE 2019';
-    $provee = '24 GO, RGO Y URG.';
-    $hospedaje = 'Hotel City Express Hermosillo';
-    $recomendaciones = array(
-        array('dia' =>'JUEVES','recom'=>'PANTALON NEGRO, POLO GRIS.' ),
-        array('dia' =>'VIERNES','recom'=>' PANTALON AZUL, CAMISA AZUL.' ),
-    );
-    $instructores = array(
-        array('abrev_prof' => 'Dr.', 'instructor' => 'Rafael Antonio Nieves Meneses', 'puesto' => 'Director del curso'),
-        array('abrev_prof' => 'Dra.', 'instructor' => 'María Guadalupe Martínez León.', 'puesto' => 'Facultado'),
-        array('abrev_prof' => 'Dra.', 'instructor' => 'Maria Magali Rosas Rosales', 'puesto' => 'Instructor'),
-        array('abrev_prof' => 'Dr.', 'instructor' => 'Sergio Iván Méndez Mercado', 'puesto' => 'Instructor'),
-    );
-
-    $data['ciudad'] = $ciudad;
-    $data['sede'] = $sede;
-    $data['lugar'] = $lugar;
-    $data['date_course'] = $date_course;
-    $data['provee'] = $provee;
-    $data['hospedaje'] = $hospedaje;
-    $data['recomendaciones'] = $recomendaciones;
-    $data['instructores'] = $instructores;
 
     $where_agenda = "agenda_id=".$_GET['curso'];
     $agenda = $this->temas->trae_agenda_completa($where_agenda);
     $data['agenda'] = $agenda;
+    $data['pages'] = 2;
+    $data['nombre_agenda'] = "ALSO";
 
-$this->mpdf->ejemplo_agenda_also('formatos_imprimir/also/v12.ejemplo_agenda_also.php',$data); 
+    $this->mpdf->ejemplo_agenda_also('formatos_imprimir/vAgenda.php',$data); 
 } 
 
 public function apendiceN_also() 
@@ -7411,11 +7061,28 @@ public function ejemplo_reporte_logistica_tncc()
     $this->mpdf->ejemplo_reporte_logistica_tncc('formatos_imprimir/tncc/v20.ejemplo_reporte_logistica_tncc.php',$data); 
 }
 
+    public function agenda_course(){
+        $this->load->model('curso'); 
+        $this->load->library('Mpdf');
+        $data = array();
 
+        $id_curso = $_GET['curso'];
 
-    
+        $where_agenda = "agenda_id=".$id_curso;
+        $agenda = $this->temas->trae_agenda_completa($where_agenda);
+        $datos_agenda = $this->functions->get_data_curso($id_curso);
 
+        $data['agenda'] = $agenda;
+        $data['pages'] = $datos_agenda->dias_curso;
+        $data['nombre_agenda'] = $datos_agenda->nombre_curso_disciplina;
+        $data['horas_curso']   = $datos_agenda->horas_curso;
+        $data['qr_nac'] = $datos_agenda->qr_nac;
+        $data['fecha_solicitud_curso'] = $datos_agenda->fecha_solicitud_curso;
+        $data['sede'] = $datos_agenda->sede;
+        $data['estado'] = $datos_agenda->estado; 
+        $data['municipio'] = $datos_agenda->municipio; 
+        $data['numero_participantes'] = $datos_agenda->numero_participantes;
 
-
-    
+        $this->mpdf->agenda_general('formatos_imprimir/vAgenda.php',$data);
+    }   
 }

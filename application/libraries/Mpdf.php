@@ -803,32 +803,46 @@ class Mpdf
 	    'format' => 'A4', 
 	    'orientation' => 'P' , 
 	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
-	    //$mpdf->SetImportUse();
 
-	    $pagecount = $mpdf->SetSourceFile('assets/media/acls/14.1Agenda_12_part_acls.pdf');
-	    //$stylesheet = file_get_contents('assets/css/style_pdf/acls/s14.1Agenda_12_part_acls.css');
-
-	    //$pagecount = $mpdf->SetSourceFile('assets/media/also/12.ejemplo_agenda_also.pdf');
+	    $pagecount = $mpdf->SetSourceFile('assets/media/agenda_cursos/agenda.pdf');
 	    $stylesheet = file_get_contents('assets/css/style_pdf/also/s12.ejemplo_agenda_also.css');
+	    $pages=$data['pages'];
 
-	    for ($i=1; $i <= $pagecount ; $i++) {
+	    for ($i=1; $i <= $pagecount; $i++) {
 	        $data['opc']=$i; 
 
-	    	if ($i==1) {
-	    		$html = $this->ci()->load->view($view, $data, TRUE);
-	    		$tplId = $mpdf->ImportPage($i);
-	    		$mpdf->UseTemplate($tplId);
-	    		$mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
-	            $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
-	    	}else{ 
+	    	if ($i==1) {	    		
+	            for ($y=0; $y<$pages; $y++) {
+	            	$data['veces']=$y;
+
+	            	if ($y==0) {
+	            		$html = $this->ci()->load->view($view, $data, TRUE);
+	    		        $tplId = $mpdf->ImportPage(1);
+	    		        $mpdf->UseTemplate($tplId);
+	    		        $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	                    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	            	}else{
+	    			    $tplId = $mpdf->ImportPage(1);
+	    			    $mpdf->SetPageTemplate($tplId); 
+	    			    $html = $this->ci()->load->view($view, $data, TRUE);
+	    		        $mpdf->AddPage();
+                        $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+                        $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);      
+	            	}
+
+	            }
+	    	}else{	    			    				    			
+	    			$data['veces']=$y;
 	    			$tplId = $mpdf->ImportPage($i);
 	    			$mpdf->SetPageTemplate($tplId); 
 	    			$html = $this->ci()->load->view($view, $data, TRUE);
 	    		    $mpdf->AddPage();
                     $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
-                    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);                
+                    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);    
             }
         }
+	    
+	    $mpdf->Output();
 	    
 	    $mpdf->Output();
 	} 
@@ -5802,6 +5816,61 @@ class Mpdf
 	    $stylesheet = file_get_contents('assets/css/style_pdf/tncc/sejemplo_reporte_logistica_tncc.css');
 	    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
 	    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	    
+	    $mpdf->Output();
+	}
+
+	public function agenda_general($view, $data = array()) 
+	{  
+
+	    $mpdf = new \Mpdf\Mpdf( 
+	    ['margin_top' =>0, 
+	    'margin_left' =>1, 
+	    'mode' => 'utf-8', 
+	    'margin_right' =>1, 
+	    'format' => 'A4', 
+	    'orientation' => 'P' , 
+	    'mirrorMargins' =>false]);// false para que no imprima a doble cara 
+
+	    $pagecount = $mpdf->SetSourceFile('assets/media/agenda_cursos/agenda.pdf');
+	    $stylesheet = file_get_contents('assets/css/style_pdf/s_agenda.css');
+	    $pages=$data['pages'];
+
+	    for ($i=1; $i <= $pagecount; $i++) {
+	        $data['opc']=$i; 
+
+	    	if ($i==1) {	    		
+	            for ($y=0; $y<$pages; $y++) {
+	            	$data['veces']=$y;
+
+	            	if ($y==0) {
+	            		$html = $this->ci()->load->view($view, $data, TRUE);
+	    		        $tplId = $mpdf->ImportPage(1);
+	    		        $mpdf->UseTemplate($tplId);
+	    		        $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+	                    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
+	            	}else{
+	    			    $tplId = $mpdf->ImportPage(1);
+	    			    $mpdf->SetPageTemplate($tplId); 
+	    			    $html = $this->ci()->load->view($view, $data, TRUE);
+	    		        $mpdf->AddPage();
+                        $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+                        $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);      
+	            	}
+
+	            }
+	    	}else{	    			    				    			
+	    			$data['veces']=$y;
+	    			$tplId = $mpdf->ImportPage($i);
+	    			$mpdf->SetPageTemplate($tplId); 
+	    			$html = $this->ci()->load->view($view, $data, TRUE);
+	    		    $mpdf->AddPage();
+                    $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+                    $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);    
+            }
+        }
+	    
+	    $mpdf->Output();
 	    
 	    $mpdf->Output();
 	}
