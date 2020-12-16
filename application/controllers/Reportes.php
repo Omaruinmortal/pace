@@ -32,6 +32,7 @@ class Reportes extends CI_Controller
 		$this->load->model('cartel');
 		$this->load->model('curso_solicitado');
         $this->load->model('participante');
+        $this->load->model('temas');
         
         
         date_default_timezone_set('America/Mexico_City');
@@ -96,10 +97,13 @@ public function Agenda_12_part_acls1()
     $this->load->model('curso'); 
     $this->load->library('Mpdf'); 
     $data = array(); 
+    $where_agenda = "agenda_id=".$_GET['curso'];
+    $agenda = $this->temas->trae_agenda_completa($where_agenda);
 
     $data['estudiantes']=12; 
     $data['instructores']=2;
     $data['duracion']="Aproximadamente 15 horas, 20 minutos con pausas"; 
+    $data['agenda'] = $agenda;
 
     $this->mpdf->Agenda_12_part_acls1('formatos_imprimir/acls/v14.1Agenda_12_part_acls.php',$data); 
 } 
@@ -182,6 +186,7 @@ public function Bls_alta_calidad_acls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->Bls_alta_calidad_acls('formatos_imprimir/acls/v23.Bls_alta_calidad_acls.php',$data); 
 } 
@@ -207,6 +212,7 @@ public function lista_comprobacion_aprendizaje_practica_acls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_comprobacion_aprendizaje_practica_acls('formatos_imprimir/acls/v24.lista_comprobacion_aprendizaje_practica_acls.php',$data); 
 } 
@@ -232,6 +238,7 @@ public function lista_prueba_megacode_acls1()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac']; 
 
     $this->mpdf->lista_prueba_megacode_acls1('formatos_imprimir/acls/v25.1lista_prueba_megacode_acls.php',$data); 
 } 
@@ -257,6 +264,7 @@ public function lista_prueba_megacode_acls2()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls2('formatos_imprimir/acls/v25.2lista_prueba_megacode_acls.php',$data); 
 } 
@@ -282,6 +290,7 @@ public function lista_prueba_megacode_acls3()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls3('formatos_imprimir/acls/v25.3lista_prueba_megacode_acls.php',$data); 
 } 
@@ -307,6 +316,7 @@ public function lista_prueba_megacode_acls4()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls4('formatos_imprimir/acls/v25.4lista_prueba_megacode_acls.php',$data); 
 } 
@@ -332,6 +342,7 @@ public function lista_prueba_megacode_acls5()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls5('formatos_imprimir/acls/v25.5lista_prueba_megacode_acls.php',$data); 
 } 
@@ -357,6 +368,7 @@ public function lista_prueba_megacode_acls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual']=$fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->lista_prueba_megacode_acls('formatos_imprimir/acls/v25.lista_prueba_megacode_acls.php',$data); 
 } 
@@ -373,6 +385,7 @@ public function evaluacion_teorica_acls()
     $data['fecha'] = $date;
     $data['nombre'] =$datos['name'];
     $data['version'] = ""; 
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->evaluacion_teorica_acls('formatos_imprimir/acls/v38.evaluacion_teorica_acls.php',$data); 
 } 
@@ -389,7 +402,8 @@ public function evaluacion_teorica_remediar_acls()
     
     $data['fecha'] = $date;
     $data['nombre'] =$datos['name'];
-    $data['version'] = ""; 
+    $data['version'] = "";
+    $data['qr_nac']=$datos['qr_nac']; 
 
     $this->mpdf->evaluacion_teorica_remediar_acls('formatos_imprimir/acls/v39.evaluacion_teorica_remediar_acls.php',$data); 
 } 
@@ -697,6 +711,10 @@ public function Course_information_also()
 { 
     $this->load->model('curso'); 
     $this->load->library('Mpdf');
+
+    $curso = $this->input->get('curso');
+    $datos_curso = $this->functions->get_data_curso($curso );
+
     $fecha_actual = new DateTime('NOW');
     $data = array();
 
@@ -742,7 +760,8 @@ public function Course_information_also()
     $data['cards'] = $cards;
     $data['instructores'] =$instructores;
     $data['date'] = $date;
-    $data['folio'] = $folio; 
+    $data['folio'] = $folio;
+    $data['qr_nac'] = $datos_curso->qr_nac;
 
     $this->mpdf->Course_information_also('formatos_imprimir/also/v1.Course_information_also.php',$data); 
 } 
@@ -751,7 +770,8 @@ public function course_participants_also()
 { 
     $this->load->library('Functions');
     $curso = $this->input->get('curso');
-    $participantes = $this->functions->get_data_participantes($curso);    
+    $participantes = $this->functions->get_data_participantes($curso);
+    $datos_curso = $this->functions->get_data_curso($curso );    
 
     $data = array();
     $data['folio']="";
@@ -772,6 +792,7 @@ public function course_participants_also()
     }    
 
     $data['participantes'] = $arreglo_completo;
+    $data['qr_nac'] = $datos_curso->qr_nac;
     $this->mpdf->course_participants_also('formatos_imprimir/also/v2.course_participants_also.php',$data); 
 }
 
@@ -779,362 +800,15 @@ public function ejemplo_agenda_also()
 { 
     $this->load->model('curso'); 
     $this->load->library('Mpdf');
-    $this->load->library('Functions');
     $data = array();
 
-    $ciudad="Hermosillo"; 
-
-    $agenda = array(
-                    array(
-                        'fecha'=>'28-nov-19',
-                        'dia'=>$this->functions->cardinales(1),
-                        'contenido'=>array(
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'07:30',
-                            'actividad'=>'Junta de instructores, recepción y registro',
-                            'responsable'=>'TODOS Y LOGISTICA',
-                            'mat_obs'=>'Registros y gafetes',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal',
-                        ),
-
-                        array(
-                            'duracion'=>'40 MIN',
-                            'hora'=>'08:00',
-                            'actividad'=>'Seguridad en el cuidado materno',
-                            'responsable'=>'Dr. Rafael Nieves',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal',    
-                        ),
-
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'08:40',
-                            'actividad'=>'Hemorragia vaginal al final del embarazo',
-                            'responsable'=>'Dr. Iván Méndez',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal',    
-                        ),
-
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'09:05',
-                            'actividad'=>'Reanimación Materna y trauma en el embarazo',
-                            'responsable'=>'Dra. Guadalupe Martinez',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-                        
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'09:30',
-                            'actividad'=>'Hemorragia Postparto',
-                            'responsable'=>'Dr. Rafael Nieves',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'10:00',
-                            'actividad'=>'R E C E S O',
-                            'responsable'=>'',
-                            'mat_obs'=>'Logistica',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'10:30',
-                            'actividad'=>'Taller de Parto Instrumentado',
-                            'responsable'=>'Dr. Guadalupe Martínez',
-                            'mat_obs'=>'2 pelvis con feto y vacum',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'11:40',
-                            'actividad'=>'Taller de Distocia de Hombros',
-                            'responsable'=>'Dr. Iván Méndez',
-                            'mat_obs'=>'2 pelvis con feto',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'#00b050',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'12:50',
-                            'actividad'=>'Taller de Reanimación materna y HPP 4¨S',
-                            'responsable'=>'Dr.Rafael Nieves/Dra. Magali Rosas',
-                            'mat_obs'=>'4 Pelvis, úteros, pinzas foester, bakri.',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'red',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'45 MIN',
-                            'hora'=>'14:00',
-                            'actividad'=>'COMIDA',
-                            'responsable'=>'Logística',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'100     ',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'14:45',
-                            'actividad'=>'Complicaciones en el primer trimestre del embarazo',
-                            'responsable'=>'Dr. Iván Méndez',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'100     ',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'15:10',
-                            'actividad'=>'Trabajo de parto pretermino y RPM',
-                            'responsable'=>'Dra. Guadalupe Martínez',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-
-                        array(
-                            'duracion'=>'25 MIN',
-                            'hora'=>'15:35',
-                            'actividad'=>'Distocia del trabajo de parto',
-                            'responsable'=>'Dra. Magali Rosas',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'normal'
-                        ),
-
-                        array(
-                            'duracion'=>'20 MIN',
-                            'hora'=>'16:00',
-                            'actividad'=>'Junta de instructores',
-                            'responsable'=>'Dr. Rafael Nieves',
-                            'mat_obs'=>'',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'normal'
-                        ),
-                    ),
-                    ),
-                    array(
-                        'fecha'=>'29-nov-19',
-                        'dia'=>$this->functions->cardinales(2),
-                        'contenido'=>array( 
-
-                        array(
-                            'duracion'=>'40 MIN',
-                            'hora'=>'08:00',
-                            'actividad'=>'Complicaciones médicas del embarazo',
-                            'responsable'=>'Dr. Rafael Nieves',
-                            'mat_obs'=>'Video proyector',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'08:40',
-                            'actividad'=>'Taller de Vigilancia Fetal Intraparto',
-                            'responsable'=>'Dr. Rafael Nieves/Dra. Gpe Mtz',
-                            'mat_obs'=>'Video proyector de alta definición',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'#4eb9f4',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'09:50',
-                            'actividad'=>'R E C E S O',
-                            'responsable'=>'Logística',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'10:20',
-                            'actividad'=>'Taller de AMEU',
-                            'responsable'=>'Dra. Magali Rosas/Dr. Iván Méndez',
-                            'mat_obs'=>'4 Equipos de AMEUHotel City ExpressH',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'#7634b0',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'11:30',
-                            'actividad'=>'Taller de Casos Obstétricos',
-                            'responsable'=>'Dr.Rafael Nieves/Dra. Magali Rosas',
-                            'mat_obs'=>'Noelia, Hidralacina, MgSO4, soluciones',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'red',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'70 MIN',
-                            'hora'=>'12:40',
-                            'actividad'=>'Taller de Malas Presentaciones',
-                            'responsable'=>'Dra.Guadalupe Mtz/Dr Iván Méndez',
-                            'mat_obs'=>'2 pelvis con fetos',
-                            'color_hora'=>'#7634b0',
-                            'color_actividad'=>'wine',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'normal',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'75 MIN',
-                            'hora'=>'13:10',
-                            'actividad'=>'EVALUACION FINAL ESCRITO Y MEGAPARTO',
-                            'responsable'=>'Todos',
-                            'mat_obs'=>'4 pelvis con feto y placenta',
-                            'color_hora'=>'#4eb9f4',
-                            'color_actividad'=>'#7634b0',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'60 MIN',
-                            'hora'=>'14:30',
-                            'actividad'=>'COMIDA',
-                            'responsable'=>'Logística',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'15:30',
-                            'actividad'=>'ENTREGA DE RESULTADOS Y CLAUSURA',
-                            'responsable'=>'Todos',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-
-                        array(
-                            'duracion'=>'30 MIN',
-                            'hora'=>'16:00',
-                            'actividad'=>'JUNTA DE INSTRUCTORES Y EVALUACION DEL CURSO',
-                            'responsable'=>'Todos',
-                            'mat_obs'=>'',
-                            'color_hora'=>'black',
-                            'color_actividad'=>'black',
-                            'weight_hora'=>'normal',
-                            'weight_actividad'=>'bold',
-                            'weight_responsable'=>'bold'
-                        ),
-                        ),
-                    ),
-            );
-
-    $sede ='PACE';
-    $lugar ='HIES HOSPITAL INFANTIL DEL ESTADO SONORA';
-    $date_course = '28 Y 29 NOVIEMBRE 2019';
-    $provee = '24 GO, RGO Y URG.';
-    $hospedaje = 'Hotel City Express Hermosillo';
-    $recomendaciones = array(
-        array('dia' =>'JUEVES','recom'=>'PANTALON NEGRO, POLO GRIS.' ),
-        array('dia' =>'VIERNES','recom'=>' PANTALON AZUL, CAMISA AZUL.' ),
-    );
-    $instructores = array(
-        array('abrev_prof' => 'Dr.', 'instructor' => 'Rafael Antonio Nieves Meneses', 'puesto' => 'Director del curso'),
-        array('abrev_prof' => 'Dra.', 'instructor' => 'María Guadalupe Martínez León.', 'puesto' => 'Facultado'),
-        array('abrev_prof' => 'Dra.', 'instructor' => 'Maria Magali Rosas Rosales', 'puesto' => 'Instructor'),
-        array('abrev_prof' => 'Dr.', 'instructor' => 'Sergio Iván Méndez Mercado', 'puesto' => 'Instructor'),
-    );
-
-    $data['ciudad'] = $ciudad;
-    $data['sede'] = $sede;
-    $data['lugar'] = $lugar;
-    $data['date_course'] = $date_course;
-    $data['provee'] = $provee;
+    $where_agenda = "agenda_id=".$_GET['curso'];
+    $agenda = $this->temas->trae_agenda_completa($where_agenda);
     $data['agenda'] = $agenda;
-    $data['hospedaje'] = $hospedaje;
-    $data['recomendaciones'] = $recomendaciones;
-    $data['instructores'] = $instructores;
+    $data['pages'] = 2;
+    $data['nombre_agenda'] = "ALSO";
 
-$this->mpdf->ejemplo_agenda_also('formatos_imprimir/also/v12.ejemplo_agenda_also.php',$data); 
+    $this->mpdf->ejemplo_agenda_also('formatos_imprimir/vAgenda.php',$data); 
 } 
 
 public function apendiceN_also() 
@@ -1209,6 +883,7 @@ public function examen_destresas_also()
     $data = array(); 
     $data['nombre'] = $datos['name'];
     $data['folio'] = 0;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->examen_destresas_also('formatos_imprimir/also/v14.examen_destresas_also.php',$data);
 } 
@@ -1223,6 +898,7 @@ public function evaluacion_teorica_also()
     $data['nombre_participante'] = array(
         array('nombre' => $datos['name'], 'folio'=>0)
     );
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->evaluacion_teorica_also('formatos_imprimir/also/v15.evaluacion_teorica_also.php',$data); 
 } 
@@ -1231,7 +907,11 @@ public function Formato_Remediacion_also()
 { 
     $this->load->model('curso'); 
     $this->load->library('Mpdf'); 
+    $curso = $this->input->get('curso');
+    $datos_curso = $this->functions->get_data_curso($curso );
+
     $data = array(); 
+    
     $datos = array(
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
         array('nombre' => 'Omar Martínez Torres', 'curso_or_fecha_sede' => '12/10/2020, Saltillo', 'curso_rem_fecha_sede' => '23/11/2020, Zacatecas', 'resultado'=>'Ninguno'),
@@ -1249,6 +929,7 @@ public function Formato_Remediacion_also()
     $data['datos'] = $datos;
     $data['folio'] = '4532';
     $data['tam_reg_tabla']=9; 
+    $data['qr_nac'] = $datos_curso->qr_nac;
 
     $this->mpdf->Formato_Remediacion_also('formatos_imprimir/also/v17.Formato_Remediacion_also.php',$data); 
 } 
@@ -1263,6 +944,7 @@ public function evaluacion_teorica_remediar_also()
     $data['nombre_participante'] = array(
         array('nombre' => $datos['name'], 'folio'=>0)
     );
+    $data['qr_nac']=$datos['qr_nac'];
     $this->mpdf->evaluacion_teorica_remediar_also('formatos_imprimir/also/v18.evaluacion_teorica_remediar_also.php',$data); 
 } 
 
@@ -2146,6 +1828,7 @@ public function course_information_participants_bls()
     $data['fecha_actual'] = $fecha_actual;
     $data['participantes'] = $arreglo_completo;
     $data['instructores'] = $arreglo_instructores_completo;
+    $data['qr_nac'] = $datos_curso->qr_nac;
 
     $this->mpdf->course_information_participants_bls('formatos_imprimir/bls/v1.course_information_participants_bls.php',$data); 
 } 
@@ -2178,7 +1861,12 @@ public function agenda_bls()
     $data['instructores'] = '2';
     $data['rel_est_instr'] = '6:1';
     $data['rel_est_mani'] = '3:1';
-    $data['duracion'] = '2 horas 20 minutos';   
+    $data['duracion'] = '2 horas 20 minutos';
+
+    $where_agenda = "agenda_id=".$_GET['curso'];
+    $agenda = $this->temas->trae_agenda_completa($where_agenda);
+    $data['agenda'] = $agenda;
+
 
     $this->mpdf->agenda_bls('formatos_imprimir/bls/v14.agenda_bls.php',$data); 
 } 
@@ -2223,6 +1911,7 @@ public function RCP_DEA_adultos_bls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual'] = $fecha_actual;
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->RCP_DEA_adultos_bls('formatos_imprimir/bls/v20.RCP_DEA_adultos_bls.php',$data); 
 } 
@@ -2248,7 +1937,7 @@ public function RCP_lactantes_bls()
     $data['instructor_iniciales'] = $instructor_ini;
     $data['instructor_num'] = $instructor_num;
     $data['fecha_actual'] = $fecha_actual;
-   
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->RCP_lactantes_bls('formatos_imprimir/bls/v21.RCP_lactantes_bls.php',$data); 
 } 
@@ -2264,6 +1953,7 @@ public function evaluacion_teorica_bls()
     $data['fecha'] = $date;
     $data['nombre'] = $datos['name']; 
     $data['version'] = "";
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->evaluacion_teorica_bls('formatos_imprimir/bls/v38.evaluacion_teorica_bls.php',$data);
 
@@ -2280,6 +1970,7 @@ public function evaluacion_teorica_cremediar_bls()
     $data['fecha'] = $date;
     $data['nombre'] = $datos['name']; 
     $data['version'] = "";
+    $data['qr_nac']=$datos['qr_nac'];
 
     $this->mpdf->evaluacion_teorica_cremediar_bls('formatos_imprimir/bls/v39.evaluacion_teorica_cremediar_bls.php',$data); 
 } 
@@ -7370,11 +7061,28 @@ public function ejemplo_reporte_logistica_tncc()
     $this->mpdf->ejemplo_reporte_logistica_tncc('formatos_imprimir/tncc/v20.ejemplo_reporte_logistica_tncc.php',$data); 
 }
 
+    public function agenda_course(){
+        $this->load->model('curso'); 
+        $this->load->library('Mpdf');
+        $data = array();
 
+        $id_curso = $_GET['curso'];
 
-    
+        $where_agenda = "agenda_id=".$id_curso;
+        $agenda = $this->temas->trae_agenda_completa($where_agenda);
+        $datos_agenda = $this->functions->get_data_curso($id_curso);
 
+        $data['agenda'] = $agenda;
+        $data['pages'] = $datos_agenda->dias_curso;
+        $data['nombre_agenda'] = $datos_agenda->nombre_curso_disciplina;
+        $data['horas_curso']   = $datos_agenda->horas_curso;
+        $data['qr_nac'] = $datos_agenda->qr_nac;
+        $data['fecha_solicitud_curso'] = $datos_agenda->fecha_solicitud_curso;
+        $data['sede'] = $datos_agenda->sede;
+        $data['estado'] = $datos_agenda->estado; 
+        $data['municipio'] = $datos_agenda->municipio; 
+        $data['numero_participantes'] = $datos_agenda->numero_participantes;
 
-
-    
+        $this->mpdf->agenda_general('formatos_imprimir/vAgenda.php',$data);
+    }   
 }

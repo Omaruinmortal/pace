@@ -1,0 +1,60 @@
+    .principal_div{
+        position: absolute;
+        font-family: helvetica !important;
+        font-size: 8pt;
+        top: 64px;
+        left: 47px;
+        width: 700px;
+        background: white;
+        height: 980px
+    }
+    .principal_div-table{
+        border-collapse: collapse;
+        margin-top: 30px;
+        font-family: helvetica !important;
+        font-size: 11pt;
+        width: 100%;
+        border: solid;
+        border-radius: 1px;
+        border-color: #bfbfbf;
+    }
+
+    .titulo_agenda{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: #066581;
+        font-size: 23px
+
+    }
+
+    td{
+        padding: 7px;
+        border: 1px solid #8ca6ac;
+    }
+    .trans_border{
+        border: 0px solid transparent;
+    }
+    tr:nth-child(2n+3) {
+        background-color: #c5e9f4;
+    }
+
+    tr:nth-child(2n+4) {
+        background-color: white;
+    }
+    .primer_tr {
+        background-color: #15a1cb;
+        color: white !important;
+
+    }    
+    .titulo_tabla{
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        font-size: 15px;
+    }
+    .qr{
+        position: absolute;
+        right: 5%;
+        top: 2%
+    }

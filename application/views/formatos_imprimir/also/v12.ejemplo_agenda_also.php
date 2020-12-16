@@ -1,85 +1,111 @@
+<?php
+switch ($veces+1):
+    case 1:
+?>
+<div class="principal_div">
+  <h2 class="titulo_agenda">Agenda ALSO</h2><hr>
+  <table border="1" class="principal_div-table">
+    <tr>
+      <td colspan="4"><center class="titulo_tabla">Primer día</center></td>
+    </tr>
+    <tr>
+      <td class="titulo_tabla">Horario</td>
+      <td class="titulo_tabla">Tema</td>
+      <td class="titulo_tabla">Instructor</td>
+      <td class="titulo_tabla">Material y observaciones</td>
+    </tr>
+  <?php
+  foreach ($agenda as $datos):
+    $dia= $datos->tema_dia;
 
-<div id="ciudad">
-    <?php echo mb_strtoupper($ciudad); ?>
-</div>
-<div id="sede">
-    <?php echo $sede; ?>    
-</div>
-<div id="lugar">
-    <?php echo $lugar; ?>    
-</div>
-<div id="date_course">
-    <?php echo $date_course; ?>    
-</div>
-<div id="provee">
-    <?php echo $provee; ?>    
-</div>
+    if ($dia == 1) :
+      $desc_title  = $datos->desc_title;
+      $desc_tema   = $datos->desc_tema;
+      $hora_ini    = $datos->hora_ini;
+      $hora_fin    = $datos->hora_fin;
+      $mat_obs     = $datos->mat_obs;  
+      $responsable = $datos->responsable;
+      $array_subtemas=json_decode($datos->subtemas, true);
+      $subtemas_find = $array_subtemas['subtemas']['name_subtema'];?>
+      
+        <tr>
+          <td><?=$hora_ini." -<br> ".$hora_fin; ?></td>
+          <td>
+            <?php echo "<strong>".$desc_title."</strong>: ".$desc_tema;
+            if ($subtemas_find!=""):
+              $array_subtemas = explode(',', $subtemas_find);
+              foreach ($array_subtemas as $key => $index):?>
+                <li>
+                  <ol>
+                    <?=$index;?>                      
+                  </ol>
+                </li>
+              <?php endforeach; endif; ?>            
+          </td>
+          <td><?=$responsable;?></td>
+          <td><?=$mat_obs;?></td>
+        </tr> 
 
-<div id="div_table_agenda">
-    <table id="table_agenda" border="0">
-            <?php $i=0; foreach ($agenda as $array):?>
-                <?php if ($i==0): ?>
-                <tr id="titulo">
-                    <td>DURACION</td>
-                    <td><span id="fecha_inicial"><?php echo $array['fecha']; ?></span></td>
-                    <td colspan='3' id="fecha_cardinal"><?php echo mb_strtoupper($array['dia']); ?> DIA</td>
-                </tr>
-                <tr>
-                    <td id="td_title" colspan="2">HORA</td>
-                    <td id="td_title">ACTIVIDAD</td>
-                    <td id="td_title">RESPONSABLE</td>
-                    <td id="td_title">MATERIAL Y OBSERVACIONES</td>
-                </tr>
-                <?php else:; ?>
-                    <tr id="titulo">
-                    <td id="fecha_siguiente"></td>
-                    <td id="fecha_siguiente_pos"><?php echo $array['fecha']; ?></td>
-                    <td colspan='3' id="fecha_cardinal"><?php echo strtoupper($array['dia']); ?> DIA</td>
-                </tr>
-                <?php endif; ?>
-
-                <?php 
-                    foreach ($array as $key => $value):
-                        if (is_array($value)):
-                            foreach ($value as $key):
-                ?>
-                <tr>
-                    <td width="6%" height="16px"><?php echo $key['duracion'];?></td>
-                    <td width="6%" style="color: <?php echo $key['color_hora'];?>; font-weight: <?php echo $key['weight_hora'];?>; text-align:right;"><?php echo $key['hora']; ?></td>
-
-                    <td width="30%" style="color: <?php echo $key['color_actividad'];?>; font-weight: <?php echo $key['weight_actividad'];?>;"><?php echo $key['actividad']; ?></td>
-
-                    <td width="20%" style="font-weight: <?php echo $key['weight_responsable'];?>"><?php echo $key['responsable']; ?></td>
-                    <td width="20%"><?php echo $key['mat_obs'];?></td>
-                </tr>
-
-                <?php endforeach; ?>
-                <?php endif; ?>
-                <?php endforeach; $i++; ?>
-            <?php endforeach;?>
-        </table>    
+    <?php endif;
+  endforeach;?>     
+  </table>
+  <span>(continuación)</span>
+  
 </div>
-<div id="hospedaje">
-    <?php echo $hospedaje; ?>    
-</div>
-<div id="recomendaciones">
-    <?php foreach ($recomendaciones as $recom):?>
-        <span><?php echo $recom['dia']." ".$recom['recom']; ?></span>
-    <?php  endforeach;?>    
-</div>
-<div id="instructores">
-    <table id="instructores_table">
-        <?php foreach ($instructores as $inst):?>
-            <tr>
-                <td>
-                    <?php echo $inst['abrev_prof']." ".$inst['instructor']; ?>                    
-                </td>
-                <td>
-                    <?php echo $inst['puesto']; ?>
-                </td>
-            </tr>
-        <?php  endforeach;?> 
-    </table>   
-</div>
+<?php
+    break;
+    case 2:
+?>
+<div class="principal_div">
+  <span>(continuación)</span>
+  <table border="1" class="principal_div-table">
+    <tr>
+      <td colspan="4"><center class="titulo_tabla">Segundo día</center></td>
+    </tr>
+    <tr>
+      <td class="titulo_tabla">Horario</td>
+      <td class="titulo_tabla">Tema</td>
+      <td class="titulo_tabla">Instructor</td>
+      <td class="titulo_tabla">Material y observaciones</td>
+    </tr>
+  <?php
+  foreach ($agenda as $datos):
+    $dia= $datos->tema_dia;
 
-        
+    if ($dia == 2) :
+      $desc_title  = $datos->desc_title;
+      $desc_tema   = $datos->desc_tema;
+      $hora_ini    = $datos->hora_ini;
+      $hora_fin    = $datos->hora_fin;
+      $mat_obs     = $datos->mat_obs;  
+      $responsable = $datos->responsable;
+      $array_subtemas=json_decode($datos->subtemas, true);
+      $subtemas_find = $array_subtemas['subtemas']['name_subtema'];?>
+      
+        <tr>
+          <td><?=$hora_ini." -<br> ".$hora_fin; ?></td>
+          <td>
+            <?php echo "<strong>".$desc_title."</strong>: ".$desc_tema;
+            if ($subtemas_find!=""):
+              $array_subtemas = explode(',', $subtemas_find);
+              foreach ($array_subtemas as $key => $index):?>
+                <li>
+                  <ol>
+                    <?=$index;?>                      
+                  </ol>
+                </li>
+              <?php endforeach; endif; ?>            
+          </td>
+          <td><?=$responsable;?></td>
+          <td><?=$mat_obs;?></td>
+        </tr> 
+
+    <?php endif;
+  endforeach;?>     
+  </table>
+</div>
+<?php
+    break;    
+endswitch;
+?>
+

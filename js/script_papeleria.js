@@ -20,7 +20,8 @@ pace.agrega_papeleria = (function () {
         },
 
         random_colors: function(){
-            const colores = ["aliceblue", "antiquewhite", "#7fffd475", "#ffe0eea3", "#f59f47a3", "#28a74559"];
+            //"#7fffd475", "#ffe0eea3", "#f4c39391", "#28a7451f"
+            const colores = ["aliceblue", "antiquewhite", ];
             const random = Math.floor(Math.random() * colores.length);
             return colores[random];
         }

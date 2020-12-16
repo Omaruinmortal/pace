@@ -329,7 +329,7 @@ class Dashboard extends CI_Controller {
 			$id_curso = $this->input->get('id_curso', TRUE);
 			$where_id_curso = 'id_curso_solicitado = '.$id_curso;
 			$where_papeleria="id_curso_solicitado=".$id_curso." and pap_tipo_user=1";
-			$where_agenda = "id_curso_solicitado=".$id_curso;
+			$where_agenda = "agenda_id=".$id_curso;
 
 			$curso_solicitado = $this->curso_solicitado->trae_curso_solicitado($where_id_curso);
 			$papeleria_curso = $this->curso_solicitado->trae_curso_solicitado_papeleria($where_papeleria);

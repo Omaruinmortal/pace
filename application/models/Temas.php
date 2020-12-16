@@ -39,11 +39,22 @@ class Temas extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_agenda');
-        $this->db->where('curso_visible = 1');
         if($where != NULL) {
             $this->db->where($where,NULL,FALSE);
         }
         $query = $this->db->get();
         return $query->row();       
+    }
+
+    function trae_agenda_completa($where)
+    {
+        $this->db->select('*');
+        $this->db->from('vw_agenda');
+        if($where != NULL) {
+            $this->db->where($where,NULL,FALSE);
+        }
+        $query = $this->db->get();
+        return $query->result();
+
     }
 }
