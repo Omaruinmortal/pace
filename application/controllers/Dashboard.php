@@ -438,7 +438,7 @@ class Dashboard extends CI_Controller {
 		$variables = array(
 		    'MERCHANT_ID' 		=> "8334414",
 			"USER" 						=> "a8334414",
-			"PASSWORD" 				=> "8rE!3Ua\'Z=9\/",
+			"PASSWORD" 				=> "PaCe;:_290'",
 			"MODE" 						=> "AUT",
 			"ENTRY_MODE" 			=> "MANUAL",
 			"CMD_TRANS" 			=> "AUTH",
@@ -463,16 +463,43 @@ class Dashboard extends CI_Controller {
 			"BillTo_postalCode" 	=> "36258",
 			"BillTo_email" => $usuario[0]->correo,
 		);
-		$fields_string = http_build_query($variables);/*
+		$variables_x = array(
+		    'MERCHANT_ID' 		=> "8334414",
+			"USER" 						=> "a8334414",
+			"PASSWORD" 				=> "PaCe;:_290'",
+			"MODE" 						=> "AUT",
+			"ENTRY_MODE" 			=> "MANUAL",
+			"CMD_TRANS" 			=> "AUTH",
+			"RESPONSE_URL" 		=> "https://pacemd.com.mx/index.php/Dashboard/response",
+			"CONTROL_NUMBER" 	=> "1",
+			"TERMINAL_ID" 	=> "1",
+			"AMOUNT" 	=> "1",
+			"MerchantNumber" 	=> "8334414",
+			"MerchantName" 	=> "PACE MD INTERNACIONAL S De RL.",
+			"MerchantCity" 	=> "GUANAJUATO",
+			"Review" 	=> "Secure3D",
+			"BillTo_firstName" 	=> 'BANORTEIXE',
+			"BillTo_lastName" 	=> 'PRUEBAS',
+			"BillTo_phoneNumber" => $usuario[0]->telefono,
+			"BillTo_street" 	=> "Villas San Felipe",
+			"BillTo_streetNumber" 	=> "98",
+			"BillTo_street2Col" 	=> "Villas de Guanajuato",
+			"BillTo_street2Del" => "Guanajuato",
+			"BillTo_city" 	=> "Guanajuato",
+			"BillTo_state" 	=> "GT",
+			"BillTo_country" 	=> "MX",
+			"BillTo_postalCode" 	=> "36258",
+			"BillTo_email" => 'banorteixe@aprobado.com',
+		);
+		$fields_string = http_build_query($variables_x);/*
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, "https://via.banorte.com/bancybhosted/index.do");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string );
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_VERBOSE, true);
 		$data = curl_exec($ch);
-		curl_close($ch);
-		echo $ch;*/
-		
-
+		curl_close($ch);*/
 		
 		header ("Location: https://via.banorte.com/bancybhosted/index.do?".$fields_string);
 		exit;
@@ -481,5 +508,113 @@ class Dashboard extends CI_Controller {
 	public function response(){
 		echo $_REQUEST['TEXT'];
 	}
+
+	public function exaplecurl(){
+		$data = array();
+		$id_curso = $this->input->get('id_curso', TRUE);
+		$where_id_curso = 'id_curso_solicitado = '.$id_curso;
+		$curso_solicitado = $this->curso_solicitado->trae_curso_solicitado($where_id_curso);
+		$id_usuario = $this->session->userdata('user_id');
+		$where_id_usuario = 'id_usuario = '.$id_usuario;
+		$usuario = $this->main->trae_usuario($where_id_usuario);
+		
+		$datos_post = http_build_query(
+			array(
+				'MERCHANT_ID' 		=> "8334414",
+				"USER" 						=> "a8334414",
+				"PASSWORD" 				=> "PaCe;:_290'",
+				"MODE" 						=> "AUT",
+				"ENTRY_MODE" 			=> "MANUAL",
+				"CMD_TRANS" 			=> "AUTH",
+				"RESPONSE_URL" 		=> "https://pacemd.com.mx/index.php/Dashboard/response",
+				"CONTROL_NUMBER" 	=> "1",
+				"TERMINAL_ID" 	=> "1",
+				"AMOUNT" 	=> "1",
+				"MerchantNumber" 	=> "8334414",
+				"MerchantName" 	=> "PACE MD INTERNACIONAL S De RL.",
+				"MerchantCity" 	=> "GUANAJUATO",
+				"Review" 	=> "Secure3D",
+				"BillTo_firstName" 	=> 'BANORTEIXE',
+				"BillTo_lastName" 	=> 'PRUEBAS',
+				"BillTo_phoneNumber" => $usuario[0]->telefono,
+				"BillTo_street" 	=> "Villas San Felipe",
+				"BillTo_streetNumber" 	=> "98",
+				"BillTo_street2Col" 	=> "Villas de Guanajuato",
+				"BillTo_street2Del" => "Guanajuato",
+				"BillTo_city" 	=> "Guanajuato",
+				"BillTo_state" 	=> "GT",
+				"BillTo_country" 	=> "MX",
+				"BillTo_postalCode" 	=> "36258",
+				"BillTo_email" => 'banorteixe@aprobado.com',
+			)
+		);
+		
+		$opciones = array('http' =>
+			array(
+				'method'  => 'POST',
+				'header'  => 'Content-type: application/x-www-form-urlencoded',
+				'content' => $datos_post
+			)
+		);
+		
+		$contexto = stream_context_create($opciones);
+		
+		$resultado = file_get_contents('https://via.banorte.com/bancybhosted/index.do?', false, $contexto);
+		echo json_decode($resultado);
+	}
+
+	public function pago() {
+		$data = array();
+		$id_curso = $this->input->get('id_curso', TRUE);
+		$where_id_curso = 'id_curso_solicitado = '.$id_curso;
+		$curso_solicitado = $this->curso_solicitado->trae_curso_solicitado($where_id_curso);
+		$id_usuario = $this->session->userdata('user_id');
+		$where_id_usuario = 'id_usuario = '.$id_usuario;
+		$usuario = $this->main->trae_usuario($where_id_usuario);
+		$data = array(
+		    'MERCHANT_ID' 		=> "8334414",
+			"USER" 						=> "a8334414",
+			"PASSWORD" 				=> "PaCe;:_290'",
+			"MODE" 						=> "AUT",
+			"ENTRY_MODE" 			=> "MANUAL",
+			"CMD_TRANS" 			=> "AUTH",
+			"RESPONSE_URL" 		=> "https://pacemd.com.mx/index.php/Dashboard/response",
+			"CONTROL_NUMBER" 	=> "1",
+			"TERMINAL_ID" 	=> "1",
+			"AMOUNT" 	=> "1",
+			"MerchantNumber" 	=> "8334414",
+			"MerchantName" 	=> "PACE MD INTERNACIONAL S De RL.",
+			"MerchantCity" 	=> "GUANAJUATO",
+			"Review" 	=> "Secure3D",
+			"BillTo_firstName" 	=> 'BANORTEIXE',
+			"BillTo_lastName" 	=> 'PRUEBAS',
+			"BillTo_phoneNumber" => $usuario[0]->telefono,
+			"BillTo_street" 	=> "Villas San Felipe",
+			"BillTo_streetNumber" 	=> "98",
+			"BillTo_street2Col" 	=> "Villas de Guanajuato",
+			"BillTo_street2Del" => "Guanajuato",
+			"BillTo_city" 	=> "Guanajuato",
+			"BillTo_state" 	=> "GT",
+			"BillTo_country" 	=> "MX",
+			"BillTo_postalCode" 	=> "36258",
+			"BillTo_email" => 'banorteixe@aprobado.com',
+		);
+		//$url = 'https://via.banorte.com/bancybhosted/index.do';
+		$fields_string = http_build_query($data);
+		$curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, "https://via.banorte.com/bancybhosted/index.do");
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $fields_string);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+
+        $result = curl_exec($curl);
+		$redirectURL = curl_getinfo($curl,CURLINFO_EFFECTIVE_URL );
+
+		echo $result;
+		
+	}
+	
 
 }

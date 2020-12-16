@@ -150,7 +150,7 @@ pace.dashboard = (function () {
               $(document).on("click", "#btn_pago_curso", function () {
                   var data = $(this).data("id")
                   
-                  window.open(base_url + '/Dashboard/pago_curso?id_curso=' + data,'new_ventana' ,'width=800,height=800,scrollbars=NO');
+                  window.open(base_url + '/Dashboard/exaplecurl?id_curso=' + data,'new_ventana' ,'width=800,height=800,scrollbars=NO');
                 });
 
             $(document).on("click", "#btn_mod_curso_solicitado", function () {
